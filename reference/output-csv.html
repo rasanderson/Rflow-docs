@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Rflow documentation</title>
+<title>Output CSV – Rflow documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +20,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-0a81f707f35d9bf77349b2c34bd594b7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0a81f707f35d9bf77349b2c34bd594b7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,17 +105,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Rflow documentation</span>
     </a>
   </div>
@@ -91,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -100,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
         <li>
-    <a class="dropdown-item" href="./tutorials/">
+    <a class="dropdown-item" href="../tutorials/">
  <span class="dropdown-text"></span></a>
   </li>  
     </ul>
@@ -111,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-how-to">    
         <li>
-    <a class="dropdown-item" href="./howto/">
+    <a class="dropdown-item" href="../howto/">
  <span class="dropdown-text"></span></a>
   </li>  
     </ul>
@@ -122,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-fundamentals">    
         <li>
-    <a class="dropdown-item" href="./fundamentals/">
+    <a class="dropdown-item" href="../fundamentals/">
  <span class="dropdown-text"></span></a>
   </li>  
     </ul>
@@ -133,81 +168,81 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-reference">    
         <li>
-    <a class="dropdown-item" href="./reference/index.html">
+    <a class="dropdown-item" href="../reference/index.html">
  <span class="dropdown-text">Reference</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/add-column.html">
+    <a class="dropdown-item" href="../reference/add-column.html">
  <span class="dropdown-text">Add Column</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/barchart.html">
+    <a class="dropdown-item" href="../reference/barchart.html">
  <span class="dropdown-text">Barchart</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/boxplot.html">
+    <a class="dropdown-item" href="../reference/boxplot.html">
  <span class="dropdown-text">Boxplot</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/density.html">
+    <a class="dropdown-item" href="../reference/density.html">
  <span class="dropdown-text">Density</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/diagnostics.html">
+    <a class="dropdown-item" href="../reference/diagnostics.html">
  <span class="dropdown-text">Diagnostics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/factor.html">
+    <a class="dropdown-item" href="../reference/factor.html">
  <span class="dropdown-text">Factor</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/glm.html">
+    <a class="dropdown-item" href="../reference/glm.html">
  <span class="dropdown-text">GLM</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/histogram.html">
+    <a class="dropdown-item" href="../reference/histogram.html">
  <span class="dropdown-text">Histogram</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/input-csv.html">
+    <a class="dropdown-item" href="../reference/input-csv.html">
  <span class="dropdown-text">Input CSV</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/linear-model.html">
+    <a class="dropdown-item" href="../reference/linear-model.html">
  <span class="dropdown-text">Linear Model</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/mean-stats.html">
+    <a class="dropdown-item" href="../reference/mean-stats.html">
  <span class="dropdown-text">Mean / SD</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/output-csv.html">
+    <a class="dropdown-item" href="../reference/output-csv.html">
  <span class="dropdown-text">Output CSV</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/predict-lm.html">
+    <a class="dropdown-item" href="../reference/predict-lm.html">
  <span class="dropdown-text">Predict</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/residuals.html">
+    <a class="dropdown-item" href="../reference/residuals.html">
  <span class="dropdown-text">Residuals</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/scatterplot.html">
+    <a class="dropdown-item" href="../reference/scatterplot.html">
  <span class="dropdown-text">Scatterplot</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/summary-stats.html">
+    <a class="dropdown-item" href="../reference/summary-stats.html">
  <span class="dropdown-text">Summary Statistics</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./reference/tukey-hsd.html">
+    <a class="dropdown-item" href="../reference/tukey-hsd.html">
  <span class="dropdown-text">TukeyHSD</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -216,20 +251,159 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../reference/output-csv.html">Output CSV</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reference</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/add-column.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Add Column</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/barchart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Barchart</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/boxplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Boxplot</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/density.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Density</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/diagnostics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Diagnostics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/factor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Factor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/glm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GLM</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/histogram.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Histogram</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/input-csv.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Input CSV</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/linear-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Linear Model</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/mean-stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mean / SD</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/output-csv.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Output CSV</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/predict-lm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Predict</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/residuals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Residuals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/scatterplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scatterplot</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/summary-stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Summary Statistics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/tukey-hsd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TukeyHSD</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#output-csv" id="toc-output-csv" class="nav-link active" data-scroll-target="#output-csv">Output CSV</a>
+  <ul class="collapse">
+  <li><a href="#what-it-does" id="toc-what-it-does" class="nav-link" data-scroll-target="#what-it-does">What it does</a></li>
+  <li><a href="#how-to-use-it" id="toc-how-to-use-it" class="nav-link" data-scroll-target="#how-to-use-it">How to use it</a></li>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  <li><a href="#generated-r-code" id="toc-generated-r-code" class="nav-link" data-scroll-target="#generated-r-code">Generated R code</a></li>
+  <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Rflow documentation</h1>
+<h1 class="title">Output CSV</h1>
 </div>
 
 
@@ -246,10 +420,82 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<section id="output-csv" class="level1">
+<h1>Output CSV</h1>
+<p>The <strong>Output CSV</strong> node exports a dataframe from your workflow as a downloadable CSV file.</p>
+<section id="what-it-does" class="level2">
+<h2 class="anchored" data-anchor-id="what-it-does">What it does</h2>
+<ul>
+<li>Takes a dataframe from an upstream node</li>
+<li>Writes it to a CSV file on the server</li>
+<li>Makes the file available for download</li>
+</ul>
+</section>
+<section id="how-to-use-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-it">How to use it</h2>
+<ol type="1">
+<li><strong>Add the node</strong> — click “Output CSV” in the Toolbar, then click on the canvas</li>
+<li><strong>Connect an upstream node</strong> — drag an edge from an Input CSV or other data-producing node to this node’s input handle (top)</li>
+<li><strong>Set the filename</strong> — enter a name ending in <code>.csv</code> (e.g.&nbsp;<code>results.csv</code>)</li>
+<li><strong>Click Run</strong> — the data is written to CSV</li>
+</ol>
+</section>
+<section id="configuration" class="level2">
+<h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 31%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Setting</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Upstream connection</td>
+<td>Yes</td>
+<td>A node providing data (e.g.&nbsp;Input CSV, Mean / SD)</td>
+</tr>
+<tr class="even">
+<td>Filename</td>
+<td>Yes</td>
+<td>Output filename, must end with <code>.csv</code></td>
+</tr>
+<tr class="odd">
+<td>Comment</td>
+<td>No</td>
+<td>An annotation for the generated R code</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
+<p>After running, the Output tab shows a success message with the number of rows written:</p>
+<blockquote class="blockquote">
+<p>Successfully wrote 150 rows to Downloads/results.csv</p>
+</blockquote>
+</section>
+<section id="generated-r-code" class="level2">
+<h2 class="anchored" data-anchor-id="generated-r-code">Generated R code</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(my_data, <span class="st">"results.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="tips" class="level2">
+<h2 class="anchored" data-anchor-id="tips">Tips</h2>
+<ul>
+<li>The filename must end with <code>.csv</code> and can only contain letters, numbers, spaces, underscores, hyphens, or dots</li>
+<li>Make sure the upstream node has been run first — this node needs data to export</li>
+<li>You can have multiple Output CSV nodes in a workflow to export different datasets</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

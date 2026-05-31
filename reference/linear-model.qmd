@@ -1,0 +1,126 @@
+---
+title: Linear Model
+slug: linear-model
+category: nodes
+nodeType: linearModel
+summary: Fit linear regression models using R formula syntax.
+tags:
+  - model
+  - regression
+  - lm
+  - statistics
+---
+
+# Linear Model
+
+The **Linear Model** node fits a linear regression model to your data using the R `lm()` function and displays either a coefficient summary or an ANOVA table.
+
+## What it does
+
+- Fits a linear model using R formula syntax
+- Displays regression coefficients with standard errors, t-values, and p-values
+- Alternatively displays an ANOVA table (Type I, Type II, or Type III sums of squares)
+- Optionally stores the fitted model for use by downstream nodes
+
+## How to use it
+
+1. **Connect a data source** — drag an edge from an Input CSV node to this node's input handle
+2. **Choose output type** — select either "Summary (Coefficients & R²)" or "ANOVA Table"
+3. **If using ANOVA output, choose ANOVA type** — Type I (Sequential SS), Type II (Hierarchical SS), or Type III (Marginal SS)
+4. **Enter a formula** — type an R formula in the format `response ~ predictor` (e.g. `height ~ conc`)
+5. **Click Run** — the model is fitted on the server
+
+## Formula syntax
+
+R formula syntax is used to specify the model. Here are some common patterns:
+
+| Formula | Meaning |
+|---------|---------|
+| `y ~ x` | Simple linear regression |
+| `y ~ x1 + x2` | Multiple regression |
+| `y ~ x1 * x2` | Interaction (includes main effects) |
+| `y ~ x1 + I(x1^2)` | Polynomial term |
+
+Mathematically, the simple model $y = \beta_0 + \beta_1 x + \epsilon$ is specified as `y ~ x`, where:
+
+- $\beta_0$ is the intercept
+- $\beta_1$ is the slope coefficient
+- $\epsilon$ is the error term
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| Output type | Yes | "Summary" or "ANOVA" |
+| ANOVA type | Conditional | Type I (Sequential SS), Type II (Hierarchical SS), or Type III (Marginal SS); shown when Output type is ANOVA |
+| Formula | Yes | R formula (e.g. `height ~ conc`) |
+| Output to storr | No | Store the fitted model for downstream use |
+| Model name | Conditional | Required if outputting to storr |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+### Summary mode
+
+Displays:
+
+- **Model fit statistics** — $R^2$ and Adjusted $R^2$
+- **Coefficients table** — Term, Estimate, Std. Error, t value, $Pr(>|t|)$
+
+### ANOVA mode
+
+Displays an ANOVA table with:
+
+- Term, Df, Sum Sq, Mean Sq, F value, $Pr(>F)$
+
+By default, base R `anova()` uses **Type I (sequential) sums of squares**. For more complex hierarchical designs, or where interactions are present, consider **Type II** or **Type III** sums of squares.
+
+### Summary of Differences Between Type I, Type II, and Type III Sums of Squares
+
+| Feature | Type I (Sequential) | Type II (Hierarchical) | Type III (Adjusted) |
+|---------|----------------------|-------------------------|---------------------|
+| Depends on order of terms | Yes | No | No |
+| Adjustment | Each term adjusted only for terms entered before it | Adjusts each main effect for all other main effects, but not for interactions involving the effect | Adjusts each term for all other terms, including interactions |
+| Handling of interactions | Does not adjust main effects for interactions | Does not adjust main effects for interactions | Main effects tested while controlling for interactions involving them |
+| Balanced designs | Same results as Types II and III | Same results as Types I and III | Same results as Types I and II |
+| Unbalanced designs | Order-dependent; can be misleading | Appropriate when interactions are absent or not of interest | Appropriate when interactions are present or full adjustment is required |
+| Typical use | Hierarchical models, polynomial terms, nested designs | Classical factorial ANOVA without interactions | General unbalanced designs; common in SAS/SPSS |
+| Interpretation | Extra variance explained when the term enters the model at that stage | Variance explained by the term, given the other main effects | Unique contribution of each term after adjusting for all other terms |
+
+The F-statistic tests the null hypothesis $H_0: \beta_1 = \beta_2 = \dots = \beta_p = 0$ — that none of the predictors are related to the response.
+
+## Generated R code
+
+```r
+my_data_lm <- lm(height ~ conc, data = my_data)
+summary(my_data_lm)
+```
+
+Or for ANOVA output:
+
+```r
+my_data_lm <- lm(height ~ conc, data = my_data)
+anova(my_data_lm)
+```
+
+Type II ANOVA:
+
+```r
+my_data_lm <- lm(height ~ conc, data = my_data)
+car::Anova(my_data_lm, type = 2)
+```
+
+Type III ANOVA:
+
+```r
+my_data_lm <- lm(height ~ conc, data = my_data)
+car::Anova(my_data_lm, type = 3)
+```
+
+## Tips
+
+- Variable names in the formula must match column names in your dataset exactly
+- The available columns are shown as clickable chips above the formula input — use them as a reference
+- If you enable "Output to storr", downstream nodes can use the fitted model object
+- Check $R^2$ to assess model fit: values closer to 1 indicate a better fit

@@ -1,0 +1,105 @@
+---
+title: Scatterplot
+slug: scatterplot
+category: nodes
+nodeType: scatterplot
+summary: Create scatter plots to visualise relationships between variables.
+tags:
+  - plot
+  - visualisation
+  - chart
+  - ggplot
+---
+
+# Scatterplot
+
+The **Scatterplot** node creates scatter plots using `ggplot2` to help you visualise relationships between two variables in your data.
+
+## What it does
+
+- Creates a scatter plot from two columns of your dataset
+- Optionally colour points by a grouping variable
+- Supports custom axis labels
+- The plot can be downloaded as a PNG image
+
+## How to use it
+
+1. **Connect a data source** — drag an edge from an Input CSV node
+2. **Select X and Y columns** — choose which variables to plot on each axis
+3. **Optionally configure** — set a colour variable or custom axis labels
+4. **Click Run** — the plot is generated and displayed
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| X Column | Yes | Variable for the horizontal axis |
+| Y Column | Yes | Variable for the vertical axis |
+| Fitted line | No | None, linear regression (lm), LOESS smoothing (loess), or generalized linear model (glm) |
+| GLM Family | Conditional | When Fitted line is 'glm', choose Poisson, Binomial, or Gaussian |
+| Colour variable | No | A grouping variable to colour points by |
+| Show confidence interval | No | Display confidence bands around fitted line (default: checked) |
+| X axis label | No | Custom label (defaults to column name) |
+| Y axis label | No | Custom label (defaults to column name) |
+| Connect points | No | Draw a line connecting sequential points |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+The Output tab displays:
+
+- The scatter plot as an image
+- A **Download plot** button to save it as a PNG file (named `scatterplot_{x}_vs_{y}.png`)
+
+## Generated R code
+
+Basic scatter plot:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height, y = weight)) +
+  geom_point() +
+  theme_classic()
+```
+
+With linear fitted line:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height, y = weight)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  theme_classic()
+```
+
+With GLM fitted line (Poisson family):
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height, y = count)) +
+  geom_point() +
+  geom_smooth(method = "glm", method.args = list(family = poisson()), se = TRUE) +
+  theme_classic()
+```
+
+With colour grouping and custom labels:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height, y = weight, colour = species)) +
+  geom_point() +
+  theme_classic() +
+  labs(x = "Height (cm)", y = "Weight (kg)")
+```
+
+## Tips
+
+- Choose numeric columns for X and Y to get a meaningful scatter plot
+- The colour variable is useful for categorical grouping — it assigns a different colour to each level
+- If axis labels are left empty, the column name is used automatically
+- You can download the plot for use in reports or presentations
+- **Fitted line options**:
+  - **lm**: linear regression; best for continuous response data
+  - **loess**: locally weighted smoothing; good for exploring non-linear trends without assuming a model form
+  - **glm**: generalized linear model; ideal for count data (Poisson) or binary responses (Binomial)

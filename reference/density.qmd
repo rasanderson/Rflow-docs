@@ -1,0 +1,82 @@
+---
+title: Density
+slug: density
+category: nodes
+nodeType: density
+summary: Create density plots to visualise the distribution of a variable.
+tags:
+  - plot
+  - visualisation
+  - chart
+  - ggplot
+  - distribution
+  - density
+---
+
+# Density
+
+The **Density** node creates density plots using `ggplot2` to help you visualise the distribution of a single variable in your data. Unlike a histogram, a density plot shows a smooth continuous curve estimated from the data.
+
+## What it does
+
+- Creates a density plot from one column of your dataset
+- Optionally fill areas by a grouping variable
+- Supports adjustable bandwidth smoothing
+- Supports custom axis labels
+- The plot can be downloaded as a PNG image
+
+## How to use it
+
+1. **Connect a data source** — drag an edge from an Input CSV node
+2. **Select a variable** — choose which column to plot
+3. **Optionally configure** — set a fill variable, bandwidth adjustment, or custom axis labels
+4. **Click Run** — the density plot is generated and displayed
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| Variable | Yes | The column to plot on the x axis |
+| Fill variable | No | A grouping variable to fill areas by |
+| Bandwidth adjust | No | Smoothing multiplier (default: 1). Values > 1 smooth more, < 1 smooth less |
+| X axis label | No | Custom label (defaults to column name) |
+| Y axis label | No | Custom label (defaults to "Density") |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+The Output tab displays:
+
+- The density plot as an image
+- A **Zoom** button to view the plot full-screen
+- A **Download plot** button to save it as a PNG file (named `density_{variable}.png`)
+
+## Generated R code
+
+Basic density plot:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height)) +
+  geom_density() +
+  theme_classic()
+```
+
+With fill variable, adjusted bandwidth and custom labels:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height, fill = species)) +
+  geom_density(adjust = 2, alpha = 0.4) +
+  theme_classic() +
+  labs(x = "Height (cm)", y = "Frequency")
+```
+
+## Tips
+
+- Choose a numeric column to get a meaningful density plot
+- The fill variable is useful for comparing distributions across groups
+- When using a fill variable, areas are overlaid with transparency so you can see all distributions
+- Increase the bandwidth adjust value (e.g. 2 or 3) if the curve is too noisy, or decrease it (e.g. 0.5) to show more detail
+- You can download the plot for use in reports or presentations

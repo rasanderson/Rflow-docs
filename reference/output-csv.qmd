@@ -1,0 +1,55 @@
+---
+title: Output CSV
+slug: output-csv
+category: nodes
+nodeType: outputCSV
+summary: Export processed data as a downloadable CSV file.
+tags:
+  - data
+  - csv
+  - export
+  - download
+---
+
+# Output CSV
+
+The **Output CSV** node exports a dataframe from your workflow as a downloadable CSV file.
+
+## What it does
+
+- Takes a dataframe from an upstream node
+- Writes it to a CSV file on the server
+- Makes the file available for download
+
+## How to use it
+
+1. **Add the node** — click "Output CSV" in the Toolbar, then click on the canvas
+2. **Connect an upstream node** — drag an edge from an Input CSV or other data-producing node to this node's input handle (top)
+3. **Set the filename** — enter a name ending in `.csv` (e.g. `results.csv`)
+4. **Click Run** — the data is written to CSV
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data (e.g. Input CSV, Mean / SD) |
+| Filename | Yes | Output filename, must end with `.csv` |
+| Comment | No | An annotation for the generated R code |
+
+## Output
+
+After running, the Output tab shows a success message with the number of rows written:
+
+> Successfully wrote 150 rows to Downloads/results.csv
+
+## Generated R code
+
+```r
+write.csv(my_data, "results.csv", row.names = FALSE)
+```
+
+## Tips
+
+- The filename must end with `.csv` and can only contain letters, numbers, spaces, underscores, hyphens, or dots
+- Make sure the upstream node has been run first — this node needs data to export
+- You can have multiple Output CSV nodes in a workflow to export different datasets

@@ -1,0 +1,70 @@
+---
+title: TukeyHSD
+slug: tukey-hsd
+category: nodes
+nodeType: tukeyHSD
+summary: Run Tukey HSD multiple comparisons for factor levels in a fitted linear model.
+tags:
+  - model
+  - lm
+  - anova
+  - post-hoc
+  - tukey
+  - comparisons
+---
+
+# TukeyHSD
+
+The **TukeyHSD** node performs Tukey's Honest Significant Difference post-hoc test from a fitted linear model using `TukeyHSD(aov(model_lm))`. It reports pairwise comparisons between factor levels.
+
+## What it does
+
+- Retrieves a stored linear model from the upstream Linear Model node
+- Runs `TukeyHSD(aov(model_lm))` on the backend
+- Returns a comparison table with effect sizes, confidence intervals, and adjusted p-values
+- Optionally generates and displays a Tukey differences plot below the table
+
+## How to use it
+
+1. **Fit a linear model** - add a Linear Model node, set a formula with at least one categorical predictor, and tick "Output to storr"
+2. **Connect the model** - drag an edge from the Linear Model node to the TukeyHSD node
+3. **Click Run** - Tukey multiple comparisons are computed and displayed as a table
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Model connection | Yes | A Linear Model node with "Output to storr" enabled |
+| Plot differences | No | If enabled, also generates a Tukey differences plot (`plot(TukeyHSD(aov(model_lm)))`) |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+Displays a table with these columns:
+
+- `comparison` - factor levels being compared
+- `difference` - estimated mean difference
+- `lower_ci` - lower confidence interval bound
+- `upper_ci` - upper confidence interval bound
+- `p_value` - adjusted p-value
+
+When **Plot differences** is enabled, the Output tab also shows a Tukey differences plot below the table with Zoom and Download controls.
+
+## Generated R code
+
+```r
+TukeyHSD(aov(model_lm))
+```
+
+With optional plot:
+
+```r
+TukeyHSD(aov(model_lm))
+plot(TukeyHSD(aov(model_lm)))
+```
+
+## Tips
+
+- Use at least one factor (categorical) predictor in your model formula to get pairwise comparisons.
+- If no factor levels are present, the node will return an informative error.
+- Enable **Plot differences** when you want a quick visual check of pairwise confidence intervals in addition to the numeric table.

@@ -1,0 +1,64 @@
+---
+title: Summary Statistics
+slug: summary-stats
+category: nodes
+nodeType: summaryStats
+summary: Generate summary statistics tables for your data.
+tags:
+  - statistics
+  - summary
+  - descriptive
+  - table
+---
+
+# Summary Statistics
+
+The **Summary Statistics** node runs R's `summary()` function on your entire dataset, giving you a quick overview of all variables.
+
+## What it does
+
+- Applies `summary()` to the connected dataframe
+- For numeric columns: shows min, 1st quartile ($Q_1$), median, mean ($\bar{x}$), 3rd quartile ($Q_3$), and max
+- For categorical columns: shows frequency counts of each level
+
+## How to use it
+
+1. **Connect a data source** — drag an edge from an Input CSV node
+2. **Click Run** — no additional configuration needed
+
+This is the simplest node to use — just connect data and run it.
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| Comment | No | Annotation for generated R code |
+
+There are no user-configurable parameters beyond the upstream connection.
+
+## Output
+
+A summary table showing descriptive statistics for each column. For example:
+
+| | height | weight | species |
+|---|--------|--------|---------|
+| Min. | 2.10 | 15.0 | setosa: 50 |
+| 1st Qu. | 4.30 | 28.0 | versicolor: 50 |
+| Median | 5.10 | 34.0 | virginica: 50 |
+| Mean | 5.84 | 42.0 | |
+| 3rd Qu. | 6.40 | 56.0 | |
+| Max. | 7.90 | 79.0 | |
+
+## Generated R code
+
+```r
+summary(my_data)
+```
+
+## Tips
+
+- This is a great first step after loading data — it quickly reveals the range, central tendency, and distribution of your variables
+- Look for unexpected `NA` values in the summary, which may indicate missing data
+- For more targeted statistics, use the Mean / SD node with a formula
+- The five-number summary (min, $Q_1$, median, $Q_3$, max) is the basis of a box plot

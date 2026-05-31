@@ -1,0 +1,57 @@
+---
+title: Residuals
+slug: residuals
+category: nodes
+nodeType: residuals
+summary: Extract residuals from a fitted linear model.
+tags:
+  - model
+  - residuals
+  - lm
+  - diagnostics
+  - regression
+---
+
+# Residuals
+
+The **Residuals** node extracts residuals from a fitted linear model using the R `residuals()` function. Residuals are the differences between the observed response values and the values predicted by the model, $e_i = y_i - \hat{y}_i$.
+
+## What it does
+
+- Retrieves a stored linear model from the upstream Linear Model node
+- Calls R's `residuals()` to extract the residual values
+- Returns a one-column data frame with a `residuals` column
+- Stores the result in storr so downstream nodes (e.g. Histogram, Output CSV) can use it
+
+## How to use it
+
+1. **Fit a linear model** — add a Linear Model node, enter a formula, and tick "Output to storr"
+2. **Connect the model** — drag an edge from the Linear Model node to the Residuals node input handle
+3. **Click Run** — residuals are extracted on the server and displayed as a table
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Model connection | Yes | A Linear Model node with "Output to storr" enabled |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+Displays a table with one column:
+
+- **residuals** — the residual value $e_i = y_i - \hat{y}_i$ for each observation
+
+The output is also stored in storr (as `<model_name>_residuals`) so it can be passed to downstream nodes such as a Histogram for checking normality.
+
+## Generated R code
+
+```r
+data.frame(residuals = residuals(my_data_lm))
+```
+
+## Tips
+
+- The upstream Linear Model node must have **"Output to storr"** enabled, otherwise the model is not saved and cannot be used.
+- Connect the residuals output to a **Histogram** or **Density** node to check if residuals are approximately normally distributed — a key assumption of linear regression.
+- Connect to an **Output CSV** node to download the residuals for further analysis.

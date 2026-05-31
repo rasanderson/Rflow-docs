@@ -1,0 +1,95 @@
+---
+title: Predict
+slug: predict-lm
+category: nodes
+nodeType: predictLM
+summary: Generate predicted response values from a fitted linear model or GLM.
+tags:
+  - model
+  - predict
+  - lm
+  - fitted values
+  - regression
+  - newdata
+---
+
+# Predict
+
+The **Predict** node generates predicted response values from a fitted linear model or GLM using the R `predict()` function. It can predict using the original training data, manually entered values, or a connected dataset of new observations.
+
+## What it does
+
+- Retrieves a stored model from the upstream Linear Model or GLM node
+- Calls R's `predict()` to compute predicted response values
+- Uses `type = "response"` automatically for GLM (`glmmTMB`) inputs so predictions are in original response units
+- Supports three prediction modes: training data, manual entry, or a connected dataset
+- Shows the model formula and predictor variable names
+
+## How to use it
+
+1. **Fit a model** — add a Linear Model or GLM node, enter a formula, and tick "Output to storr"
+2. **Connect the model** — drag an edge from the model node to the top **model** handle
+3. **Choose prediction mode**:
+   - **Training data** — predict using the original data the model was fitted on
+   - **Manual values** — type new predictor values in CSV format directly
+  - **Connected dataset** — drag an edge from a CSV input node to the top **data** handle
+4. **Click Run** — predicted values are computed on the server and displayed
+
+## Node handles
+
+This node has **two input handles** on the top edge:
+
+| Handle | Position | Purpose |
+|--------|----------|---------|
+| **model** | Top (35%) | Connect output from a Linear Model or GLM node |
+| **data** | Top (65%) | (Optional) Connect a dataset of new predictor values |
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Model connection | Yes | A Linear Model or GLM node with "Output to storr" enabled |
+| Predict using | Yes | "Training data", "Manual values", or "Connected dataset" |
+| New data (CSV) | Conditional | CSV-format text when using manual mode |
+| Data connection | Conditional | A dataset node when using connected dataset mode |
+| Comment | No | Annotation for generated R code |
+
+## Manual entry format
+
+Enter values in CSV format with column names matching the model's predictor variables on the first line:
+
+```
+conc,temp
+1.5,20
+2.0,25
+3.0,30
+```
+
+After the first run, the required predictor names are shown above the text area.
+
+## Output
+
+Displays a table with one row per observation:
+
+- **observation** — row number (1, 2, 3, …)
+- **fitted** — the predicted response value $\hat{y}_i$
+
+For GLM inputs (`glmmTMB`), fitted values are returned on the response scale.
+
+## Generated R code
+
+Training data:
+```r
+predict(my_data_lm)
+```
+
+With new data:
+```r
+predict(my_data_lm, newdata = new_data)
+```
+
+## Tips
+
+- The upstream Linear Model or GLM node must have **"Output to storr"** enabled, otherwise the model is not saved and cannot be used for prediction.
+- When using manual entry, run the node once first with "Training data" to see the predictor variable names.
+- When connecting a dataset for new data, ensure it contains columns that match the model's predictor variables.

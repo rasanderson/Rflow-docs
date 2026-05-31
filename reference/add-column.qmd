@@ -1,0 +1,62 @@
+---
+title: Add Column
+slug: add-column
+category: nodes
+nodeType: addColumn
+summary: Append a column from one dataframe into another using tibble::add_column().
+tags:
+  - data
+  - tibble
+  - column
+  - merge
+  - dataframe
+---
+
+# Add Column
+
+The Add Column node lets you take a single column from one dataframe and append it to another dataframe, producing an expanded output dataframe. It uses R's `tibble::add_column()` under the hood, with name-collision protection enabled by default.
+
+## What it does
+
+- Accepts two dataframes: a **base** dataframe (df1) and a **source** dataframe (df2)
+- Lets you select which column from df2 to add
+- Optionally renames the column before it is appended
+- Stores the result as a new (or updated) dataframe in the project
+- Passes the result downstream so further analysis nodes can connect to it
+
+## How to use it
+
+1. Drag an **Add Column** node onto the canvas from the **Other** section of the toolbar.
+2. Connect a dataframe to the **base** handle (top-left) — this is the dataframe that will receive the new column.
+3. Connect a second dataframe to the **source** handle (top-right) — this is where the column will be taken from.
+4. Open the panel by selecting the node, then choose the column to add from the **source** dropdown.
+5. Optionally enter a **New column name** to rename the column in the result; leave blank to keep the original name.
+6. Optionally enter an **Output dataframe name** to store the result under a custom key; leave blank to overwrite the base dataframe key.
+7. Click **Run**.
+
+## Configuration
+
+| Setting | Required | Description |
+|---|---|---|
+| Column to add | Yes | Column selected from the source (df2) dataframe |
+| New column name | No | Rename the column in the output; defaults to the original name |
+| Output dataframe name | No | Custom storr key for the result; defaults to the base dataframe's key |
+
+## Output
+
+After running, the **Output** tab shows a preview of the first rows of the combined dataframe, plus the total number of rows and columns. The result is stored and can be connected to downstream nodes such as **Summary Statistics**, **Scatterplot**, or **Output CSV**.
+
+## Generated R code
+
+```r
+library(tibble)
+expanded_data <- add_column(base_df, new_var = source_df[["original_col"]], .name_repair = "check_unique")
+```
+
+The `.name_repair = "check_unique"` argument prevents silent column name collisions — if the target dataframe already contains a column with the same name, R will raise an error rather than creating a duplicate.
+
+## Tips
+
+- Both dataframes must have the same number of rows for the operation to succeed.
+- Use the **New column name** field to avoid conflicts if the column you are adding already exists in the base dataframe under the same name.
+- If you want to add multiple columns from the same source, chain multiple Add Column nodes together.

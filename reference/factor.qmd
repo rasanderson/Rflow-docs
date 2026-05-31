@@ -1,0 +1,57 @@
+---
+title: Factor
+slug: factor
+category: nodes
+nodeType: factor
+summary: Convert one dataframe column to a factor and inspect its summary.
+tags:
+  - data
+  - factor
+  - categorical
+  - summary
+  - transform
+---
+
+# Factor
+
+The Factor node converts a selected column in the connected dataframe into an R factor using `as.factor()`. It keeps the same dataframe flowing downstream and shows a `summary()` of the converted column so you can confirm the resulting levels immediately.
+
+## What it does
+
+- Accepts a single input dataframe
+- Lets you choose one column from that dataframe
+- Converts the selected column to a factor in place
+- Keeps the updated dataframe available to downstream nodes
+- Shows the factor summary for the converted column in the Output tab with frequency per factor
+
+## How to use it
+
+1. Drag a **Factor** node onto the canvas from the **Other** section.
+2. Connect a dataframe-producing node such as **Input CSV** to the Factor node.
+3. Select the node and choose the column you want to convert in the panel.
+4. Click **Run**.
+5. Review the Output tab to confirm the factor summary, then continue connecting downstream analysis nodes.
+
+## Configuration
+
+| Setting | Required | Description |
+|---|---|---|
+| Column to convert | Yes | The dataframe column that will be converted with `as.factor()` |
+
+## Output
+
+After running, the **Output** tab shows the `summary()` result for the selected column after factor conversion. The node also outputs the same dataframe, now with the selected column stored as a factor, so downstream nodes operate on the updated data.
+
+## Generated R code
+
+```r
+my_data$group <- as.factor(my_data$group)
+summary(my_data$group)
+```
+
+If the column name is not a valid `$column` identifier, the exported R code uses bracket notation so it still runs correctly.
+
+## Tips
+
+- Use this before model or plotting nodes when a grouping variable should be treated as categorical rather than numeric or character.
+- The node updates the connected dataframe in place, so downstream nodes see the converted column immediately after a successful run.

@@ -1,0 +1,96 @@
+---
+title: Boxplot
+slug: boxplot
+category: nodes
+nodeType: boxplot
+summary: Create boxplots to compare distributions across groups.
+tags:
+  - plot
+  - visualisation
+  - chart
+  - ggplot
+  - boxplot
+  - distribution
+---
+
+# Boxplot
+
+The **Boxplot** node creates box-and-whisker plots using `ggplot2` to help you compare the distribution of a numeric variable across groups.
+
+## What it does
+
+- Creates a boxplot from a grouping variable (X) and a numeric value variable (Y)
+- Optionally overlays jittered data points from the original observations
+- Optionally fill boxes by a second grouping variable
+- Supports custom axis labels
+- The plot can be downloaded as a PNG image
+
+## How to use it
+
+1. **Connect a data source** — drag an edge from an Input CSV node
+2. **Select a grouping variable (X)** — choose the categorical column for the x axis
+3. **Select a value variable (Y)** — choose the numeric column to compare across groups
+4. **Optionally configure** — enable **Add data points**, set a fill variable, or set custom axis labels
+5. **Click Run** — the boxplot is generated and displayed
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| Grouping variable (X) | Yes | Categorical variable for the x axis |
+| Value variable (Y) | Yes | Numeric variable for the y axis |
+| Add data points | No | Overlays jittered points (`geom_point(position = "jitter")`) on top of the boxplot |
+| Fill variable | No | A second grouping variable to fill boxes by |
+| X axis label | No | Custom label (defaults to column name) |
+| Y axis label | No | Custom label (defaults to column name) |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+The Output tab displays:
+
+- The boxplot as an image
+- A **Zoom** button to view the plot full-screen
+- A **Download plot** button to save it as a PNG file (named `boxplot_{y}_by_{x}.png`)
+
+## Generated R code
+
+Basic boxplot:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = species, y = weight)) +
+  geom_boxplot() +
+  theme_classic()
+```
+
+With fill variable and custom labels:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = species, y = weight, fill = diet)) +
+  geom_boxplot() +
+  theme_classic() +
+  labs(x = "Species", y = "Weight (kg)")
+```
+
+With jittered data points:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = species, y = weight)) +
+  geom_boxplot() +
+  geom_point(position = "jitter") +
+  theme_classic()
+```
+
+## Tips
+
+- The grouping variable (X) is typically categorical — it defines the groups along the x axis
+- The value variable (Y) should be numeric — it defines the distribution shown in each box
+- Enable **Add data points** when you want to show individual observations alongside summary distribution
+- Use the fill variable to add a second level of grouping within each x category
+- The box shows the interquartile range (IQR), the line inside is the median, and whiskers extend to 1.5 × IQR
+- Points beyond the whiskers are shown as outliers
+- You can download the plot for use in reports or presentations

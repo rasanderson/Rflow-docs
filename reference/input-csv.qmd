@@ -1,0 +1,58 @@
+---
+title: Input CSV
+slug: input-csv
+category: nodes
+nodeType: inputCSV
+summary: Upload and preview CSV data files for analysis.
+tags:
+  - data
+  - csv
+  - import
+  - upload
+---
+
+# Input CSV
+
+The **Input CSV** node is the starting point for most Rflow workflows. It lets you upload a CSV file from your computer and make it available to downstream nodes for analysis.
+
+## What it does
+
+- Uploads a CSV file to the R backend
+- Stores the data as a named dataframe accessible by other nodes
+- Provides a preview of your data (first 20 rows and 20 columns)
+
+## How to use it
+
+1. **Add the node** — click "Input CSV" in the Toolbar, then click on the canvas
+2. **Choose a file** — click the "Choose CSV…" button and select a `.csv` file (max 50 MB)
+3. **Name the dataframe** — enter a valid R variable name (letters, numbers, underscores, or dots; no spaces; must not start with a dot)
+4. **Click Run** — the file is uploaded and stored on the server
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| CSV file | Yes | The `.csv` file to upload (max 50 MB) |
+| Dataframe name | Yes | The R variable name for this dataset |
+| Comment | No | An annotation that appears in generated R code |
+
+## Output
+
+After running, the Output tab shows:
+
+- **Row and column counts** (e.g. "Rows: 150 · Columns: 5")
+- **Data preview table** — the first 20 rows and 20 columns of your data
+
+## Generated R code
+
+```r
+my_data <- read.csv("caterpillars.csv")
+```
+
+The dataframe name and file name are both included in the generated code.
+
+## Tips
+
+- Use descriptive dataframe names like `crop_data` rather than `df1` — they make your generated R code much more readable
+- If a dataframe name already exists on the server, you'll see a warning. Choose a different name to avoid overwriting
+- Connect the output handle (bottom) to other nodes like Linear Model, Scatterplot, or Summary Stats

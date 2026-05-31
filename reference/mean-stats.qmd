@@ -1,0 +1,82 @@
+---
+title: Mean / SD
+slug: mean-stats
+category: nodes
+nodeType: meanStats
+summary: Calculate mean and standard deviation for selected columns.
+tags:
+  - statistics
+  - mean
+  - sd
+  - descriptive
+---
+
+# Mean / SD
+
+The **Mean / SD** node calculates descriptive statistics — mean, standard deviation, variance, count, and standard error — grouped by one or more explanatory variables.
+
+## What it does
+
+- Computes grouped summary statistics using R's `aggregate()` function
+- Calculates: mean ($\bar{x}$), standard deviation ($s$), variance ($s^2$), count ($n$), and standard error ($SE = \frac{s}{\sqrt{n}}$)
+- Optionally stores the result as a new dataframe for downstream use
+
+## How to use it
+
+1. **Connect a data source** — drag an edge from an Input CSV node
+2. **Enter a formula** — use the format `response ~ explanatory` (e.g. `weight ~ diet`)
+3. **Optionally name the output** — provide a dataframe name to store results
+4. **Click Run**
+
+## Formula syntax
+
+| Formula | Meaning |
+|---------|---------|
+| `weight ~ diet` | Mean/SD of `weight` grouped by `diet` |
+| `weight ~ diet + time` | Grouped by both `diet` and `time` |
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| Formula | Yes | `response ~ explanatory` format |
+| Output dataframe name | No | Store results under this name for downstream use |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+A table showing the computed statistics for each group:
+
+| Group | mean | sd | var | n | se |
+|-------|------|----|-----|---|----|
+| A | 5.03 | 1.21 | 1.46 | 10 | 0.38 |
+| B | 7.89 | 0.95 | 0.90 | 10 | 0.30 |
+
+## Generated R code
+
+```r
+aggregate(
+  formula = weight ~ diet,
+  data = chick_data,
+  FUN = function(x) c(
+    mean = mean(x),
+    sd = sd(x),
+    var = var(x),
+    n = length(x),
+    se = sd(x) / sqrt(length(x))
+  )
+)
+```
+
+If you provide an output dataframe name, the result is assigned:
+
+```r
+diet_summary <- aggregate(...)
+```
+
+## Tips
+
+- The formula variables shown as "Uses: weight, diet" below the input help you verify that column names are correct
+- Providing an output dataframe name lets you chain this node's results into downstream nodes like Output CSV
+- The standard error $SE = \frac{s}{\sqrt{n}}$ is useful for constructing confidence intervals: $\bar{x} \pm t_{\alpha/2} \times SE$

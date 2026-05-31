@@ -1,0 +1,76 @@
+---
+title: GLM
+slug: glm
+category: nodes
+nodeType: glm
+summary: Fit generalized linear models using either glm or glmmTMB with a selected error family.
+tags:
+  - model
+  - glm
+  - glmmTMB
+  - regression
+  - statistics
+---
+
+# GLM
+
+The **GLM** node fits a generalized linear model to your data using either base R `glm()` or `glmmTMB()` and displays output derived from `summary()`.
+
+## What it does
+
+- Fits a generalized linear model using R formula syntax
+- Lets you choose between the default `glm()` engine and advanced `glmmTMB()`
+- Requires you to choose an error distribution family before running
+- Displays coefficient estimates, standard errors, test statistics, and p-values from the model summary
+- Optionally stores the fitted model for downstream use
+
+## How to use it
+
+1. **Connect a data source** - drag an edge from an Input CSV node to this node's input handle
+2. **Choose a model engine** - select `glm (default)` for base R models or `glmmTMB (advanced)` for the extended family set
+3. **Choose an error family** - with `glm`, use poisson, binomial, or gaussian; with `glmmTMB`, you can also use negative binomial and tweedie
+4. **Enter a formula** - type an R formula in the format `response ~ predictor` (for example `count ~ treatment`)
+5. **Optionally enable model output** - tick the checkbox if you want to save the fitted model to storr
+6. **Click Run** - the model is fitted on the server and the summary output is shown
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| Model engine | Yes | Choose `glm (default)` for base R or `glmmTMB (advanced)` for extended families |
+| Error distribution family | Yes | `glm`: poisson, binomial, gaussian. `glmmTMB`: poisson, binomial, gaussian, negative binomial, tweedie |
+| Formula | Yes | R formula (for example `count ~ treatment`) |
+| Output to storr | No | Store the fitted model for downstream use |
+| Model name | Conditional | Optional override for the stored model name; defaults to the input dataframe name suffixed with `_glm` |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+The GLM node always shows summary-based output.
+
+- **Model fit details** - family and summary statistics such as AIC, BIC, log-likelihood, deviance, residual degrees of freedom, and sigma when available
+- **Coefficients table** - Term, Estimate, Std. Error, test statistic, and p-value
+
+## Generated R code
+
+```r
+my_data_glm <- glm(count ~ treatment, data=my_data, family=poisson)
+summary(my_data_glm)
+```
+
+Advanced mode with negative binomial uses `glmmTMB()` and `nbinom2`:
+
+```r
+library(glmmTMB)
+my_data_glm <- glmmTMB(count ~ treatment, data=my_data, family=nbinom2)
+summary(my_data_glm)
+```
+
+## Tips
+
+- The node does not offer ANOVA output modes; it always uses `summary()` output
+- `negative binomial` and `tweedie` are available only when the engine is set to `glmmTMB (advanced)`
+- The UI label **negative binomial** is implemented as `nbinom2` in generated `glmmTMB` code
+- Variable names in the formula must match the connected dataset columns exactly
+- If the backend does not have the `glmmTMB` package installed, only advanced mode will fail; default `glm` mode does not require it

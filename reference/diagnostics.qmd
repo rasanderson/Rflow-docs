@@ -1,0 +1,68 @@
+---
+title: Diagnostics
+slug: diagnostics
+category: nodes
+nodeType: diagnostics
+summary: Generate DHARMa diagnostic plots from a fitted linear model or GLM.
+tags:
+  - model
+  - diagnostics
+  - DHARMa
+  - lm
+  - residuals
+---
+
+# Diagnostics
+
+The **Diagnostics** node runs simulation-based residual checks for a fitted linear or generalised linear model using the R `DHARMa` package. It produces a diagnostics plot that helps assess model fit and common assumption issues.
+
+## What it does
+
+- Retrieves a stored model from an upstream Linear Model or GLM node
+- Runs `simulateResiduals()` from `DHARMa`
+- Renders the standard DHARMa diagnostics plot
+- Displays the generated plot in the Output tab with zoom and download controls
+
+## How to use it
+
+1. **Fit a model** - add a Linear Model or GLM node, enter a formula, and tick "Output to storr"
+2. **Connect the model** - drag an edge from the model node to the Diagnostics node
+3. **Click Run** - DHARMa residual simulation is run on the server and the diagnostics plot is returned
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Model connection | Yes | A Linear Model or GLM node with "Output to storr" enabled |
+| Plot type | Yes | Choose between combined QQ+Residuals, QQ only, or Residuals only |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+Displays the DHARMa diagnostics plot image for the connected model.
+
+The plot can be:
+
+- **Zoomed** for closer inspection in a modal view
+- **Downloaded** as a PNG file for reports or sharing
+
+## Generated R code
+
+```r
+library(DHARMa)
+model_lm_dharma <- simulateResiduals(model_lm)
+plot(model_lm_dharma)
+```
+
+Alternative plot calls:
+
+```r
+plotQQunif(model_lm_dharma)
+plotResiduals(model_lm_dharma)
+```
+
+## Tips
+
+- If the node errors with a package message, install `DHARMa` on the backend R environment.
+- This node expects an `lm` or `glmmTMB` object from a model node, not a dataframe.
+- Re-run diagnostics whenever you change the upstream model formula or dataset.

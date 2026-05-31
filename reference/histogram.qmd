@@ -1,0 +1,81 @@
+---
+title: Histogram
+slug: histogram
+category: nodes
+nodeType: histogram
+summary: Create histograms to visualise the distribution of a variable.
+tags:
+  - plot
+  - visualisation
+  - chart
+  - ggplot
+  - distribution
+  - histogram
+---
+
+# Histogram
+
+The **Histogram** node creates histograms using `ggplot2` to help you visualise the distribution of a single variable in your data.
+
+## What it does
+
+- Creates a histogram from one column of your dataset
+- Optionally fill bars by a grouping variable
+- Supports custom axis labels and bin count
+- The plot can be downloaded as a PNG image
+
+## How to use it
+
+1. **Connect a data source** — drag an edge from an Input CSV node
+2. **Select a variable** — choose which column to plot
+3. **Optionally configure** — set a fill variable, number of bins, or custom axis labels
+4. **Click Run** — the histogram is generated and displayed
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| Variable | Yes | The column to plot on the x axis |
+| Fill variable | No | A grouping variable to fill bars by |
+| Number of bins | No | How many bins to use (default: 30) |
+| X axis label | No | Custom label (defaults to column name) |
+| Y axis label | No | Custom label (defaults to "Count") |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+The Output tab displays:
+
+- The histogram as an image
+- A **Zoom** button to view the plot full-screen
+- A **Download plot** button to save it as a PNG file (named `histogram_{variable}.png`)
+
+## Generated R code
+
+Basic histogram:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height)) +
+  geom_histogram() +
+  theme_classic()
+```
+
+With fill variable, custom bins and labels:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height, fill = species)) +
+  geom_histogram(bins = 20, position = "identity", alpha = 0.5) +
+  theme_classic() +
+  labs(x = "Height (cm)", y = "Frequency")
+```
+
+## Tips
+
+- Choose a numeric column to get a meaningful histogram
+- The fill variable is useful for comparing distributions across groups
+- When using a fill variable, bars are overlaid with transparency so you can see both distributions
+- If the default 30 bins produces a noisy or overly smooth plot, try adjusting the bin count
+- You can download the plot for use in reports or presentations

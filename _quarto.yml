@@ -7,7 +7,51 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - sidebar:tutorials
+      - sidebar:howto
+      - sidebar:fundamentals
+      - sidebar:reference
       - about.qmd
+
+  sidebar:
+    - id: tutorials
+      title: "Tutorials"
+      style: "docked"
+      background: light
+      contents:
+        - tutorials/
+
+    - id: howto
+      title: "How-To"
+      contents:
+        - howto/
+
+    - id: fundamentals
+      title: "Fundamentals"
+      contents:
+        - fundamentals/
+
+    - id: reference
+      title: "Reference"
+      contents:
+        - reference/index.qmd
+        - reference/add-column.qmd
+        - reference/barchart.qmd
+        - reference/boxplot.qmd
+        - reference/density.qmd
+        - reference/diagnostics.qmd
+        - reference/factor.qmd
+        - reference/glm.qmd
+        - reference/histogram.qmd
+        - reference/input-csv.qmd
+        - reference/linear-model.qmd
+        - reference/mean-stats.qmd
+        - reference/output-csv.qmd
+        - reference/predict-lm.qmd
+        - reference/residuals.qmd
+        - reference/scatterplot.qmd
+        - reference/summary-stats.qmd
+        - reference/tukey-hsd.qmd
 
 format:
   html:

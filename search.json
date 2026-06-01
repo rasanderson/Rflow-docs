@@ -20,6 +20,7 @@
     "section": "",
     "text": "The Input CSV node is the starting point for most Rflow workflows. It lets you upload a CSV file from your computer and make it available to downstream nodes for analysis.\n\n\n\nUploads a CSV file to the R backend\nStores the data as a named dataframe accessible by other nodes\nProvides a preview of your data (first 20 rows and 20 columns)\n\n\n\n\n\nAdd the node — click “Input CSV” in the Toolbar, then click on the canvas\nChoose a file — click the “Choose CSV…” button and select a .csv file (max 50 MB)\nName the dataframe — enter a valid R variable name (letters, numbers, underscores, or dots; no spaces; must not start with a dot)\nClick Run — the file is uploaded and stored on the server\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nCSV file\nYes\nThe .csv file to upload (max 50 MB)\n\n\nDataframe name\nYes\nThe R variable name for this dataset\n\n\nComment\nNo\nAn annotation that appears in generated R code\n\n\n\n\n\n\nAfter running, the Output tab shows:\n\nRow and column counts (e.g. “Rows: 150 · Columns: 5”)\nData preview table — the first 20 rows and 20 columns of your data\n\n\n\n\nmy_data &lt;- read.csv(\"caterpillars.csv\")\nThe dataframe name and file name are both included in the generated code.\n\n\n\n\nUse descriptive dataframe names like crop_data rather than df1 — they make your generated R code much more readable\nIf a dataframe name already exists on the server, you’ll see a warning. Choose a different name to avoid overwriting\nConnect the output handle (bottom) to other nodes like Linear Model, Scatterplot, or Summary Stats",
     "crumbs": [
+      "Reference",
       "Input CSV"
     ]
   },
@@ -30,6 +31,7 @@
     "section": "",
     "text": "Uploads a CSV file to the R backend\nStores the data as a named dataframe accessible by other nodes\nProvides a preview of your data (first 20 rows and 20 columns)",
     "crumbs": [
+      "Reference",
       "Input CSV"
     ]
   },
@@ -40,6 +42,7 @@
     "section": "",
     "text": "Add the node — click “Input CSV” in the Toolbar, then click on the canvas\nChoose a file — click the “Choose CSV…” button and select a .csv file (max 50 MB)\nName the dataframe — enter a valid R variable name (letters, numbers, underscores, or dots; no spaces; must not start with a dot)\nClick Run — the file is uploaded and stored on the server",
     "crumbs": [
+      "Reference",
       "Input CSV"
     ]
   },
@@ -50,6 +53,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nCSV file\nYes\nThe .csv file to upload (max 50 MB)\n\n\nDataframe name\nYes\nThe R variable name for this dataset\n\n\nComment\nNo\nAn annotation that appears in generated R code",
     "crumbs": [
+      "Reference",
       "Input CSV"
     ]
   },
@@ -60,6 +64,7 @@
     "section": "",
     "text": "After running, the Output tab shows:\n\nRow and column counts (e.g. “Rows: 150 · Columns: 5”)\nData preview table — the first 20 rows and 20 columns of your data",
     "crumbs": [
+      "Reference",
       "Input CSV"
     ]
   },
@@ -70,6 +75,7 @@
     "section": "",
     "text": "my_data &lt;- read.csv(\"caterpillars.csv\")\nThe dataframe name and file name are both included in the generated code.",
     "crumbs": [
+      "Reference",
       "Input CSV"
     ]
   },
@@ -80,6 +86,7 @@
     "section": "",
     "text": "Use descriptive dataframe names like crop_data rather than df1 — they make your generated R code much more readable\nIf a dataframe name already exists on the server, you’ll see a warning. Choose a different name to avoid overwriting\nConnect the output handle (bottom) to other nodes like Linear Model, Scatterplot, or Summary Stats",
     "crumbs": [
+      "Reference",
       "Input CSV"
     ]
   },
@@ -90,6 +97,7 @@
     "section": "",
     "text": "The Density node creates density plots using ggplot2 to help you visualise the distribution of a single variable in your data. Unlike a histogram, a density plot shows a smooth continuous curve estimated from the data.\n\n\n\nCreates a density plot from one column of your dataset\nOptionally fill areas by a grouping variable\nSupports adjustable bandwidth smoothing\nSupports custom axis labels\nThe plot can be downloaded as a PNG image\n\n\n\n\n\nConnect a data source — drag an edge from an Input CSV node\nSelect a variable — choose which column to plot\nOptionally configure — set a fill variable, bandwidth adjustment, or custom axis labels\nClick Run — the density plot is generated and displayed\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nVariable\nYes\nThe column to plot on the x axis\n\n\nFill variable\nNo\nA grouping variable to fill areas by\n\n\nBandwidth adjust\nNo\nSmoothing multiplier (default: 1). Values &gt; 1 smooth more, &lt; 1 smooth less\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to “Density”)\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nThe Output tab displays:\n\nThe density plot as an image\nA Zoom button to view the plot full-screen\nA Download plot button to save it as a PNG file (named density_{variable}.png)\n\n\n\n\nBasic density plot:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height)) +\n  geom_density() +\n  theme_classic()\nWith fill variable, adjusted bandwidth and custom labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, fill = species)) +\n  geom_density(adjust = 2, alpha = 0.4) +\n  theme_classic() +\n  labs(x = \"Height (cm)\", y = \"Frequency\")\n\n\n\n\nChoose a numeric column to get a meaningful density plot\nThe fill variable is useful for comparing distributions across groups\nWhen using a fill variable, areas are overlaid with transparency so you can see all distributions\nIncrease the bandwidth adjust value (e.g. 2 or 3) if the curve is too noisy, or decrease it (e.g. 0.5) to show more detail\nYou can download the plot for use in reports or presentations",
     "crumbs": [
+      "Reference",
       "Density"
     ]
   },
@@ -100,6 +108,7 @@
     "section": "",
     "text": "Creates a density plot from one column of your dataset\nOptionally fill areas by a grouping variable\nSupports adjustable bandwidth smoothing\nSupports custom axis labels\nThe plot can be downloaded as a PNG image",
     "crumbs": [
+      "Reference",
       "Density"
     ]
   },
@@ -110,6 +119,7 @@
     "section": "",
     "text": "Connect a data source — drag an edge from an Input CSV node\nSelect a variable — choose which column to plot\nOptionally configure — set a fill variable, bandwidth adjustment, or custom axis labels\nClick Run — the density plot is generated and displayed",
     "crumbs": [
+      "Reference",
       "Density"
     ]
   },
@@ -120,6 +130,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nVariable\nYes\nThe column to plot on the x axis\n\n\nFill variable\nNo\nA grouping variable to fill areas by\n\n\nBandwidth adjust\nNo\nSmoothing multiplier (default: 1). Values &gt; 1 smooth more, &lt; 1 smooth less\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to “Density”)\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Density"
     ]
   },
@@ -130,6 +141,7 @@
     "section": "",
     "text": "The Output tab displays:\n\nThe density plot as an image\nA Zoom button to view the plot full-screen\nA Download plot button to save it as a PNG file (named density_{variable}.png)",
     "crumbs": [
+      "Reference",
       "Density"
     ]
   },
@@ -140,6 +152,7 @@
     "section": "",
     "text": "Basic density plot:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height)) +\n  geom_density() +\n  theme_classic()\nWith fill variable, adjusted bandwidth and custom labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, fill = species)) +\n  geom_density(adjust = 2, alpha = 0.4) +\n  theme_classic() +\n  labs(x = \"Height (cm)\", y = \"Frequency\")",
     "crumbs": [
+      "Reference",
       "Density"
     ]
   },
@@ -150,6 +163,7 @@
     "section": "",
     "text": "Choose a numeric column to get a meaningful density plot\nThe fill variable is useful for comparing distributions across groups\nWhen using a fill variable, areas are overlaid with transparency so you can see all distributions\nIncrease the bandwidth adjust value (e.g. 2 or 3) if the curve is too noisy, or decrease it (e.g. 0.5) to show more detail\nYou can download the plot for use in reports or presentations",
     "crumbs": [
+      "Reference",
       "Density"
     ]
   },
@@ -160,6 +174,7 @@
     "section": "",
     "text": "The GLM node fits a generalized linear model to your data using either base R glm() or glmmTMB() and displays output derived from summary().\n\n\n\nFits a generalized linear model using R formula syntax\nLets you choose between the default glm() engine and advanced glmmTMB()\nRequires you to choose an error distribution family before running\nDisplays coefficient estimates, standard errors, test statistics, and p-values from the model summary\nOptionally stores the fitted model for downstream use\n\n\n\n\n\nConnect a data source - drag an edge from an Input CSV node to this node’s input handle\nChoose a model engine - select glm (default) for base R models or glmmTMB (advanced) for the extended family set\nChoose an error family - with glm, use poisson, binomial, or gaussian; with glmmTMB, you can also use negative binomial and tweedie\nEnter a formula - type an R formula in the format response ~ predictor (for example count ~ treatment)\nOptionally enable model output - tick the checkbox if you want to save the fitted model to storr\nClick Run - the model is fitted on the server and the summary output is shown\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nModel engine\nYes\nChoose glm (default) for base R or glmmTMB (advanced) for extended families\n\n\nError distribution family\nYes\nglm: poisson, binomial, gaussian. glmmTMB: poisson, binomial, gaussian, negative binomial, tweedie\n\n\nFormula\nYes\nR formula (for example count ~ treatment)\n\n\nOutput to storr\nNo\nStore the fitted model for downstream use\n\n\nModel name\nConditional\nOptional override for the stored model name; defaults to the input dataframe name suffixed with _glm\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nThe GLM node always shows summary-based output.\n\nModel fit details - family and summary statistics such as AIC, BIC, log-likelihood, deviance, residual degrees of freedom, and sigma when available\nCoefficients table - Term, Estimate, Std. Error, test statistic, and p-value\n\n\n\n\nmy_data_glm &lt;- glm(count ~ treatment, data=my_data, family=poisson)\nsummary(my_data_glm)\nAdvanced mode with negative binomial uses glmmTMB() and nbinom2:\nlibrary(glmmTMB)\nmy_data_glm &lt;- glmmTMB(count ~ treatment, data=my_data, family=nbinom2)\nsummary(my_data_glm)\n\n\n\n\nThe node does not offer ANOVA output modes; it always uses summary() output\nnegative binomial and tweedie are available only when the engine is set to glmmTMB (advanced)\nThe UI label negative binomial is implemented as nbinom2 in generated glmmTMB code\nVariable names in the formula must match the connected dataset columns exactly\nIf the backend does not have the glmmTMB package installed, only advanced mode will fail; default glm mode does not require it",
     "crumbs": [
+      "Reference",
       "GLM"
     ]
   },
@@ -170,6 +185,7 @@
     "section": "",
     "text": "Fits a generalized linear model using R formula syntax\nLets you choose between the default glm() engine and advanced glmmTMB()\nRequires you to choose an error distribution family before running\nDisplays coefficient estimates, standard errors, test statistics, and p-values from the model summary\nOptionally stores the fitted model for downstream use",
     "crumbs": [
+      "Reference",
       "GLM"
     ]
   },
@@ -180,6 +196,7 @@
     "section": "",
     "text": "Connect a data source - drag an edge from an Input CSV node to this node’s input handle\nChoose a model engine - select glm (default) for base R models or glmmTMB (advanced) for the extended family set\nChoose an error family - with glm, use poisson, binomial, or gaussian; with glmmTMB, you can also use negative binomial and tweedie\nEnter a formula - type an R formula in the format response ~ predictor (for example count ~ treatment)\nOptionally enable model output - tick the checkbox if you want to save the fitted model to storr\nClick Run - the model is fitted on the server and the summary output is shown",
     "crumbs": [
+      "Reference",
       "GLM"
     ]
   },
@@ -190,6 +207,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nModel engine\nYes\nChoose glm (default) for base R or glmmTMB (advanced) for extended families\n\n\nError distribution family\nYes\nglm: poisson, binomial, gaussian. glmmTMB: poisson, binomial, gaussian, negative binomial, tweedie\n\n\nFormula\nYes\nR formula (for example count ~ treatment)\n\n\nOutput to storr\nNo\nStore the fitted model for downstream use\n\n\nModel name\nConditional\nOptional override for the stored model name; defaults to the input dataframe name suffixed with _glm\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "GLM"
     ]
   },
@@ -200,6 +218,7 @@
     "section": "",
     "text": "The GLM node always shows summary-based output.\n\nModel fit details - family and summary statistics such as AIC, BIC, log-likelihood, deviance, residual degrees of freedom, and sigma when available\nCoefficients table - Term, Estimate, Std. Error, test statistic, and p-value",
     "crumbs": [
+      "Reference",
       "GLM"
     ]
   },
@@ -210,6 +229,7 @@
     "section": "",
     "text": "my_data_glm &lt;- glm(count ~ treatment, data=my_data, family=poisson)\nsummary(my_data_glm)\nAdvanced mode with negative binomial uses glmmTMB() and nbinom2:\nlibrary(glmmTMB)\nmy_data_glm &lt;- glmmTMB(count ~ treatment, data=my_data, family=nbinom2)\nsummary(my_data_glm)",
     "crumbs": [
+      "Reference",
       "GLM"
     ]
   },
@@ -220,6 +240,7 @@
     "section": "",
     "text": "The node does not offer ANOVA output modes; it always uses summary() output\nnegative binomial and tweedie are available only when the engine is set to glmmTMB (advanced)\nThe UI label negative binomial is implemented as nbinom2 in generated glmmTMB code\nVariable names in the formula must match the connected dataset columns exactly\nIf the backend does not have the glmmTMB package installed, only advanced mode will fail; default glm mode does not require it",
     "crumbs": [
+      "Reference",
       "GLM"
     ]
   },
@@ -230,6 +251,7 @@
     "section": "",
     "text": "The Boxplot node creates box-and-whisker plots using ggplot2 to help you compare the distribution of a numeric variable across groups.\n\n\n\nCreates a boxplot from a grouping variable (X) and a numeric value variable (Y)\nOptionally overlays jittered data points from the original observations\nOptionally fill boxes by a second grouping variable\nSupports custom axis labels\nThe plot can be downloaded as a PNG image\n\n\n\n\n\nConnect a data source — drag an edge from an Input CSV node\nSelect a grouping variable (X) — choose the categorical column for the x axis\nSelect a value variable (Y) — choose the numeric column to compare across groups\nOptionally configure — enable Add data points, set a fill variable, or set custom axis labels\nClick Run — the boxplot is generated and displayed\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nGrouping variable (X)\nYes\nCategorical variable for the x axis\n\n\nValue variable (Y)\nYes\nNumeric variable for the y axis\n\n\nAdd data points\nNo\nOverlays jittered points (geom_point(position = \"jitter\")) on top of the boxplot\n\n\nFill variable\nNo\nA second grouping variable to fill boxes by\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to column name)\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nThe Output tab displays:\n\nThe boxplot as an image\nA Zoom button to view the plot full-screen\nA Download plot button to save it as a PNG file (named boxplot_{y}_by_{x}.png)\n\n\n\n\nBasic boxplot:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = weight)) +\n  geom_boxplot() +\n  theme_classic()\nWith fill variable and custom labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = weight, fill = diet)) +\n  geom_boxplot() +\n  theme_classic() +\n  labs(x = \"Species\", y = \"Weight (kg)\")\nWith jittered data points:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = weight)) +\n  geom_boxplot() +\n  geom_point(position = \"jitter\") +\n  theme_classic()\n\n\n\n\nThe grouping variable (X) is typically categorical — it defines the groups along the x axis\nThe value variable (Y) should be numeric — it defines the distribution shown in each box\nEnable Add data points when you want to show individual observations alongside summary distribution\nUse the fill variable to add a second level of grouping within each x category\nThe box shows the interquartile range (IQR), the line inside is the median, and whiskers extend to 1.5 × IQR\nPoints beyond the whiskers are shown as outliers\nYou can download the plot for use in reports or presentations",
     "crumbs": [
+      "Reference",
       "Boxplot"
     ]
   },
@@ -240,6 +262,7 @@
     "section": "",
     "text": "Creates a boxplot from a grouping variable (X) and a numeric value variable (Y)\nOptionally overlays jittered data points from the original observations\nOptionally fill boxes by a second grouping variable\nSupports custom axis labels\nThe plot can be downloaded as a PNG image",
     "crumbs": [
+      "Reference",
       "Boxplot"
     ]
   },
@@ -250,6 +273,7 @@
     "section": "",
     "text": "Connect a data source — drag an edge from an Input CSV node\nSelect a grouping variable (X) — choose the categorical column for the x axis\nSelect a value variable (Y) — choose the numeric column to compare across groups\nOptionally configure — enable Add data points, set a fill variable, or set custom axis labels\nClick Run — the boxplot is generated and displayed",
     "crumbs": [
+      "Reference",
       "Boxplot"
     ]
   },
@@ -260,6 +284,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nGrouping variable (X)\nYes\nCategorical variable for the x axis\n\n\nValue variable (Y)\nYes\nNumeric variable for the y axis\n\n\nAdd data points\nNo\nOverlays jittered points (geom_point(position = \"jitter\")) on top of the boxplot\n\n\nFill variable\nNo\nA second grouping variable to fill boxes by\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to column name)\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Boxplot"
     ]
   },
@@ -270,6 +295,7 @@
     "section": "",
     "text": "The Output tab displays:\n\nThe boxplot as an image\nA Zoom button to view the plot full-screen\nA Download plot button to save it as a PNG file (named boxplot_{y}_by_{x}.png)",
     "crumbs": [
+      "Reference",
       "Boxplot"
     ]
   },
@@ -280,6 +306,7 @@
     "section": "",
     "text": "Basic boxplot:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = weight)) +\n  geom_boxplot() +\n  theme_classic()\nWith fill variable and custom labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = weight, fill = diet)) +\n  geom_boxplot() +\n  theme_classic() +\n  labs(x = \"Species\", y = \"Weight (kg)\")\nWith jittered data points:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = weight)) +\n  geom_boxplot() +\n  geom_point(position = \"jitter\") +\n  theme_classic()",
     "crumbs": [
+      "Reference",
       "Boxplot"
     ]
   },
@@ -290,6 +317,7 @@
     "section": "",
     "text": "The grouping variable (X) is typically categorical — it defines the groups along the x axis\nThe value variable (Y) should be numeric — it defines the distribution shown in each box\nEnable Add data points when you want to show individual observations alongside summary distribution\nUse the fill variable to add a second level of grouping within each x category\nThe box shows the interquartile range (IQR), the line inside is the median, and whiskers extend to 1.5 × IQR\nPoints beyond the whiskers are shown as outliers\nYou can download the plot for use in reports or presentations",
     "crumbs": [
+      "Reference",
       "Boxplot"
     ]
   },
@@ -300,6 +328,7 @@
     "section": "",
     "text": "The Add Column node lets you take a single column from one dataframe and append it to another dataframe, producing an expanded output dataframe. It uses R’s tibble::add_column() under the hood, with name-collision protection enabled by default.\n\n\n\nAccepts two dataframes: a base dataframe (df1) and a source dataframe (df2)\nLets you select which column from df2 to add\nOptionally renames the column before it is appended\nStores the result as a new (or updated) dataframe in the project\nPasses the result downstream so further analysis nodes can connect to it\n\n\n\n\n\nDrag an Add Column node onto the canvas from the Other section of the toolbar.\nConnect a dataframe to the base handle (top-left) — this is the dataframe that will receive the new column.\nConnect a second dataframe to the source handle (top-right) — this is where the column will be taken from.\nOpen the panel by selecting the node, then choose the column to add from the source dropdown.\nOptionally enter a New column name to rename the column in the result; leave blank to keep the original name.\nOptionally enter an Output dataframe name to store the result under a custom key; leave blank to overwrite the base dataframe key.\nClick Run.\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nColumn to add\nYes\nColumn selected from the source (df2) dataframe\n\n\nNew column name\nNo\nRename the column in the output; defaults to the original name\n\n\nOutput dataframe name\nNo\nCustom storr key for the result; defaults to the base dataframe’s key\n\n\n\n\n\n\nAfter running, the Output tab shows a preview of the first rows of the combined dataframe, plus the total number of rows and columns. The result is stored and can be connected to downstream nodes such as Summary Statistics, Scatterplot, or Output CSV.\n\n\n\nlibrary(tibble)\nexpanded_data &lt;- add_column(base_df, new_var = source_df[[\"original_col\"]], .name_repair = \"check_unique\")\nThe .name_repair = \"check_unique\" argument prevents silent column name collisions — if the target dataframe already contains a column with the same name, R will raise an error rather than creating a duplicate.\n\n\n\n\nBoth dataframes must have the same number of rows for the operation to succeed.\nUse the New column name field to avoid conflicts if the column you are adding already exists in the base dataframe under the same name.\nIf you want to add multiple columns from the same source, chain multiple Add Column nodes together.",
     "crumbs": [
+      "Reference",
       "Add Column"
     ]
   },
@@ -310,6 +339,7 @@
     "section": "",
     "text": "Accepts two dataframes: a base dataframe (df1) and a source dataframe (df2)\nLets you select which column from df2 to add\nOptionally renames the column before it is appended\nStores the result as a new (or updated) dataframe in the project\nPasses the result downstream so further analysis nodes can connect to it",
     "crumbs": [
+      "Reference",
       "Add Column"
     ]
   },
@@ -320,6 +350,7 @@
     "section": "",
     "text": "Drag an Add Column node onto the canvas from the Other section of the toolbar.\nConnect a dataframe to the base handle (top-left) — this is the dataframe that will receive the new column.\nConnect a second dataframe to the source handle (top-right) — this is where the column will be taken from.\nOpen the panel by selecting the node, then choose the column to add from the source dropdown.\nOptionally enter a New column name to rename the column in the result; leave blank to keep the original name.\nOptionally enter an Output dataframe name to store the result under a custom key; leave blank to overwrite the base dataframe key.\nClick Run.",
     "crumbs": [
+      "Reference",
       "Add Column"
     ]
   },
@@ -330,6 +361,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nColumn to add\nYes\nColumn selected from the source (df2) dataframe\n\n\nNew column name\nNo\nRename the column in the output; defaults to the original name\n\n\nOutput dataframe name\nNo\nCustom storr key for the result; defaults to the base dataframe’s key",
     "crumbs": [
+      "Reference",
       "Add Column"
     ]
   },
@@ -340,6 +372,7 @@
     "section": "",
     "text": "After running, the Output tab shows a preview of the first rows of the combined dataframe, plus the total number of rows and columns. The result is stored and can be connected to downstream nodes such as Summary Statistics, Scatterplot, or Output CSV.",
     "crumbs": [
+      "Reference",
       "Add Column"
     ]
   },
@@ -350,6 +383,7 @@
     "section": "",
     "text": "library(tibble)\nexpanded_data &lt;- add_column(base_df, new_var = source_df[[\"original_col\"]], .name_repair = \"check_unique\")\nThe .name_repair = \"check_unique\" argument prevents silent column name collisions — if the target dataframe already contains a column with the same name, R will raise an error rather than creating a duplicate.",
     "crumbs": [
+      "Reference",
       "Add Column"
     ]
   },
@@ -360,6 +394,7 @@
     "section": "",
     "text": "Both dataframes must have the same number of rows for the operation to succeed.\nUse the New column name field to avoid conflicts if the column you are adding already exists in the base dataframe under the same name.\nIf you want to add multiple columns from the same source, chain multiple Add Column nodes together.",
     "crumbs": [
+      "Reference",
       "Add Column"
     ]
   },
@@ -370,6 +405,7 @@
     "section": "",
     "text": "The TukeyHSD node performs Tukey’s Honest Significant Difference post-hoc test from a fitted linear model using TukeyHSD(aov(model_lm)). It reports pairwise comparisons between factor levels.\n\n\n\nRetrieves a stored linear model from the upstream Linear Model node\nRuns TukeyHSD(aov(model_lm)) on the backend\nReturns a comparison table with effect sizes, confidence intervals, and adjusted p-values\nOptionally generates and displays a Tukey differences plot below the table\n\n\n\n\n\nFit a linear model - add a Linear Model node, set a formula with at least one categorical predictor, and tick “Output to storr”\nConnect the model - drag an edge from the Linear Model node to the TukeyHSD node\nClick Run - Tukey multiple comparisons are computed and displayed as a table\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nModel connection\nYes\nA Linear Model node with “Output to storr” enabled\n\n\nPlot differences\nNo\nIf enabled, also generates a Tukey differences plot (plot(TukeyHSD(aov(model_lm))))\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nDisplays a table with these columns:\n\ncomparison - factor levels being compared\ndifference - estimated mean difference\nlower_ci - lower confidence interval bound\nupper_ci - upper confidence interval bound\np_value - adjusted p-value\n\nWhen Plot differences is enabled, the Output tab also shows a Tukey differences plot below the table with Zoom and Download controls.\n\n\n\nTukeyHSD(aov(model_lm))\nWith optional plot:\nTukeyHSD(aov(model_lm))\nplot(TukeyHSD(aov(model_lm)))\n\n\n\n\nUse at least one factor (categorical) predictor in your model formula to get pairwise comparisons.\nIf no factor levels are present, the node will return an informative error.\nEnable Plot differences when you want a quick visual check of pairwise confidence intervals in addition to the numeric table.",
     "crumbs": [
+      "Reference",
       "TukeyHSD"
     ]
   },
@@ -380,6 +416,7 @@
     "section": "",
     "text": "Retrieves a stored linear model from the upstream Linear Model node\nRuns TukeyHSD(aov(model_lm)) on the backend\nReturns a comparison table with effect sizes, confidence intervals, and adjusted p-values\nOptionally generates and displays a Tukey differences plot below the table",
     "crumbs": [
+      "Reference",
       "TukeyHSD"
     ]
   },
@@ -390,6 +427,7 @@
     "section": "",
     "text": "Fit a linear model - add a Linear Model node, set a formula with at least one categorical predictor, and tick “Output to storr”\nConnect the model - drag an edge from the Linear Model node to the TukeyHSD node\nClick Run - Tukey multiple comparisons are computed and displayed as a table",
     "crumbs": [
+      "Reference",
       "TukeyHSD"
     ]
   },
@@ -400,6 +438,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nModel connection\nYes\nA Linear Model node with “Output to storr” enabled\n\n\nPlot differences\nNo\nIf enabled, also generates a Tukey differences plot (plot(TukeyHSD(aov(model_lm))))\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "TukeyHSD"
     ]
   },
@@ -410,6 +449,7 @@
     "section": "",
     "text": "Displays a table with these columns:\n\ncomparison - factor levels being compared\ndifference - estimated mean difference\nlower_ci - lower confidence interval bound\nupper_ci - upper confidence interval bound\np_value - adjusted p-value\n\nWhen Plot differences is enabled, the Output tab also shows a Tukey differences plot below the table with Zoom and Download controls.",
     "crumbs": [
+      "Reference",
       "TukeyHSD"
     ]
   },
@@ -420,6 +460,7 @@
     "section": "",
     "text": "TukeyHSD(aov(model_lm))\nWith optional plot:\nTukeyHSD(aov(model_lm))\nplot(TukeyHSD(aov(model_lm)))",
     "crumbs": [
+      "Reference",
       "TukeyHSD"
     ]
   },
@@ -430,6 +471,7 @@
     "section": "",
     "text": "Use at least one factor (categorical) predictor in your model formula to get pairwise comparisons.\nIf no factor levels are present, the node will return an informative error.\nEnable Plot differences when you want a quick visual check of pairwise confidence intervals in addition to the numeric table.",
     "crumbs": [
+      "Reference",
       "TukeyHSD"
     ]
   },
@@ -440,6 +482,7 @@
     "section": "",
     "text": "The Barchart node creates bar charts using ggplot2 to compare values across categories. It uses geom_bar(stat = \"identity\") so the bar heights represent actual values in your data.\n\n\n\nCreates a bar chart from a category variable (X) and a value variable (Y)\nUses stat = \"identity\" so bars represent values directly from the data\nOptionally groups bars by a fill variable using position_dodge()\nOptionally adds error bars using geom_errorbar() with adjustable width\nSupports custom axis labels\nThe plot can be downloaded as a PNG image\n\n\n\n\n\nConnect a data source — drag an edge from an Input CSV node\nSelect a category variable (X) — choose the column for the x axis categories\nSelect a value variable (Y) — choose the numeric column for bar heights\nOptionally configure — set a fill variable for grouped bars, an error bar variable, or custom axis labels\nClick Run — the bar chart is generated and displayed\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nCategory variable (X)\nYes\nCategorical variable for the x axis\n\n\nValue variable (Y)\nYes\nNumeric variable for bar heights\n\n\nFill variable\nNo\nA grouping variable to create side-by-side (dodged) bars\n\n\nError bar variable\nNo\nColumn containing error values (e.g. SE) added/subtracted from Y\n\n\nError bar width\nNo\nWidth of error bar caps (default 0.3)\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to column name)\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nThe Output tab displays:\n\nThe bar chart as an image\nA Zoom button to view the plot full-screen\nA Download plot button to save it as a PNG file (named barchart_{y}_by_{x}.png)\n\n\n\n\nBasic bar chart:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = count)) +\n  geom_bar(stat = \"identity\") +\n  theme_classic()\nWith fill variable and custom labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = count, fill = diet)) +\n  geom_bar(stat = \"identity\", position = position_dodge()) +\n  theme_classic() +\n  labs(x = \"Species\", y = \"Count\")\nWith error bars:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = count, fill = diet)) +\n  geom_bar(stat = \"identity\", position = position_dodge()) +\n  geom_errorbar(aes(ymin = count - se, ymax = count + se), width = 0.3, position = position_dodge()) +\n  theme_classic() +\n  labs(x = \"Species\", y = \"Count\")\n\n\n\n\nThe category variable (X) is typically categorical — it defines the groups along the x axis\nThe value variable (Y) should be numeric — it defines the height of each bar\nUse the fill variable to create grouped (side-by-side) bars within each category using position_dodge()\nWithout a fill variable, bars are stacked by default (one bar per category)\nError bars show ± the error variable (e.g. standard error) around each bar height\nAdjust the error bar width to control how wide the caps appear (default 0.3)\nYou can download the plot for use in reports or presentations",
     "crumbs": [
+      "Reference",
       "Barchart"
     ]
   },
@@ -450,6 +493,7 @@
     "section": "",
     "text": "Creates a bar chart from a category variable (X) and a value variable (Y)\nUses stat = \"identity\" so bars represent values directly from the data\nOptionally groups bars by a fill variable using position_dodge()\nOptionally adds error bars using geom_errorbar() with adjustable width\nSupports custom axis labels\nThe plot can be downloaded as a PNG image",
     "crumbs": [
+      "Reference",
       "Barchart"
     ]
   },
@@ -460,6 +504,7 @@
     "section": "",
     "text": "Connect a data source — drag an edge from an Input CSV node\nSelect a category variable (X) — choose the column for the x axis categories\nSelect a value variable (Y) — choose the numeric column for bar heights\nOptionally configure — set a fill variable for grouped bars, an error bar variable, or custom axis labels\nClick Run — the bar chart is generated and displayed",
     "crumbs": [
+      "Reference",
       "Barchart"
     ]
   },
@@ -470,6 +515,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nCategory variable (X)\nYes\nCategorical variable for the x axis\n\n\nValue variable (Y)\nYes\nNumeric variable for bar heights\n\n\nFill variable\nNo\nA grouping variable to create side-by-side (dodged) bars\n\n\nError bar variable\nNo\nColumn containing error values (e.g. SE) added/subtracted from Y\n\n\nError bar width\nNo\nWidth of error bar caps (default 0.3)\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to column name)\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Barchart"
     ]
   },
@@ -480,6 +526,7 @@
     "section": "",
     "text": "The Output tab displays:\n\nThe bar chart as an image\nA Zoom button to view the plot full-screen\nA Download plot button to save it as a PNG file (named barchart_{y}_by_{x}.png)",
     "crumbs": [
+      "Reference",
       "Barchart"
     ]
   },
@@ -490,6 +537,7 @@
     "section": "",
     "text": "Basic bar chart:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = count)) +\n  geom_bar(stat = \"identity\") +\n  theme_classic()\nWith fill variable and custom labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = count, fill = diet)) +\n  geom_bar(stat = \"identity\", position = position_dodge()) +\n  theme_classic() +\n  labs(x = \"Species\", y = \"Count\")\nWith error bars:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = species, y = count, fill = diet)) +\n  geom_bar(stat = \"identity\", position = position_dodge()) +\n  geom_errorbar(aes(ymin = count - se, ymax = count + se), width = 0.3, position = position_dodge()) +\n  theme_classic() +\n  labs(x = \"Species\", y = \"Count\")",
     "crumbs": [
+      "Reference",
       "Barchart"
     ]
   },
@@ -500,6 +548,7 @@
     "section": "",
     "text": "The category variable (X) is typically categorical — it defines the groups along the x axis\nThe value variable (Y) should be numeric — it defines the height of each bar\nUse the fill variable to create grouped (side-by-side) bars within each category using position_dodge()\nWithout a fill variable, bars are stacked by default (one bar per category)\nError bars show ± the error variable (e.g. standard error) around each bar height\nAdjust the error bar width to control how wide the caps appear (default 0.3)\nYou can download the plot for use in reports or presentations",
     "crumbs": [
+      "Reference",
       "Barchart"
     ]
   },
@@ -510,6 +559,7 @@
     "section": "",
     "text": "The Linear Model node fits a linear regression model to your data using the R lm() function and displays either a coefficient summary or an ANOVA table.\n\n\n\nFits a linear model using R formula syntax\nDisplays regression coefficients with standard errors, t-values, and p-values\nAlternatively displays an ANOVA table (Type I, Type II, or Type III sums of squares)\nOptionally stores the fitted model for use by downstream nodes\n\n\n\n\n\nConnect a data source — drag an edge from an Input CSV node to this node’s input handle\nChoose output type — select either “Summary (Coefficients & R²)” or “ANOVA Table”\nIf using ANOVA output, choose ANOVA type — Type I (Sequential SS), Type II (Hierarchical SS), or Type III (Marginal SS)\nEnter a formula — type an R formula in the format response ~ predictor (e.g. height ~ conc)\nClick Run — the model is fitted on the server\n\n\n\n\nR formula syntax is used to specify the model. Here are some common patterns:\n\n\n\nFormula\nMeaning\n\n\n\n\ny ~ x\nSimple linear regression\n\n\ny ~ x1 + x2\nMultiple regression\n\n\ny ~ x1 * x2\nInteraction (includes main effects)\n\n\ny ~ x1 + I(x1^2)\nPolynomial term\n\n\n\nMathematically, the simple model \\(y = \\beta_0 + \\beta_1 x + \\epsilon\\) is specified as y ~ x, where:\n\n\\(\\beta_0\\) is the intercept\n\\(\\beta_1\\) is the slope coefficient\n\\(\\epsilon\\) is the error term\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nOutput type\nYes\n“Summary” or “ANOVA”\n\n\nANOVA type\nConditional\nType I (Sequential SS), Type II (Hierarchical SS), or Type III (Marginal SS); shown when Output type is ANOVA\n\n\nFormula\nYes\nR formula (e.g. height ~ conc)\n\n\nOutput to storr\nNo\nStore the fitted model for downstream use\n\n\nModel name\nConditional\nRequired if outputting to storr\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\n\n\nDisplays:\n\nModel fit statistics — \\(R^2\\) and Adjusted \\(R^2\\)\nCoefficients table — Term, Estimate, Std. Error, t value, \\(Pr(&gt;|t|)\\)\n\n\n\n\nDisplays an ANOVA table with:\n\nTerm, Df, Sum Sq, Mean Sq, F value, \\(Pr(&gt;F)\\)\n\nBy default, base R anova() uses Type I (sequential) sums of squares. For more complex hierarchical designs, or where interactions are present, consider Type II or Type III sums of squares.\n\n\n\n\n\n\n\n\n\n\n\n\nFeature\nType I (Sequential)\nType II (Hierarchical)\nType III (Adjusted)\n\n\n\n\nDepends on order of terms\nYes\nNo\nNo\n\n\nAdjustment\nEach term adjusted only for terms entered before it\nAdjusts each main effect for all other main effects, but not for interactions involving the effect\nAdjusts each term for all other terms, including interactions\n\n\nHandling of interactions\nDoes not adjust main effects for interactions\nDoes not adjust main effects for interactions\nMain effects tested while controlling for interactions involving them\n\n\nBalanced designs\nSame results as Types II and III\nSame results as Types I and III\nSame results as Types I and II\n\n\nUnbalanced designs\nOrder-dependent; can be misleading\nAppropriate when interactions are absent or not of interest\nAppropriate when interactions are present or full adjustment is required\n\n\nTypical use\nHierarchical models, polynomial terms, nested designs\nClassical factorial ANOVA without interactions\nGeneral unbalanced designs; common in SAS/SPSS\n\n\nInterpretation\nExtra variance explained when the term enters the model at that stage\nVariance explained by the term, given the other main effects\nUnique contribution of each term after adjusting for all other terms\n\n\n\nThe F-statistic tests the null hypothesis \\(H_0: \\beta_1 = \\beta_2 = \\dots = \\beta_p = 0\\) — that none of the predictors are related to the response.\n\n\n\n\nmy_data_lm &lt;- lm(height ~ conc, data = my_data)\nsummary(my_data_lm)\nOr for ANOVA output:\nmy_data_lm &lt;- lm(height ~ conc, data = my_data)\nanova(my_data_lm)\nType II ANOVA:\nmy_data_lm &lt;- lm(height ~ conc, data = my_data)\ncar::Anova(my_data_lm, type = 2)\nType III ANOVA:\nmy_data_lm &lt;- lm(height ~ conc, data = my_data)\ncar::Anova(my_data_lm, type = 3)\n\n\n\n\nVariable names in the formula must match column names in your dataset exactly\nThe available columns are shown as clickable chips above the formula input — use them as a reference\nIf you enable “Output to storr”, downstream nodes can use the fitted model object\nCheck \\(R^2\\) to assess model fit: values closer to 1 indicate a better fit",
     "crumbs": [
+      "Reference",
       "Linear Model"
     ]
   },
@@ -520,6 +570,7 @@
     "section": "",
     "text": "Fits a linear model using R formula syntax\nDisplays regression coefficients with standard errors, t-values, and p-values\nAlternatively displays an ANOVA table (Type I, Type II, or Type III sums of squares)\nOptionally stores the fitted model for use by downstream nodes",
     "crumbs": [
+      "Reference",
       "Linear Model"
     ]
   },
@@ -530,6 +581,7 @@
     "section": "",
     "text": "Connect a data source — drag an edge from an Input CSV node to this node’s input handle\nChoose output type — select either “Summary (Coefficients & R²)” or “ANOVA Table”\nIf using ANOVA output, choose ANOVA type — Type I (Sequential SS), Type II (Hierarchical SS), or Type III (Marginal SS)\nEnter a formula — type an R formula in the format response ~ predictor (e.g. height ~ conc)\nClick Run — the model is fitted on the server",
     "crumbs": [
+      "Reference",
       "Linear Model"
     ]
   },
@@ -540,6 +592,7 @@
     "section": "",
     "text": "R formula syntax is used to specify the model. Here are some common patterns:\n\n\n\nFormula\nMeaning\n\n\n\n\ny ~ x\nSimple linear regression\n\n\ny ~ x1 + x2\nMultiple regression\n\n\ny ~ x1 * x2\nInteraction (includes main effects)\n\n\ny ~ x1 + I(x1^2)\nPolynomial term\n\n\n\nMathematically, the simple model \\(y = \\beta_0 + \\beta_1 x + \\epsilon\\) is specified as y ~ x, where:\n\n\\(\\beta_0\\) is the intercept\n\\(\\beta_1\\) is the slope coefficient\n\\(\\epsilon\\) is the error term",
     "crumbs": [
+      "Reference",
       "Linear Model"
     ]
   },
@@ -550,6 +603,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nOutput type\nYes\n“Summary” or “ANOVA”\n\n\nANOVA type\nConditional\nType I (Sequential SS), Type II (Hierarchical SS), or Type III (Marginal SS); shown when Output type is ANOVA\n\n\nFormula\nYes\nR formula (e.g. height ~ conc)\n\n\nOutput to storr\nNo\nStore the fitted model for downstream use\n\n\nModel name\nConditional\nRequired if outputting to storr\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Linear Model"
     ]
   },
@@ -560,6 +614,7 @@
     "section": "",
     "text": "Displays:\n\nModel fit statistics — \\(R^2\\) and Adjusted \\(R^2\\)\nCoefficients table — Term, Estimate, Std. Error, t value, \\(Pr(&gt;|t|)\\)\n\n\n\n\nDisplays an ANOVA table with:\n\nTerm, Df, Sum Sq, Mean Sq, F value, \\(Pr(&gt;F)\\)\n\nBy default, base R anova() uses Type I (sequential) sums of squares. For more complex hierarchical designs, or where interactions are present, consider Type II or Type III sums of squares.\n\n\n\n\n\n\n\n\n\n\n\n\nFeature\nType I (Sequential)\nType II (Hierarchical)\nType III (Adjusted)\n\n\n\n\nDepends on order of terms\nYes\nNo\nNo\n\n\nAdjustment\nEach term adjusted only for terms entered before it\nAdjusts each main effect for all other main effects, but not for interactions involving the effect\nAdjusts each term for all other terms, including interactions\n\n\nHandling of interactions\nDoes not adjust main effects for interactions\nDoes not adjust main effects for interactions\nMain effects tested while controlling for interactions involving them\n\n\nBalanced designs\nSame results as Types II and III\nSame results as Types I and III\nSame results as Types I and II\n\n\nUnbalanced designs\nOrder-dependent; can be misleading\nAppropriate when interactions are absent or not of interest\nAppropriate when interactions are present or full adjustment is required\n\n\nTypical use\nHierarchical models, polynomial terms, nested designs\nClassical factorial ANOVA without interactions\nGeneral unbalanced designs; common in SAS/SPSS\n\n\nInterpretation\nExtra variance explained when the term enters the model at that stage\nVariance explained by the term, given the other main effects\nUnique contribution of each term after adjusting for all other terms\n\n\n\nThe F-statistic tests the null hypothesis \\(H_0: \\beta_1 = \\beta_2 = \\dots = \\beta_p = 0\\) — that none of the predictors are related to the response.",
     "crumbs": [
+      "Reference",
       "Linear Model"
     ]
   },
@@ -570,6 +625,7 @@
     "section": "",
     "text": "my_data_lm &lt;- lm(height ~ conc, data = my_data)\nsummary(my_data_lm)\nOr for ANOVA output:\nmy_data_lm &lt;- lm(height ~ conc, data = my_data)\nanova(my_data_lm)\nType II ANOVA:\nmy_data_lm &lt;- lm(height ~ conc, data = my_data)\ncar::Anova(my_data_lm, type = 2)\nType III ANOVA:\nmy_data_lm &lt;- lm(height ~ conc, data = my_data)\ncar::Anova(my_data_lm, type = 3)",
     "crumbs": [
+      "Reference",
       "Linear Model"
     ]
   },
@@ -580,6 +636,7 @@
     "section": "",
     "text": "Variable names in the formula must match column names in your dataset exactly\nThe available columns are shown as clickable chips above the formula input — use them as a reference\nIf you enable “Output to storr”, downstream nodes can use the fitted model object\nCheck \\(R^2\\) to assess model fit: values closer to 1 indicate a better fit",
     "crumbs": [
+      "Reference",
       "Linear Model"
     ]
   },
@@ -590,6 +647,7 @@
     "section": "",
     "text": "The Summary Statistics node runs R’s summary() function on your entire dataset, giving you a quick overview of all variables.\n\n\n\nApplies summary() to the connected dataframe\nFor numeric columns: shows min, 1st quartile (\\(Q_1\\)), median, mean (\\(\\bar{x}\\)), 3rd quartile (\\(Q_3\\)), and max\nFor categorical columns: shows frequency counts of each level\n\n\n\n\n\nConnect a data source — drag an edge from an Input CSV node\nClick Run — no additional configuration needed\n\nThis is the simplest node to use — just connect data and run it.\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\nThere are no user-configurable parameters beyond the upstream connection.\n\n\n\nA summary table showing descriptive statistics for each column. For example:\n\n\n\n\nheight\nweight\nspecies\n\n\n\n\nMin.\n2.10\n15.0\nsetosa: 50\n\n\n1st Qu.\n4.30\n28.0\nversicolor: 50\n\n\nMedian\n5.10\n34.0\nvirginica: 50\n\n\nMean\n5.84\n42.0\n\n\n\n3rd Qu.\n6.40\n56.0\n\n\n\nMax.\n7.90\n79.0\n\n\n\n\n\n\n\nsummary(my_data)\n\n\n\n\nThis is a great first step after loading data — it quickly reveals the range, central tendency, and distribution of your variables\nLook for unexpected NA values in the summary, which may indicate missing data\nFor more targeted statistics, use the Mean / SD node with a formula\nThe five-number summary (min, \\(Q_1\\), median, \\(Q_3\\), max) is the basis of a box plot",
     "crumbs": [
+      "Reference",
       "Summary Statistics"
     ]
   },
@@ -600,6 +658,7 @@
     "section": "",
     "text": "Applies summary() to the connected dataframe\nFor numeric columns: shows min, 1st quartile (\\(Q_1\\)), median, mean (\\(\\bar{x}\\)), 3rd quartile (\\(Q_3\\)), and max\nFor categorical columns: shows frequency counts of each level",
     "crumbs": [
+      "Reference",
       "Summary Statistics"
     ]
   },
@@ -610,6 +669,7 @@
     "section": "",
     "text": "Connect a data source — drag an edge from an Input CSV node\nClick Run — no additional configuration needed\n\nThis is the simplest node to use — just connect data and run it.",
     "crumbs": [
+      "Reference",
       "Summary Statistics"
     ]
   },
@@ -620,6 +680,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\nThere are no user-configurable parameters beyond the upstream connection.",
     "crumbs": [
+      "Reference",
       "Summary Statistics"
     ]
   },
@@ -630,6 +691,7 @@
     "section": "",
     "text": "A summary table showing descriptive statistics for each column. For example:\n\n\n\n\nheight\nweight\nspecies\n\n\n\n\nMin.\n2.10\n15.0\nsetosa: 50\n\n\n1st Qu.\n4.30\n28.0\nversicolor: 50\n\n\nMedian\n5.10\n34.0\nvirginica: 50\n\n\nMean\n5.84\n42.0\n\n\n\n3rd Qu.\n6.40\n56.0\n\n\n\nMax.\n7.90\n79.0",
     "crumbs": [
+      "Reference",
       "Summary Statistics"
     ]
   },
@@ -640,6 +702,7 @@
     "section": "",
     "text": "summary(my_data)",
     "crumbs": [
+      "Reference",
       "Summary Statistics"
     ]
   },
@@ -650,6 +713,7 @@
     "section": "",
     "text": "This is a great first step after loading data — it quickly reveals the range, central tendency, and distribution of your variables\nLook for unexpected NA values in the summary, which may indicate missing data\nFor more targeted statistics, use the Mean / SD node with a formula\nThe five-number summary (min, \\(Q_1\\), median, \\(Q_3\\), max) is the basis of a box plot",
     "crumbs": [
+      "Reference",
       "Summary Statistics"
     ]
   },
@@ -667,6 +731,7 @@
     "section": "",
     "text": "The Factor node converts a selected column in the connected dataframe into an R factor using as.factor(). It keeps the same dataframe flowing downstream and shows a summary() of the converted column so you can confirm the resulting levels immediately.\n\n\n\nAccepts a single input dataframe\nLets you choose one column from that dataframe\nConverts the selected column to a factor in place\nKeeps the updated dataframe available to downstream nodes\nShows the factor summary for the converted column in the Output tab with frequency per factor\n\n\n\n\n\nDrag a Factor node onto the canvas from the Other section.\nConnect a dataframe-producing node such as Input CSV to the Factor node.\nSelect the node and choose the column you want to convert in the panel.\nClick Run.\nReview the Output tab to confirm the factor summary, then continue connecting downstream analysis nodes.\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nColumn to convert\nYes\nThe dataframe column that will be converted with as.factor()\n\n\n\n\n\n\nAfter running, the Output tab shows the summary() result for the selected column after factor conversion. The node also outputs the same dataframe, now with the selected column stored as a factor, so downstream nodes operate on the updated data.\n\n\n\nmy_data$group &lt;- as.factor(my_data$group)\nsummary(my_data$group)\nIf the column name is not a valid $column identifier, the exported R code uses bracket notation so it still runs correctly.\n\n\n\n\nUse this before model or plotting nodes when a grouping variable should be treated as categorical rather than numeric or character.\nThe node updates the connected dataframe in place, so downstream nodes see the converted column immediately after a successful run.",
     "crumbs": [
+      "Reference",
       "Factor"
     ]
   },
@@ -677,6 +742,7 @@
     "section": "",
     "text": "Accepts a single input dataframe\nLets you choose one column from that dataframe\nConverts the selected column to a factor in place\nKeeps the updated dataframe available to downstream nodes\nShows the factor summary for the converted column in the Output tab with frequency per factor",
     "crumbs": [
+      "Reference",
       "Factor"
     ]
   },
@@ -687,6 +753,7 @@
     "section": "",
     "text": "Drag a Factor node onto the canvas from the Other section.\nConnect a dataframe-producing node such as Input CSV to the Factor node.\nSelect the node and choose the column you want to convert in the panel.\nClick Run.\nReview the Output tab to confirm the factor summary, then continue connecting downstream analysis nodes.",
     "crumbs": [
+      "Reference",
       "Factor"
     ]
   },
@@ -697,6 +764,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nColumn to convert\nYes\nThe dataframe column that will be converted with as.factor()",
     "crumbs": [
+      "Reference",
       "Factor"
     ]
   },
@@ -707,6 +775,7 @@
     "section": "",
     "text": "After running, the Output tab shows the summary() result for the selected column after factor conversion. The node also outputs the same dataframe, now with the selected column stored as a factor, so downstream nodes operate on the updated data.",
     "crumbs": [
+      "Reference",
       "Factor"
     ]
   },
@@ -717,6 +786,7 @@
     "section": "",
     "text": "my_data$group &lt;- as.factor(my_data$group)\nsummary(my_data$group)\nIf the column name is not a valid $column identifier, the exported R code uses bracket notation so it still runs correctly.",
     "crumbs": [
+      "Reference",
       "Factor"
     ]
   },
@@ -727,6 +797,7 @@
     "section": "",
     "text": "Use this before model or plotting nodes when a grouping variable should be treated as categorical rather than numeric or character.\nThe node updates the connected dataframe in place, so downstream nodes see the converted column immediately after a successful run.",
     "crumbs": [
+      "Reference",
       "Factor"
     ]
   },
@@ -737,6 +808,7 @@
     "section": "",
     "text": "The Output CSV node exports a dataframe from your workflow as a downloadable CSV file.\n\n\n\nTakes a dataframe from an upstream node\nWrites it to a CSV file on the server\nMakes the file available for download\n\n\n\n\n\nAdd the node — click “Output CSV” in the Toolbar, then click on the canvas\nConnect an upstream node — drag an edge from an Input CSV or other data-producing node to this node’s input handle (top)\nSet the filename — enter a name ending in .csv (e.g. results.csv)\nClick Run — the data is written to CSV\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data (e.g. Input CSV, Mean / SD)\n\n\nFilename\nYes\nOutput filename, must end with .csv\n\n\nComment\nNo\nAn annotation for the generated R code\n\n\n\n\n\n\nAfter running, the Output tab shows a success message with the number of rows written:\n\nSuccessfully wrote 150 rows to Downloads/results.csv\n\n\n\n\nwrite.csv(my_data, \"results.csv\", row.names = FALSE)\n\n\n\n\nThe filename must end with .csv and can only contain letters, numbers, spaces, underscores, hyphens, or dots\nMake sure the upstream node has been run first — this node needs data to export\nYou can have multiple Output CSV nodes in a workflow to export different datasets",
     "crumbs": [
+      "Reference",
       "Output CSV"
     ]
   },
@@ -747,6 +819,7 @@
     "section": "",
     "text": "Takes a dataframe from an upstream node\nWrites it to a CSV file on the server\nMakes the file available for download",
     "crumbs": [
+      "Reference",
       "Output CSV"
     ]
   },
@@ -757,6 +830,7 @@
     "section": "",
     "text": "Add the node — click “Output CSV” in the Toolbar, then click on the canvas\nConnect an upstream node — drag an edge from an Input CSV or other data-producing node to this node’s input handle (top)\nSet the filename — enter a name ending in .csv (e.g. results.csv)\nClick Run — the data is written to CSV",
     "crumbs": [
+      "Reference",
       "Output CSV"
     ]
   },
@@ -767,6 +841,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data (e.g. Input CSV, Mean / SD)\n\n\nFilename\nYes\nOutput filename, must end with .csv\n\n\nComment\nNo\nAn annotation for the generated R code",
     "crumbs": [
+      "Reference",
       "Output CSV"
     ]
   },
@@ -777,6 +852,7 @@
     "section": "",
     "text": "After running, the Output tab shows a success message with the number of rows written:\n\nSuccessfully wrote 150 rows to Downloads/results.csv",
     "crumbs": [
+      "Reference",
       "Output CSV"
     ]
   },
@@ -787,6 +863,7 @@
     "section": "",
     "text": "write.csv(my_data, \"results.csv\", row.names = FALSE)",
     "crumbs": [
+      "Reference",
       "Output CSV"
     ]
   },
@@ -797,6 +874,7 @@
     "section": "",
     "text": "The filename must end with .csv and can only contain letters, numbers, spaces, underscores, hyphens, or dots\nMake sure the upstream node has been run first — this node needs data to export\nYou can have multiple Output CSV nodes in a workflow to export different datasets",
     "crumbs": [
+      "Reference",
       "Output CSV"
     ]
   },
@@ -807,6 +885,7 @@
     "section": "",
     "text": "The Predict node generates predicted response values from a fitted linear model or GLM using the R predict() function. It can predict using the original training data, manually entered values, or a connected dataset of new observations.\n\n\n\nRetrieves a stored model from the upstream Linear Model or GLM node\nCalls R’s predict() to compute predicted response values\nUses type = \"response\" automatically for GLM (glmmTMB) inputs so predictions are in original response units\nSupports three prediction modes: training data, manual entry, or a connected dataset\nShows the model formula and predictor variable names\n\n\n\n\n\nFit a model — add a Linear Model or GLM node, enter a formula, and tick “Output to storr”\nConnect the model — drag an edge from the model node to the top model handle\nChoose prediction mode:\n\nTraining data — predict using the original data the model was fitted on\nManual values — type new predictor values in CSV format directly\n\n\n\nConnected dataset — drag an edge from a CSV input node to the top data handle\n\n\nClick Run — predicted values are computed on the server and displayed\n\n\n\n\nThis node has two input handles on the top edge:\n\n\n\n\n\n\n\n\nHandle\nPosition\nPurpose\n\n\n\n\nmodel\nTop (35%)\nConnect output from a Linear Model or GLM node\n\n\ndata\nTop (65%)\n(Optional) Connect a dataset of new predictor values\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nModel connection\nYes\nA Linear Model or GLM node with “Output to storr” enabled\n\n\nPredict using\nYes\n“Training data”, “Manual values”, or “Connected dataset”\n\n\nNew data (CSV)\nConditional\nCSV-format text when using manual mode\n\n\nData connection\nConditional\nA dataset node when using connected dataset mode\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nEnter values in CSV format with column names matching the model’s predictor variables on the first line:\nconc,temp\n1.5,20\n2.0,25\n3.0,30\nAfter the first run, the required predictor names are shown above the text area.\n\n\n\nDisplays a table with one row per observation:\n\nobservation — row number (1, 2, 3, …)\nfitted — the predicted response value \\(\\hat{y}_i\\)\n\nFor GLM inputs (glmmTMB), fitted values are returned on the response scale.\n\n\n\nTraining data:\npredict(my_data_lm)\nWith new data:\npredict(my_data_lm, newdata = new_data)\n\n\n\n\nThe upstream Linear Model or GLM node must have “Output to storr” enabled, otherwise the model is not saved and cannot be used for prediction.\nWhen using manual entry, run the node once first with “Training data” to see the predictor variable names.\nWhen connecting a dataset for new data, ensure it contains columns that match the model’s predictor variables.",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -817,6 +896,7 @@
     "section": "",
     "text": "Retrieves a stored model from the upstream Linear Model or GLM node\nCalls R’s predict() to compute predicted response values\nUses type = \"response\" automatically for GLM (glmmTMB) inputs so predictions are in original response units\nSupports three prediction modes: training data, manual entry, or a connected dataset\nShows the model formula and predictor variable names",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -827,6 +907,7 @@
     "section": "",
     "text": "Fit a model — add a Linear Model or GLM node, enter a formula, and tick “Output to storr”\nConnect the model — drag an edge from the model node to the top model handle\nChoose prediction mode:\n\nTraining data — predict using the original data the model was fitted on\nManual values — type new predictor values in CSV format directly\n\n\n\nConnected dataset — drag an edge from a CSV input node to the top data handle\n\n\nClick Run — predicted values are computed on the server and displayed",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -837,6 +918,7 @@
     "section": "",
     "text": "This node has two input handles on the top edge:\n\n\n\n\n\n\n\n\nHandle\nPosition\nPurpose\n\n\n\n\nmodel\nTop (35%)\nConnect output from a Linear Model or GLM node\n\n\ndata\nTop (65%)\n(Optional) Connect a dataset of new predictor values",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -847,6 +929,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nModel connection\nYes\nA Linear Model or GLM node with “Output to storr” enabled\n\n\nPredict using\nYes\n“Training data”, “Manual values”, or “Connected dataset”\n\n\nNew data (CSV)\nConditional\nCSV-format text when using manual mode\n\n\nData connection\nConditional\nA dataset node when using connected dataset mode\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -857,6 +940,7 @@
     "section": "",
     "text": "Enter values in CSV format with column names matching the model’s predictor variables on the first line:\nconc,temp\n1.5,20\n2.0,25\n3.0,30\nAfter the first run, the required predictor names are shown above the text area.",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -867,6 +951,7 @@
     "section": "",
     "text": "Displays a table with one row per observation:\n\nobservation — row number (1, 2, 3, …)\nfitted — the predicted response value \\(\\hat{y}_i\\)\n\nFor GLM inputs (glmmTMB), fitted values are returned on the response scale.",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -877,6 +962,7 @@
     "section": "",
     "text": "Training data:\npredict(my_data_lm)\nWith new data:\npredict(my_data_lm, newdata = new_data)",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -887,6 +973,7 @@
     "section": "",
     "text": "The upstream Linear Model or GLM node must have “Output to storr” enabled, otherwise the model is not saved and cannot be used for prediction.\nWhen using manual entry, run the node once first with “Training data” to see the predictor variable names.\nWhen connecting a dataset for new data, ensure it contains columns that match the model’s predictor variables.",
     "crumbs": [
+      "Reference",
       "Predict"
     ]
   },
@@ -897,6 +984,7 @@
     "section": "",
     "text": "The Histogram node creates histograms using ggplot2 to help you visualise the distribution of a single variable in your data.\n\n\n\nCreates a histogram from one column of your dataset\nOptionally fill bars by a grouping variable\nSupports custom axis labels and bin count\nThe plot can be downloaded as a PNG image\n\n\n\n\n\nConnect a data source — drag an edge from an Input CSV node\nSelect a variable — choose which column to plot\nOptionally configure — set a fill variable, number of bins, or custom axis labels\nClick Run — the histogram is generated and displayed\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nVariable\nYes\nThe column to plot on the x axis\n\n\nFill variable\nNo\nA grouping variable to fill bars by\n\n\nNumber of bins\nNo\nHow many bins to use (default: 30)\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to “Count”)\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nThe Output tab displays:\n\nThe histogram as an image\nA Zoom button to view the plot full-screen\nA Download plot button to save it as a PNG file (named histogram_{variable}.png)\n\n\n\n\nBasic histogram:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height)) +\n  geom_histogram() +\n  theme_classic()\nWith fill variable, custom bins and labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, fill = species)) +\n  geom_histogram(bins = 20, position = \"identity\", alpha = 0.5) +\n  theme_classic() +\n  labs(x = \"Height (cm)\", y = \"Frequency\")\n\n\n\n\nChoose a numeric column to get a meaningful histogram\nThe fill variable is useful for comparing distributions across groups\nWhen using a fill variable, bars are overlaid with transparency so you can see both distributions\nIf the default 30 bins produces a noisy or overly smooth plot, try adjusting the bin count\nYou can download the plot for use in reports or presentations",
     "crumbs": [
+      "Reference",
       "Histogram"
     ]
   },
@@ -907,6 +995,7 @@
     "section": "",
     "text": "Creates a histogram from one column of your dataset\nOptionally fill bars by a grouping variable\nSupports custom axis labels and bin count\nThe plot can be downloaded as a PNG image",
     "crumbs": [
+      "Reference",
       "Histogram"
     ]
   },
@@ -917,6 +1006,7 @@
     "section": "",
     "text": "Connect a data source — drag an edge from an Input CSV node\nSelect a variable — choose which column to plot\nOptionally configure — set a fill variable, number of bins, or custom axis labels\nClick Run — the histogram is generated and displayed",
     "crumbs": [
+      "Reference",
       "Histogram"
     ]
   },
@@ -927,6 +1017,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nVariable\nYes\nThe column to plot on the x axis\n\n\nFill variable\nNo\nA grouping variable to fill bars by\n\n\nNumber of bins\nNo\nHow many bins to use (default: 30)\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to “Count”)\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Histogram"
     ]
   },
@@ -937,6 +1028,7 @@
     "section": "",
     "text": "The Output tab displays:\n\nThe histogram as an image\nA Zoom button to view the plot full-screen\nA Download plot button to save it as a PNG file (named histogram_{variable}.png)",
     "crumbs": [
+      "Reference",
       "Histogram"
     ]
   },
@@ -947,6 +1039,7 @@
     "section": "",
     "text": "Basic histogram:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height)) +\n  geom_histogram() +\n  theme_classic()\nWith fill variable, custom bins and labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, fill = species)) +\n  geom_histogram(bins = 20, position = \"identity\", alpha = 0.5) +\n  theme_classic() +\n  labs(x = \"Height (cm)\", y = \"Frequency\")",
     "crumbs": [
+      "Reference",
       "Histogram"
     ]
   },
@@ -957,6 +1050,7 @@
     "section": "",
     "text": "Choose a numeric column to get a meaningful histogram\nThe fill variable is useful for comparing distributions across groups\nWhen using a fill variable, bars are overlaid with transparency so you can see both distributions\nIf the default 30 bins produces a noisy or overly smooth plot, try adjusting the bin count\nYou can download the plot for use in reports or presentations",
     "crumbs": [
+      "Reference",
       "Histogram"
     ]
   },
@@ -967,6 +1061,7 @@
     "section": "",
     "text": "The Diagnostics node runs simulation-based residual checks for a fitted linear or generalised linear model using the R DHARMa package. It produces a diagnostics plot that helps assess model fit and common assumption issues.\n\n\n\nRetrieves a stored model from an upstream Linear Model or GLM node\nRuns simulateResiduals() from DHARMa\nRenders the standard DHARMa diagnostics plot\nDisplays the generated plot in the Output tab with zoom and download controls\n\n\n\n\n\nFit a model - add a Linear Model or GLM node, enter a formula, and tick “Output to storr”\nConnect the model - drag an edge from the model node to the Diagnostics node\nClick Run - DHARMa residual simulation is run on the server and the diagnostics plot is returned\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nModel connection\nYes\nA Linear Model or GLM node with “Output to storr” enabled\n\n\nPlot type\nYes\nChoose between combined QQ+Residuals, QQ only, or Residuals only\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nDisplays the DHARMa diagnostics plot image for the connected model.\nThe plot can be:\n\nZoomed for closer inspection in a modal view\nDownloaded as a PNG file for reports or sharing\n\n\n\n\nlibrary(DHARMa)\nmodel_lm_dharma &lt;- simulateResiduals(model_lm)\nplot(model_lm_dharma)\nAlternative plot calls:\nplotQQunif(model_lm_dharma)\nplotResiduals(model_lm_dharma)\n\n\n\n\nIf the node errors with a package message, install DHARMa on the backend R environment.\nThis node expects an lm or glmmTMB object from a model node, not a dataframe.\nRe-run diagnostics whenever you change the upstream model formula or dataset.",
     "crumbs": [
+      "Reference",
       "Diagnostics"
     ]
   },
@@ -977,6 +1072,7 @@
     "section": "",
     "text": "Retrieves a stored model from an upstream Linear Model or GLM node\nRuns simulateResiduals() from DHARMa\nRenders the standard DHARMa diagnostics plot\nDisplays the generated plot in the Output tab with zoom and download controls",
     "crumbs": [
+      "Reference",
       "Diagnostics"
     ]
   },
@@ -987,6 +1083,7 @@
     "section": "",
     "text": "Fit a model - add a Linear Model or GLM node, enter a formula, and tick “Output to storr”\nConnect the model - drag an edge from the model node to the Diagnostics node\nClick Run - DHARMa residual simulation is run on the server and the diagnostics plot is returned",
     "crumbs": [
+      "Reference",
       "Diagnostics"
     ]
   },
@@ -997,6 +1094,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nModel connection\nYes\nA Linear Model or GLM node with “Output to storr” enabled\n\n\nPlot type\nYes\nChoose between combined QQ+Residuals, QQ only, or Residuals only\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Diagnostics"
     ]
   },
@@ -1007,6 +1105,7 @@
     "section": "",
     "text": "Displays the DHARMa diagnostics plot image for the connected model.\nThe plot can be:\n\nZoomed for closer inspection in a modal view\nDownloaded as a PNG file for reports or sharing",
     "crumbs": [
+      "Reference",
       "Diagnostics"
     ]
   },
@@ -1017,6 +1116,7 @@
     "section": "",
     "text": "library(DHARMa)\nmodel_lm_dharma &lt;- simulateResiduals(model_lm)\nplot(model_lm_dharma)\nAlternative plot calls:\nplotQQunif(model_lm_dharma)\nplotResiduals(model_lm_dharma)",
     "crumbs": [
+      "Reference",
       "Diagnostics"
     ]
   },
@@ -1027,6 +1127,7 @@
     "section": "",
     "text": "If the node errors with a package message, install DHARMa on the backend R environment.\nThis node expects an lm or glmmTMB object from a model node, not a dataframe.\nRe-run diagnostics whenever you change the upstream model formula or dataset.",
     "crumbs": [
+      "Reference",
       "Diagnostics"
     ]
   },
@@ -1037,6 +1138,7 @@
     "section": "",
     "text": "The Mean / SD node calculates descriptive statistics — mean, standard deviation, variance, count, and standard error — grouped by one or more explanatory variables.\n\n\n\nComputes grouped summary statistics using R’s aggregate() function\nCalculates: mean (\\(\\bar{x}\\)), standard deviation (\\(s\\)), variance (\\(s^2\\)), count (\\(n\\)), and standard error (\\(SE = \\frac{s}{\\sqrt{n}}\\))\nOptionally stores the result as a new dataframe for downstream use\n\n\n\n\n\nConnect a data source — drag an edge from an Input CSV node\nEnter a formula — use the format response ~ explanatory (e.g. weight ~ diet)\nOptionally name the output — provide a dataframe name to store results\nClick Run\n\n\n\n\n\n\n\nFormula\nMeaning\n\n\n\n\nweight ~ diet\nMean/SD of weight grouped by diet\n\n\nweight ~ diet + time\nGrouped by both diet and time\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nFormula\nYes\nresponse ~ explanatory format\n\n\nOutput dataframe name\nNo\nStore results under this name for downstream use\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nA table showing the computed statistics for each group:\n\n\n\nGroup\nmean\nsd\nvar\nn\nse\n\n\n\n\nA\n5.03\n1.21\n1.46\n10\n0.38\n\n\nB\n7.89\n0.95\n0.90\n10\n0.30\n\n\n\n\n\n\naggregate(\n  formula = weight ~ diet,\n  data = chick_data,\n  FUN = function(x) c(\n    mean = mean(x),\n    sd = sd(x),\n    var = var(x),\n    n = length(x),\n    se = sd(x) / sqrt(length(x))\n  )\n)\nIf you provide an output dataframe name, the result is assigned:\ndiet_summary &lt;- aggregate(...)\n\n\n\n\nThe formula variables shown as “Uses: weight, diet” below the input help you verify that column names are correct\nProviding an output dataframe name lets you chain this node’s results into downstream nodes like Output CSV\nThe standard error \\(SE = \\frac{s}{\\sqrt{n}}\\) is useful for constructing confidence intervals: \\(\\bar{x} \\pm t_{\\alpha/2} \\times SE\\)",
     "crumbs": [
+      "Reference",
       "Mean / SD"
     ]
   },
@@ -1047,6 +1149,7 @@
     "section": "",
     "text": "Computes grouped summary statistics using R’s aggregate() function\nCalculates: mean (\\(\\bar{x}\\)), standard deviation (\\(s\\)), variance (\\(s^2\\)), count (\\(n\\)), and standard error (\\(SE = \\frac{s}{\\sqrt{n}}\\))\nOptionally stores the result as a new dataframe for downstream use",
     "crumbs": [
+      "Reference",
       "Mean / SD"
     ]
   },
@@ -1057,6 +1160,7 @@
     "section": "",
     "text": "Connect a data source — drag an edge from an Input CSV node\nEnter a formula — use the format response ~ explanatory (e.g. weight ~ diet)\nOptionally name the output — provide a dataframe name to store results\nClick Run",
     "crumbs": [
+      "Reference",
       "Mean / SD"
     ]
   },
@@ -1067,6 +1171,7 @@
     "section": "",
     "text": "Formula\nMeaning\n\n\n\n\nweight ~ diet\nMean/SD of weight grouped by diet\n\n\nweight ~ diet + time\nGrouped by both diet and time",
     "crumbs": [
+      "Reference",
       "Mean / SD"
     ]
   },
@@ -1077,6 +1182,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nFormula\nYes\nresponse ~ explanatory format\n\n\nOutput dataframe name\nNo\nStore results under this name for downstream use\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Mean / SD"
     ]
   },
@@ -1087,6 +1193,7 @@
     "section": "",
     "text": "A table showing the computed statistics for each group:\n\n\n\nGroup\nmean\nsd\nvar\nn\nse\n\n\n\n\nA\n5.03\n1.21\n1.46\n10\n0.38\n\n\nB\n7.89\n0.95\n0.90\n10\n0.30",
     "crumbs": [
+      "Reference",
       "Mean / SD"
     ]
   },
@@ -1097,6 +1204,7 @@
     "section": "",
     "text": "aggregate(\n  formula = weight ~ diet,\n  data = chick_data,\n  FUN = function(x) c(\n    mean = mean(x),\n    sd = sd(x),\n    var = var(x),\n    n = length(x),\n    se = sd(x) / sqrt(length(x))\n  )\n)\nIf you provide an output dataframe name, the result is assigned:\ndiet_summary &lt;- aggregate(...)",
     "crumbs": [
+      "Reference",
       "Mean / SD"
     ]
   },
@@ -1107,6 +1215,7 @@
     "section": "",
     "text": "The formula variables shown as “Uses: weight, diet” below the input help you verify that column names are correct\nProviding an output dataframe name lets you chain this node’s results into downstream nodes like Output CSV\nThe standard error \\(SE = \\frac{s}{\\sqrt{n}}\\) is useful for constructing confidence intervals: \\(\\bar{x} \\pm t_{\\alpha/2} \\times SE\\)",
     "crumbs": [
+      "Reference",
       "Mean / SD"
     ]
   },
@@ -1117,6 +1226,7 @@
     "section": "",
     "text": "The Scatterplot node creates scatter plots using ggplot2 to help you visualise relationships between two variables in your data.\n\n\n\nCreates a scatter plot from two columns of your dataset\nOptionally colour points by a grouping variable\nSupports custom axis labels\nThe plot can be downloaded as a PNG image\n\n\n\n\n\nConnect a data source — drag an edge from an Input CSV node\nSelect X and Y columns — choose which variables to plot on each axis\nOptionally configure — set a colour variable or custom axis labels\nClick Run — the plot is generated and displayed\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nX Column\nYes\nVariable for the horizontal axis\n\n\nY Column\nYes\nVariable for the vertical axis\n\n\nFitted line\nNo\nNone, linear regression (lm), LOESS smoothing (loess), or generalized linear model (glm)\n\n\nGLM Family\nConditional\nWhen Fitted line is ‘glm’, choose Poisson, Binomial, or Gaussian\n\n\nColour variable\nNo\nA grouping variable to colour points by\n\n\nShow confidence interval\nNo\nDisplay confidence bands around fitted line (default: checked)\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to column name)\n\n\nConnect points\nNo\nDraw a line connecting sequential points\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nThe Output tab displays:\n\nThe scatter plot as an image\nA Download plot button to save it as a PNG file (named scatterplot_{x}_vs_{y}.png)\n\n\n\n\nBasic scatter plot:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, y = weight)) +\n  geom_point() +\n  theme_classic()\nWith linear fitted line:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, y = weight)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = TRUE) +\n  theme_classic()\nWith GLM fitted line (Poisson family):\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, y = count)) +\n  geom_point() +\n  geom_smooth(method = \"glm\", method.args = list(family = poisson()), se = TRUE) +\n  theme_classic()\nWith colour grouping and custom labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, y = weight, colour = species)) +\n  geom_point() +\n  theme_classic() +\n  labs(x = \"Height (cm)\", y = \"Weight (kg)\")\n\n\n\n\nChoose numeric columns for X and Y to get a meaningful scatter plot\nThe colour variable is useful for categorical grouping — it assigns a different colour to each level\nIf axis labels are left empty, the column name is used automatically\nYou can download the plot for use in reports or presentations\nFitted line options:\n\nlm: linear regression; best for continuous response data\nloess: locally weighted smoothing; good for exploring non-linear trends without assuming a model form\nglm: generalized linear model; ideal for count data (Poisson) or binary responses (Binomial)",
     "crumbs": [
+      "Reference",
       "Scatterplot"
     ]
   },
@@ -1127,6 +1237,7 @@
     "section": "",
     "text": "Creates a scatter plot from two columns of your dataset\nOptionally colour points by a grouping variable\nSupports custom axis labels\nThe plot can be downloaded as a PNG image",
     "crumbs": [
+      "Reference",
       "Scatterplot"
     ]
   },
@@ -1137,6 +1248,7 @@
     "section": "",
     "text": "Connect a data source — drag an edge from an Input CSV node\nSelect X and Y columns — choose which variables to plot on each axis\nOptionally configure — set a colour variable or custom axis labels\nClick Run — the plot is generated and displayed",
     "crumbs": [
+      "Reference",
       "Scatterplot"
     ]
   },
@@ -1147,6 +1259,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nUpstream connection\nYes\nA node providing data\n\n\nX Column\nYes\nVariable for the horizontal axis\n\n\nY Column\nYes\nVariable for the vertical axis\n\n\nFitted line\nNo\nNone, linear regression (lm), LOESS smoothing (loess), or generalized linear model (glm)\n\n\nGLM Family\nConditional\nWhen Fitted line is ‘glm’, choose Poisson, Binomial, or Gaussian\n\n\nColour variable\nNo\nA grouping variable to colour points by\n\n\nShow confidence interval\nNo\nDisplay confidence bands around fitted line (default: checked)\n\n\nX axis label\nNo\nCustom label (defaults to column name)\n\n\nY axis label\nNo\nCustom label (defaults to column name)\n\n\nConnect points\nNo\nDraw a line connecting sequential points\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Scatterplot"
     ]
   },
@@ -1157,6 +1270,7 @@
     "section": "",
     "text": "The Output tab displays:\n\nThe scatter plot as an image\nA Download plot button to save it as a PNG file (named scatterplot_{x}_vs_{y}.png)",
     "crumbs": [
+      "Reference",
       "Scatterplot"
     ]
   },
@@ -1167,6 +1281,7 @@
     "section": "",
     "text": "Basic scatter plot:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, y = weight)) +\n  geom_point() +\n  theme_classic()\nWith linear fitted line:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, y = weight)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = TRUE) +\n  theme_classic()\nWith GLM fitted line (Poisson family):\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, y = count)) +\n  geom_point() +\n  geom_smooth(method = \"glm\", method.args = list(family = poisson()), se = TRUE) +\n  theme_classic()\nWith colour grouping and custom labels:\nlibrary(ggplot2)\nggplot(data = my_data, aes(x = height, y = weight, colour = species)) +\n  geom_point() +\n  theme_classic() +\n  labs(x = \"Height (cm)\", y = \"Weight (kg)\")",
     "crumbs": [
+      "Reference",
       "Scatterplot"
     ]
   },
@@ -1177,6 +1292,7 @@
     "section": "",
     "text": "Choose numeric columns for X and Y to get a meaningful scatter plot\nThe colour variable is useful for categorical grouping — it assigns a different colour to each level\nIf axis labels are left empty, the column name is used automatically\nYou can download the plot for use in reports or presentations\nFitted line options:\n\nlm: linear regression; best for continuous response data\nloess: locally weighted smoothing; good for exploring non-linear trends without assuming a model form\nglm: generalized linear model; ideal for count data (Poisson) or binary responses (Binomial)",
     "crumbs": [
+      "Reference",
       "Scatterplot"
     ]
   },
@@ -1197,6 +1313,7 @@
     "section": "",
     "text": "The Residuals node extracts residuals from a fitted linear model using the R residuals() function. Residuals are the differences between the observed response values and the values predicted by the model, \\(e_i = y_i - \\hat{y}_i\\).\n\n\n\nRetrieves a stored linear model from the upstream Linear Model node\nCalls R’s residuals() to extract the residual values\nReturns a one-column data frame with a residuals column\nStores the result in storr so downstream nodes (e.g. Histogram, Output CSV) can use it\n\n\n\n\n\nFit a linear model — add a Linear Model node, enter a formula, and tick “Output to storr”\nConnect the model — drag an edge from the Linear Model node to the Residuals node input handle\nClick Run — residuals are extracted on the server and displayed as a table\n\n\n\n\n\n\n\n\n\n\n\n\nSetting\nRequired\nDescription\n\n\n\n\nModel connection\nYes\nA Linear Model node with “Output to storr” enabled\n\n\nComment\nNo\nAnnotation for generated R code\n\n\n\n\n\n\nDisplays a table with one column:\n\nresiduals — the residual value \\(e_i = y_i - \\hat{y}_i\\) for each observation\n\nThe output is also stored in storr (as &lt;model_name&gt;_residuals) so it can be passed to downstream nodes such as a Histogram for checking normality.\n\n\n\ndata.frame(residuals = residuals(my_data_lm))\n\n\n\n\nThe upstream Linear Model node must have “Output to storr” enabled, otherwise the model is not saved and cannot be used.\nConnect the residuals output to a Histogram or Density node to check if residuals are approximately normally distributed — a key assumption of linear regression.\nConnect to an Output CSV node to download the residuals for further analysis.",
     "crumbs": [
+      "Reference",
       "Residuals"
     ]
   },
@@ -1207,6 +1324,7 @@
     "section": "",
     "text": "Retrieves a stored linear model from the upstream Linear Model node\nCalls R’s residuals() to extract the residual values\nReturns a one-column data frame with a residuals column\nStores the result in storr so downstream nodes (e.g. Histogram, Output CSV) can use it",
     "crumbs": [
+      "Reference",
       "Residuals"
     ]
   },
@@ -1217,6 +1335,7 @@
     "section": "",
     "text": "Fit a linear model — add a Linear Model node, enter a formula, and tick “Output to storr”\nConnect the model — drag an edge from the Linear Model node to the Residuals node input handle\nClick Run — residuals are extracted on the server and displayed as a table",
     "crumbs": [
+      "Reference",
       "Residuals"
     ]
   },
@@ -1227,6 +1346,7 @@
     "section": "",
     "text": "Setting\nRequired\nDescription\n\n\n\n\nModel connection\nYes\nA Linear Model node with “Output to storr” enabled\n\n\nComment\nNo\nAnnotation for generated R code",
     "crumbs": [
+      "Reference",
       "Residuals"
     ]
   },
@@ -1237,6 +1357,7 @@
     "section": "",
     "text": "Displays a table with one column:\n\nresiduals — the residual value \\(e_i = y_i - \\hat{y}_i\\) for each observation\n\nThe output is also stored in storr (as &lt;model_name&gt;_residuals) so it can be passed to downstream nodes such as a Histogram for checking normality.",
     "crumbs": [
+      "Reference",
       "Residuals"
     ]
   },
@@ -1247,6 +1368,7 @@
     "section": "",
     "text": "data.frame(residuals = residuals(my_data_lm))",
     "crumbs": [
+      "Reference",
       "Residuals"
     ]
   },
@@ -1257,6 +1379,7 @@
     "section": "",
     "text": "The upstream Linear Model node must have “Output to storr” enabled, otherwise the model is not saved and cannot be used.\nConnect the residuals output to a Histogram or Density node to check if residuals are approximately normally distributed — a key assumption of linear regression.\nConnect to an Output CSV node to download the residuals for further analysis.",
     "crumbs": [
+      "Reference",
       "Residuals"
     ]
   },

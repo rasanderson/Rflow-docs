@@ -1,5 +1,12 @@
 /* css styles */
 
+/* ── Full-width home/about pages: override Quarto's narrow body-content grid column ── */
+.page-layout-full main.content,
+main.content.rflow-full-width {
+	grid-column: page-start / page-end !important;
+	max-width: none !important;
+}
+
 .navbar .navbar-nav.navbar-nav-scroll.ms-auto {
 	align-items: center;
 	gap: 0.5rem;

@@ -1,5 +1,7 @@
 ---
 title: "Rflow: no-code data science for everyone"
+page-layout: full
+toc: false
 ---
 
 This is a Quarto website.

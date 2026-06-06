@@ -3,7 +3,10 @@ project:
 
 website:
   title: "Rflow"
+  favicon: favicon.svg
   navbar:
+    logo: favicon.svg
+    logo-alt: "Rflow logo"
     collapse-below: lg
     left:
       - text: "Overview"

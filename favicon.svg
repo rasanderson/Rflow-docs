@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 64 64"
+   version="1.1"
+   id="svg72"
+   sodipodi:docname="favicon.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs76">
+    <linearGradient
+       gradientTransform="matrix(0.0460931,0,0,0.0470336,-3.4154808,16.192348)"
+       spreadMethod="pad"
+       gradientUnits="userSpaceOnUse"
+       y2="553.44202"
+       y1="151.401"
+       x2="703.06799"
+       x1="301.026"
+       id="b">
+      <stop
+         stop-color="#276DC3"
+         offset="0"
+         id="stop235" />
+      <stop
+         stop-color="#165CAA"
+         offset="1"
+         id="stop237" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="namedview74"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="3.6875"
+     inkscape:cx="-17.220339"
+     inkscape:cy="32.677966"
+     inkscape:window-width="1440"
+     inkscape:window-height="831"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg72" />
+  <!-- Top rounded rectangle -->
+  <rect
+     x="38"
+     y="4"
+     width="20"
+     height="12"
+     rx="6"
+     ry="6"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     id="rect56" />
+  <!-- Line to diamond -->
+  <line
+     x1="48"
+     y1="16"
+     x2="48"
+     y2="22"
+     stroke="#000000"
+     stroke-width="2"
+     id="line58" />
+  <!-- Diamond -->
+  <polygon
+     points="40,22 50,32 40,42 30,32 "
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     id="polygon60"
+     transform="translate(8)" />
+  <!-- Line to bottom rounded rectangle -->
+  <line
+     x1="48"
+     y1="42"
+     x2="48"
+     y2="48"
+     stroke="#000000"
+     stroke-width="2"
+     id="line62" />
+  <!-- Bottom rounded rectangle -->
+  <rect
+     x="38"
+     y="48"
+     width="20"
+     height="12"
+     rx="6"
+     ry="6"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     id="rect64" />
+  <!-- Blue R circle -->
+  <circle
+     cx="20.599998"
+     cy="33.499977"
+     fill="#3a8dff"
+     id="circle66"
+     style="stroke-width:1.12502;fill:none"
+     r="13.5" />
+  <!-- R text -->
+  <!-- Connecting line from circle to diamond -->
+  <line
+     x1="32.900002"
+     y1="32"
+     x2="39.900002"
+     y2="32"
+     stroke="#000000"
+     stroke-width="1.67332"
+     id="line70" />
+  <circle
+     style="fill:none;stroke-width:1.856;stroke:#000000;stroke-dasharray:none"
+     id="path302"
+     cx="19.255297"
+     cy="33.004238"
+     r="14.470339" />
+  <path
+     fill-rule="evenodd"
+     fill="url(#b)"
+     d="m 22.193077,33.745846 c 0,0 1.016058,0.306603 1.606357,0.605292 0.204827,0.10364 0.559197,0.310466 0.814818,0.582014 0.250407,0.265954 0.372492,0.535455 0.372492,0.535455 l 4.004247,6.751336 -6.471982,0.0031 -3.026469,-5.683337 c 0,0 -0.619725,-1.064803 -1.001063,-1.373553 -0.3181,-0.257524 -0.453735,-0.349205 -0.768256,-0.349205 H 16.1855 l 0.0015,7.401996 -5.727,0.0028 v -18.90841 h 11.500292 c 0,0 5.238118,0.09446 5.238118,5.078039 6.1e-5,4.983502 -5.005243,5.354447 -5.005243,5.354447 z m -2.491008,-6.331185 -3.467072,-0.0024 -0.0023,3.215035 3.468792,-0.0017 c 0,0 1.60636,-0.005 1.60636,-1.635457 0,-1.663257 -1.60636,-1.576233 -1.60636,-1.576233 z"
+     id="path244"
+     style="fill:url(#b);stroke-width:0.0465596" />
+</svg>

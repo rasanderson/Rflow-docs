@@ -8,14 +8,8 @@ website:
     left:
       - text: "Overview"
         href: index.qmd
-      - text: "Tutorials"
-        href: tutorials/index.qmd
-      - text: "How-To"
-        href: howto/index.qmd
-      - text: "Fundamentals"
-        href: fundamentals/index.qmd
-      - text: "Reference"
-        href: reference/index.qmd
+      - text: "Docs"
+        href: docs/index.qmd
       - text: "About"
         href: about.qmd
     right:
@@ -70,7 +64,9 @@ format:
       - cosmo
       - brand
     css: styles.css
-    include-after-body: navbar-search-order.html
+    include-after-body:
+      - navbar-search-order.html
+      - docs-subnav.html
     toc: true
 
 

@@ -1,0 +1,43 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var path = window.location.pathname;
+  var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
+  if (!isDocsPage) return;
+
+  var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
+  if (!navbarCollapse) return;
+
+  // Hide the standard left nav (Overview, Docs, About)
+  var leftNav = navbarCollapse.querySelector(".navbar-nav.navbar-nav-scroll.me-auto");
+  if (leftNav) leftNav.style.display = "none";
+
+  // Hide the right nav buttons (Login, Start for Free)
+  var rightNav = navbarCollapse.querySelector(".navbar-nav.navbar-nav-scroll.ms-auto");
+  if (rightNav) rightNav.style.display = "none";
+
+  // Build the docs section nav and insert at the start of the collapse
+  var docsNav = document.createElement("ul");
+  docsNav.className = "navbar-nav navbar-nav-scroll me-auto";
+  docsNav.id = "docs-section-nav";
+
+  var sections = [
+    { text: "How-To",       key: "howto" },
+    { text: "Fundamentals", key: "fundamentals" },
+    { text: "Reference",    key: "reference" }
+  ];
+
+  sections.forEach(function (s) {
+    var li = document.createElement("li");
+    li.className = "nav-item";
+    var a = document.createElement("a");
+    a.className = "nav-link";
+    a.href = "../" + s.key + "/index.html";
+    if (path.indexOf("/" + s.key + "/") !== -1) a.classList.add("active");
+    a.innerHTML = "<span class='menu-text'>" + s.text + "</span>";
+    li.appendChild(a);
+    docsNav.appendChild(li);
+  });
+
+  navbarCollapse.insertBefore(docsNav, navbarCollapse.firstChild);
+});
+</script>

@@ -1,0 +1,10 @@
+---
+title: "Documentation"
+---
+
+Welcome to the Rflow documentation. Use the navigation bar above to explore each section.
+
+- [Tutorials](../tutorials/index.qmd) — step-by-step guides for learning Rflow
+- [How-To](../howto/index.qmd) — practical recipes for common tasks
+- [Fundamentals](../fundamentals/index.qmd) — core concepts and background theory
+- [Reference](../reference/index.qmd) — full reference for every Rflow function and option

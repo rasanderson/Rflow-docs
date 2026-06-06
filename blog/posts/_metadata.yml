@@ -1,0 +1,4 @@
+# Options apply to all posts in this folder
+
+# Freeze computational output so old posts always render correctly
+freeze: true

@@ -3,13 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var path = window.location.pathname;
   var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
 
-  // Force full-width layout on non-docs pages (index, about) regardless of
-  // how Quarto rendered the page-layout class.
-  if (!isDocsPage) {
-    var main = document.querySelector("main.content");
-    if (main) main.classList.add("rflow-full-width");
-    return;
-  }
+  if (!isDocsPage) return;
 
   var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
   if (!navbarCollapse) return;
@@ -28,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   docsNav.id = "docs-section-nav";
 
   var sections = [
+    { text: "Tutorials",    key: "tutorials" },
     { text: "How-To",       key: "howto" },
     { text: "Fundamentals", key: "fundamentals" },
     { text: "Reference",    key: "reference" }

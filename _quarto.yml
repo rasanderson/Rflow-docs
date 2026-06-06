@@ -10,6 +10,8 @@ website:
         href: index.qmd
       - text: "Docs"
         href: docs/index.qmd
+      - text: "Blog"
+        href: blog/index.qmd
       - text: "About"
         href: about.qmd
     right:
@@ -67,7 +69,8 @@ format:
     include-after-body:
       - navbar-search-order.html
       - docs-subnav.html
-    toc: true
+    page-layout: full
+    toc: false
 
 
 

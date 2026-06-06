@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Rflow documentation"
+  title: "Rflow"
   navbar:
     collapse-below: lg
     left:
@@ -18,6 +18,11 @@ website:
         href: reference/index.qmd
       - text: "About"
         href: about.qmd
+    right:
+      - text: "Login"
+        href: https://rflow.co.uk/login
+      - text: "Start for Free"
+        href: https://rflow.co.uk/signup
 
   sidebar:
     - id: tutorials
@@ -65,6 +70,7 @@ format:
       - cosmo
       - brand
     css: styles.css
+    include-after-body: navbar-search-order.html
     toc: true
 
 

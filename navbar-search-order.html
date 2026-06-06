@@ -1,0 +1,18 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth < 992) {
+    return;
+  }
+
+  var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
+  var search = document.querySelector(".navbar #quarto-search");
+  var rightNav = document.querySelector(".navbar .navbar-nav.navbar-nav-scroll.ms-auto");
+
+  if (!navbarCollapse || !search || !rightNav || rightNav.dataset.searchMoved === "true") {
+    return;
+  }
+
+  navbarCollapse.insertBefore(search, rightNav);
+  rightNav.dataset.searchMoved = "true";
+});
+</script>

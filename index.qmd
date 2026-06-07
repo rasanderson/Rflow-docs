@@ -1,7 +1,41 @@
----
-title: "Rflow: no-code data science for everyone"
----
+# Welcome to Rflow^&ZeroWidthSpace;[®]{.trademark}^ {.mt-1}
 
-This is a Quarto website.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+::: {.columns}
+
+::: {.column width="66%"}
+### An open-source scientific and technical publishing system
+
+- Author using [Jupyter](https://jupyter.org) notebooks or with plain text markdown in your favorite editor.
+- Create dynamic content with [Python](/docs/computations/python.qmd), [R](/docs/computations/r.qmd), [Julia](/docs/computations/julia.qmd), and [Observable](/docs/computations/ojs.qmd).
+- Publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
+- Share knowledge and insights organization-wide by publishing to [Posit Connect](/docs/publishing/rstudio-connect.qmd), [Confluence](/docs/publishing/confluence.qmd), or other publishing systems. 
+- Write using [Pandoc](https://pandoc.org) markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
+
+
+### Analyze. Share. Reproduce. You have a story to tell with data---tell it with Quarto.
+
+
+::: {.d-flex .flex-wrap .gap-4 .pb-3 .pt-4}
+[Start for Free](https://rflow.co.uk/signup){#btn-start .btn-action-primary .btn-action .btn .btn-lg .rounded-pill role="button"}
+[Guide](/docs/index.qmd){#btn-guide .btn-action .btn-secondary .btn .btn-lg .rounded-pill role="button"}
+:::
+
+
+
+:::
+
+::: {.column width="33%"}
+
+::: {style="display:flex; justify-content:center; align-items:center; height:100%;"}
+
+{{< placeholder 200 400>}}
+
+:::
+
+:::
+
+:::
+
+

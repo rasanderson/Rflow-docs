@@ -5,16 +5,15 @@
 ::: {.columns}
 
 ::: {.column width="55%"}
-### An open-source scientific and technical publishing system
+### Web-based data science with R for beginners
 
-- Author using [Jupyter](https://jupyter.org) notebooks or with plain text markdown in your favorite editor.
-- Create dynamic content with [Python](/docs/computations/python.qmd), [R](/docs/computations/r.qmd), [Julia](/docs/computations/julia.qmd), and [Observable](/docs/computations/ojs.qmd).
-- Publish reproducible, production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more.
-- Share knowledge and insights organization-wide by publishing to [Posit Connect](/docs/publishing/rstudio-connect.qmd), [Confluence](/docs/publishing/confluence.qmd), or other publishing systems. 
-- Write using [Pandoc](https://pandoc.org) markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
+- Drag and drop intuitive flowchart interface to build your data science pipeline.
+- Share your workflows with other Rflow users through the Rflow project dashboard.
+- Export your Rflow workflow to a reproducible R script for further analysis and customisation.
+- Uses popular leading R packages for data science including [ggplot2](https://ggplot2.tidyverse.org), [glmmTMB](https://cran.r-project.org/web/packages/glmmTMB/index.html), [DHARMa](https://cran.r-project.org/web/packages/DHARMa/index.html) and [car](https://cran.r-project.org/web/packages/car/index.html).
+- Extensive tutorials and training materials to help you get started with Rflow and R programming.
 
-
-### Analyze. Share. Reproduce. You have a story to tell with data---tell it with Quarto.
+### Visualise. Analyse. Interpret. Reproducible data science in R with flowcharts.
 
 
 ::: {.d-flex .flex-wrap .gap-4 .pb-3 .pt-4}

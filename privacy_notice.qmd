@@ -1,0 +1,202 @@
+---
+title: "Privacy Notice"
+---
+
+# RFLOW -- PRIVACY NOTICE
+
+## RS Data Science Limited
+
+## Last updated: June 2026
+
+This Privacy Notice explains how RS Data Science Limited ("We", "Us", "Our", "RSDSL") collects, uses, stores, and protects personal data when You use the Rflow website and Service at rflow.co.uk. It is issued in accordance with the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+
+Please read this Notice carefully alongside our Terms and Conditions (rflow.co.uk/terms).
+
+|                             |
+|:----------------------------|
+| 1\. WHO WE ARE AND OUR ROLE |
+
+1.1 RSDSL is the data controller for personal data collected through the Rflow Service. RS Data Science Limited is registered in England and Wales under company number 16754704.
+
+1.2 Where You upload data containing personal data belonging to third parties (for example, a dataset including individuals' names or identifiers), You act as the data controller for that content and are solely responsible for ensuring its processing complies with applicable data protection law. See also clause 7 (Your Data and Storr Storage) and clause 8.2 (Prohibited Data) of the Terms and Conditions.
+
+|                              |
+|:-----------------------------|
+| 2\. PERSONAL DATA WE COLLECT |
+
+2.1 Account Registration Data When You register for Rflow, we collect: (a) Your display name; (b) Your email address; (c) Your password (stored only as a one-way bcrypt hash -- see clause 5.1); (d) Date and time of account creation; (e) Email verification status.
+
+2.2 Profile Data You may optionally upload a profile avatar image (JPG, PNG, or WebP, up to 5 MB). This is stored on our server and displayed only within the Rflow interface to other registered users where applicable.
+
+2.3 Billing and Subscription Data If You subscribe to the Standard Plan: (a) Your subscription plan and status (free / standard / active / cancelled); (b) A Stripe Customer ID (an opaque reference token linking Your account to Your Stripe record); (c) Storage quota allocation. RSDSL does not collect, see, or store Your payment card details at any point. All payment card data is handled exclusively by Stripe (see clause 6.2).
+
+2.4 Project Metadata For each Project You create, we store: (a) Project title and description; (b) Workflow structure (node and edge configuration in JSON format); (c) Project visibility setting (private, public, or tutorial); (d) Storage usage in MB; (e) Creation and last-updated timestamps.
+
+2.5 User-Uploaded Analysis Data (Storr) Data files You upload for analysis (CSV files and any intermediate R objects produced by workflow nodes) are stored in per-user, per-project RDS files using the R storr package on our DigitalOcean server. IMPORTANT: This analysis data is stored unencrypted at rest. You must not upload sensitive, confidential, or personal data (see clause 7 of this Notice and clause 8.2 of the Terms and Conditions).
+
+2.6 Verification and Password-Reset Tokens Temporary cryptographic tokens used for email verification and password reset are stored in the database with an expiry timestamp. They are deleted immediately upon use or expiry.
+
+2.7 Server Logs Our server infrastructure (hosted on DigitalOcean) generates standard access logs that may record IP addresses, request timestamps, and HTTP status codes for security, debugging, and operational purposes. These logs are not used to identify or profile individual users for commercial purposes.
+
+2.8 Data We Do NOT Collect We do not collect: (a) Browser cookies for tracking or advertising purposes; (b) Browsing history or behavioural analytics data for marketing; (c) Location data beyond the country-level inferred from server logs; (d) Payment card numbers, CVV codes, or bank account details.
+
+|                                           |
+|:------------------------------------------|
+| 3\. HOW AND WHY WE USE YOUR PERSONAL DATA |
+
+3.1 The table below summarises each purpose for which we process personal data, the lawful basis under UK GDPR, and the categories of data used.
+
+| Purpose                        | Lawful basis        | Data categories |
+|--------------------------------|---------------------|-----------------|
+| Create and manage your account | Contract            | 2.1, 2.2        |
+| Verify your email address      | Contract            | 2.1, 2.6        |
+| Authenticate you at login      | Contract            | 2.1             |
+| Deliver the Rflow service      | Contract            | 2.1-2.5         |
+| Process subscription payments  | Contract            | 2.3             |
+| Send transactional emails      | Contract            | 2.1             |
+| Display public/shared projects | Contract            | 2.4             |
+| Prevent fraud and abuse        | Legitimate interest | 2.1, 2.7        |
+| Comply with legal obligations  | Legal obligation    | 2.1, 2.3        |
+| Security monitoring and audit  | Legitimate interest | 2.7             |
+
+3.2 We do not use Your personal data for: (a) Advertising, marketing, or promotional profiling of any kind; (b) Selling data to or sharing data with third parties for their own commercial purposes; (c) Automated decision-making or profiling that produces legal or similarly significant effects on You.
+
+|                                        |
+|:---------------------------------------|
+| 4\. PROJECT VISIBILITY AND SHARED DATA |
+
+4.1 Each Project You create is assigned a visibility level that You control: (a) Private -- accessible only to You. No other user can see the project title, description, workflow, or any associated data. (b) Public -- the project title, description, and workflow structure are visible to other registered and logged-in Rflow users. Public projects are NOT visible to unregistered visitors or to the general public internet. (c) Tutorial -- reserved for RSDSL administrators only; used for official Rflow tutorial content.
+
+4.2 When a Project is set to Public, other registered Rflow users can view and copy (clone) that project, including its workflow structure and any analysis data You have loaded into it. You should therefore treat any data present in a Public project as accessible to all other registered Rflow users. If You do not want other users to access the underlying data, set the project to Private before loading data into it, or remove data from the project before making it Public. You must never make a project Public if it contains personal data, sensitive data, or any data described as Prohibited Data in clause 8.2 of the Terms and Conditions.
+
+4.3 The Public visibility setting is entirely under Your control. You may change a Public project back to Private at any time via the project settings.
+
+4.4 RSDSL does not make any Rflow project content -- whether private or public -- available to search engines, public APIs, or unregistered visitors.
+
+|                           |
+|:--------------------------|
+| 5\. SECURITY OF YOUR DATA |
+
+5.1 Passwords Your password is never stored in plain text. It is processed through the bcrypt algorithm (a one-way cryptographic hash function with an adaptive cost factor) before being written to the database. RSDSL staff cannot read, view, or recover Your password; if You forget it, it must be reset via the password-reset flow.
+
+5.2 Authentication Tokens Rflow uses short-lived JSON Web Tokens (JWTs) to authenticate Your session. Tokens are transmitted over HTTPS only and are not stored in browser cookies.
+
+5.3 Analysis Data (Storr) -- Not Encrypted at Rest IMPORTANT: The R analysis data stored in per-user, per-project storr RDS files is NOT encrypted at rest on the DigitalOcean server. This means that an individual with direct server-level access could in principle read the raw RDS files. You must not upload special category personal data, confidential financial or health data, payment card data, or any other sensitive information. RSDSL staff access to storr data is restricted to technical support and maintenance operations and is governed by internal access controls.
+
+5.4 Transport Encryption All data exchanged between Your browser and the Rflow servers is transmitted over TLS (HTTPS). Data in transit is therefore encrypted.
+
+5.5 Infrastructure Security The Service is hosted on DigitalOcean's London data centre. DigitalOcean implements physical, network, and operational security controls described in their trust and security documentation. RSDSL does not operate its own data centre.
+
+5.6 No Security Guarantee Despite the measures above, no online service can guarantee absolute security. In the event of a personal data breach that is likely to result in a risk to Your rights and freedoms, RSDSL will notify You and the Information Commissioner's Office (ICO) in accordance with UK GDPR obligations.
+
+|                                 |
+|:--------------------------------|
+| 6\. THIRD-PARTY DATA PROCESSORS |
+
+6.1 We share limited personal data with the following third-party processors, each of whom acts only on our instructions under a Data Processing Agreement (DPA), as required by UK GDPR:
+
+| Processor | Purpose | Data shared |
+|--------------------|-----------------------|-----------------------------|
+| DigitalOcean LLC | Cloud hosting (London, UK) | All data stored on the Rflow platflorm (account data, project data, storr R database files, server logs) |
+| Stripe Payments Europe Limited | Payment processing & subscription management | Email address, Stripe Customer ID, subscription plan / status |
+| Resend Inc. | Transactional email delivery | Email address display name (for personalisation of email greeting) |
+
+6.2 Stripe processes payment card data on its own infrastructure in accordance with PCI DSS standards. RSDSL never receives or stores payment card numbers, expiry dates, or CVV codes.
+
+6.3 Resend processes Your email address and name solely to deliver transactional emails (verification, password reset, subscription notifications). Resend does not use this data for its own marketing purposes.
+
+6.4 We do not share Your personal data with any other third party except: (a) Where required by applicable UK law, including under anti-fraud legislation, anti-money laundering regulations, or a lawful order from a court or competent authority; (b) Where disclosure is necessary to protect the rights, property, or safety of RSDSL, its users, or the public.
+
+6.5 We will never sell, rent, trade, or otherwise disclose Your personal data to any third party for advertising, marketing, or commercial profiling purposes.
+
+6.6 International Transfers DigitalOcean stores all Rflow data in London, United Kingdom, and no international transfer of Your data to countries outside the UK occurs through DigitalOcean. Stripe and Resend may process data in the United States and other jurisdictions; where they do so, they rely on appropriate UK GDPR transfer mechanisms (such as the UK International Data Transfer Agreement or equivalent adequacy arrangements). Further details are available in each processor's own privacy policy.
+
+|                                                     |
+|:----------------------------------------------------|
+| 7\. YOUR DATA AND STORR STORAGE -- IMPORTANT NOTICE |
+
+7.1 When You upload CSV files or other data to Rflow for analysis, that data is stored in RDS format using the R storr package, namespaced by Your user ID and project ID, on our DigitalOcean server.
+
+7.2 This data is NOT encrypted at rest. Do not upload: (a) Personal data relating to identifiable individuals (names, addresses, national insurance numbers, NHS numbers, etc.); (b) Special Category Personal Data under UK GDPR (health, genetic, biometric, racial/ethnic, political, religious, sexual orientation, trade union membership data); (c) Confidential financial records, payment card information, or banking details of any person; (d) Children's personal data (data relating to individuals under 18); (e) Any data subject to confidentiality obligations (e.g. commercially sensitive datasets, client data); (f) Data funded by or relating to military, gambling, tobacco, or alcohol industries or government bodies where use in an unencrypted cloud environment would be inappropriate or unlawful.
+
+7.3 You are the data controller for any personal data contained in Your uploaded datasets. RSDSL acts as a data processor in respect of such data under Article 28 UK GDPR. By uploading data You confirm that You have a lawful basis to do so and that You have assessed the suitability of Rflow's security posture (in particular the absence of at-rest encryption of storr data) for Your use case.
+
+7.4 RSDSL accepts no liability for any loss, breach, or regulatory sanction arising from a User's decision to upload personal or sensitive data in contravention of this Notice or the Terms and Conditions.
+
+|                    |
+|:-------------------|
+| 8\. DATA RETENTION |
+
+8.1 Account Data We retain Your account data (name, email, passwordHash, subscription records) for as long as Your account is active and for a period of up to three (3) years after account closure, unless a shorter or longer period is required by law (for example, VAT and financial records must be kept for six years under HMRC rules).
+
+8.2 Project and Storr Data Project metadata and associated storr analysis data are retained for as long as Your account is active. Upon account deletion, all project data and storr files are permanently deleted, subject to any legal hold.
+
+8.3 Verification and Password-Reset Tokens These are deleted immediately upon use. Unused tokens expire and are purged automatically after 24 hours.
+
+8.4 Server Logs Access and error logs are retained for a maximum of 90 days for security and operational purposes.
+
+8.5 Billing Records Where we are required by law (including VAT regulations) to retain financial transaction records, we will do so for the legally required period (currently six (6) years in the UK). Stripe independently retains its own billing records in accordance with its privacy policy.
+
+8.6 Avatars Profile avatar images are deleted immediately upon account deletion or when You replace them with a new avatar.
+
+|                               |
+|:------------------------------|
+| 9\. YOUR RIGHTS UNDER UK GDPR |
+
+9.1 You have the following rights in respect of Your personal data:
+
+(a) Right of Access (Subject Access Request) You may request a copy of the personal data we hold about You.
+
+(b) Right to Rectification You may ask us to correct inaccurate or incomplete data.
+
+(c) Right to Erasure ("Right to be Forgotten") You may request deletion of Your personal data where there is no overriding legal basis for us to retain it.
+
+(d) Right to Restriction of Processing You may ask us to pause processing of Your data in certain circumstances.
+
+(e) Right to Data Portability You may request Your personal data in a structured, commonly used, machine-readable format where processing is based on consent or contract and is carried out by automated means.
+
+(f) Right to Object You may object to processing carried out on the basis of legitimate interests. We will cease processing unless we can demonstrate compelling legitimate grounds.
+
+(g) Rights relating to Automated Decision-Making We do not carry out solely automated decision-making with legal or similarly significant effects on You. This right is therefore not currently applicable.
+
+9.2 To exercise any of the above rights, email us at info\@rsdatascience.co.uk with the subject line "Data Subject Request". We will respond within one (1) calendar month as required by UK GDPR. We may ask You to verify Your identity before processing Your request.
+
+9.3 Right to Withdraw Consent Where processing is based on consent, You may withdraw it at any time without affecting the lawfulness of processing carried out before withdrawal.
+
+9.4 Right to Lodge a Complaint If You believe we have not handled Your personal data in accordance with UK GDPR, You have the right to lodge a complaint with the Information Commissioner's Office (ICO): Website: ico.org.uk Helpline: 0303 123 1113 We ask that You contact us first at info\@rsdatascience.co.uk so we have the opportunity to address Your concern directly.
+
+|              |
+|:-------------|
+| 10\. COOKIES |
+
+10.1 Rflow does not use tracking, analytics, or advertising cookies.
+
+10.2 The Service may use strictly necessary session tokens held in browser memory (sessionStorage or localStorage) to maintain Your authenticated session. These are not cookies in the traditional sense and are not shared with third parties.
+
+10.3 No third-party advertising networks, social media pixels, or analytics trackers are embedded in the Rflow Service.
+
+|                         |
+|:------------------------|
+| 11\. CHILDREN'S PRIVACY |
+
+11.1 The Service is not directed at or intended for use by children under the age of 18. We do not knowingly collect personal data from anyone under 18. If You become aware that a child has provided us with personal data, please contact us at info\@rsdatascience.co.uk and we will delete that data promptly.
+
+|                                     |
+|:------------------------------------|
+| 12\. CHANGES TO THIS PRIVACY NOTICE |
+
+12.1 We may update this Privacy Notice from time to time to reflect changes in the law, our data practices, or the Service. The updated Notice will be published at rflow.co.uk/privacy with a revised "Last updated" date.
+
+12.2 We will not proactively notify You of changes to this Notice; it is Your responsibility to review it periodically. Your continued use of the Service after any change constitutes acceptance of the revised Notice.
+
+12.3 Where a change involves a new purpose or a materially different use of Your personal data, we will take reasonable steps to bring it to Your attention before the change takes effect.
+
+|                                          |
+|:-----------------------------------------|
+| 13\. CONTACT AND DATA CONTROLLER DETAILS |
+
+Data Controller: RS Data Science Limited Company Number: 16754704 Jurisdiction: England and Wales Email: info\@rsdatascience.co.uk
+
+------------------------------------------------------------------------
+
+© RS Data Science Limited 2026. All rights reserved.

@@ -23,6 +23,15 @@ website:
       - text: "Start for Free"
         href: https://rflow.co.uk/signup
 
+  page-footer:
+    center:
+      - text: "Rflow and Rflow logo are UK registered trademarks of RSDS Ltd"
+      - text: "Terms and Conditions"
+        href: terms_and_conditions.qmd
+      - text: "Privacy Policy"
+        href: privacy_notice.qmd
+
+
   sidebar:
     - id: tutorials
       title: "Tutorials"

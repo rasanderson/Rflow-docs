@@ -46,6 +46,40 @@
   });
 </script>
 ```
+:::
+:::
+
+::: {.columns}
+
+::: {.column width="33%"}
+#### Easy to learn
+
+- Simple drag and drop interface
+- No prior coding experience required
+- Extensive tutorials and training materials
+- Unified approach to statistics
+- Tests as (generalised) linear models
+:::
+
+::: {.column width="33%"}
+#### Reproducible
+
+- Share your workflows with other Rflow users via Rflow project dashboard
+- Use Rflow to create reproducible data science workflows
+- Export your workflow to a reproducible R script
+- Customise your R scripts later in RStudio or other IDEs
+:::
+
+::: {.column width="33%"}
+#### Visualise and interpret
+
+- Visualise your data using ggplot2
+- Scatterplots, boxplots, histograms, barplots and more
+- Visualise model diagnostics using DHARMa
+- Store model outpus for predictions
+:::
+
+
 
 
 

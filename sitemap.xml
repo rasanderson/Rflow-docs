@@ -1,95 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/howto/index.html</loc>
-    <lastmod>2026-05-31T14:24:45.112Z</lastmod>
+    <loc>https://rflow.co.uk/howto/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/tutorials/index.html</loc>
-    <lastmod>2026-05-31T14:24:45.110Z</lastmod>
+    <loc>https://rflow.co.uk/privacy_notice.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/input-csv.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/blog/posts/welcome/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/density.html</loc>
-    <lastmod>2026-05-31T14:23:46.331Z</lastmod>
+    <loc>https://rflow.co.uk/tutorials/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/glm.html</loc>
-    <lastmod>2026-05-31T14:23:46.331Z</lastmod>
+    <loc>https://rflow.co.uk/terms_and_conditions.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/boxplot.html</loc>
-    <lastmod>2026-05-31T14:23:46.331Z</lastmod>
+    <loc>https://rflow.co.uk/reference/residuals.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/add-column.html</loc>
-    <lastmod>2026-05-31T14:23:46.329Z</lastmod>
+    <loc>https://rflow.co.uk/reference/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/tukey-hsd.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/reference/scatterplot.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/barchart.html</loc>
-    <lastmod>2026-05-31T14:23:46.330Z</lastmod>
+    <loc>https://rflow.co.uk/reference/mean-stats.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/linear-model.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/reference/diagnostics.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/summary-stats.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/reference/histogram.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/fundamentals/index.html</loc>
-    <lastmod>2026-05-31T14:24:45.112Z</lastmod>
+    <loc>https://rflow.co.uk/reference/predict-lm.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/factor.html</loc>
-    <lastmod>2026-05-31T14:23:46.331Z</lastmod>
+    <loc>https://rflow.co.uk/reference/output-csv.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/output-csv.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/reference/factor.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/predict-lm.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/fundamentals/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/histogram.html</loc>
-    <lastmod>2026-05-31T14:23:46.331Z</lastmod>
+    <loc>https://rflow.co.uk/reference/summary-stats.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/diagnostics.html</loc>
-    <lastmod>2026-05-31T14:23:46.331Z</lastmod>
+    <loc>https://rflow.co.uk/reference/linear-model.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/mean-stats.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/reference/barchart.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/scatterplot.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/reference/tukey-hsd.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/index.html</loc>
-    <lastmod>2026-05-31T14:24:45.112Z</lastmod>
+    <loc>https://rflow.co.uk/reference/add-column.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/reference/residuals.html</loc>
-    <lastmod>2026-05-31T14:23:46.332Z</lastmod>
+    <loc>https://rflow.co.uk/reference/boxplot.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/about.html</loc>
-    <lastmod>2026-05-31T13:43:26.276Z</lastmod>
+    <loc>https://rflow.co.uk/reference/glm.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rasanderson.github.io/Rflow-docs/index.html</loc>
-    <lastmod>2026-06-01T07:14:57.715Z</lastmod>
+    <loc>https://rflow.co.uk/reference/density.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/input-csv.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/about.html</loc>
+    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/blog/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/docs/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
 </urlset>

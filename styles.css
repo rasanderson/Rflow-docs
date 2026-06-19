@@ -1,1 +1,106 @@
 /* css styles */
+
+.navbar .navbar-nav.navbar-nav-scroll.ms-auto {
+	align-items: center;
+	gap: 0.5rem;
+}
+
+@media (min-width: 992px) {
+	.navbar #navbarCollapse {
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.navbar #navbarCollapse .navbar-nav.navbar-nav-scroll.me-auto {
+		margin-right: 0 !important;
+	}
+
+	.navbar #navbarCollapse #quarto-search {
+		order: 0;
+		margin-left: auto;
+		margin-right: 0.5rem;
+	}
+
+	.navbar #navbarCollapse #quarto-search .aa-Autocomplete,
+	.navbar #navbarCollapse #quarto-search .quarto-search-button {
+		margin-bottom: 0;
+	}
+
+	.navbar #navbarCollapse .navbar-nav.navbar-nav-scroll.ms-auto {
+		margin-left: 0 !important;
+	}
+
+	.navbar #navbarCollapse #quarto-search + .navbar-nav.navbar-nav-scroll.ms-auto {
+		margin-left: 0 !important;
+	}
+	}
+
+.navbar .navbar-nav.navbar-nav-scroll.ms-auto .nav-link {
+	border: 1px solid #0d6efd;
+	border-radius: 999px;
+	font-weight: 600;
+	padding: 0.45rem 1rem;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar .navbar-nav.navbar-nav-scroll.ms-auto .nav-link[href="https://rflow.co.uk/login"] {
+	background: transparent;
+	color: #0d6efd;
+}
+
+.navbar .navbar-nav.navbar-nav-scroll.ms-auto .nav-link[href="https://rflow.co.uk/login"]:hover,
+.navbar .navbar-nav.navbar-nav-scroll.ms-auto .nav-link[href="https://rflow.co.uk/login"]:focus {
+	background: rgba(13, 110, 253, 0.08);
+	color: #0a58ca;
+}
+
+.navbar .navbar-nav.navbar-nav-scroll.ms-auto .nav-link[href="https://rflow.co.uk/signup"] {
+	background: #0d6efd;
+	border-color: #0d6efd;
+	color: #fff;
+}
+
+.navbar .navbar-nav.navbar-nav-scroll.ms-auto .nav-link[href="https://rflow.co.uk/signup"]:hover,
+.navbar .navbar-nav.navbar-nav-scroll.ms-auto .nav-link[href="https://rflow.co.uk/signup"]:focus {
+	background: #0b5ed7;
+	border-color: #0b5ed7;
+	color: #fff;
+}
+
+#btn-start,
+#btn-guide {
+	border: 1px solid #0d6efd;
+	display: inline-flex;
+	justify-content: center;
+	width: 12rem;
+	font-weight: 600;
+	padding: 0.45rem 1rem;
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+#btn-start {
+	background: #0d6efd;
+	border-color: #0d6efd;
+	color: #fff;
+}
+
+#btn-start:hover,
+#btn-start:focus {
+	background: #0b5ed7;
+	border-color: #0b5ed7;
+	color: #fff;
+}
+
+#btn-guide {
+	background: transparent;
+	color: #0d6efd;
+	margin-left: 1rem;
+}
+
+#btn-guide:hover,
+#btn-guide:focus {
+	background: rgba(13, 110, 253, 0.08);
+	color: #0a58ca;
+}
+
+

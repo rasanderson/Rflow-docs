@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Summary Statistics – Rflow documentation</title>
+<title>Summary Statistics – Rflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -75,7 +76,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0a81f707f35d9bf77349b2c34bd594b7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-8071ab678bc4c4ddd6d1910371c8d012.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -144,8 +145,12 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../favicon.svg" alt="Rflow logo" class="navbar-logo light-content">
+    <img src="../favicon.svg" alt="Rflow logo" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Rflow documentation</span>
+    <span class="navbar-title">Rflow</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -159,24 +164,26 @@ window.Quarto = {
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../tutorials/index.html"> 
-<span class="menu-text">Tutorials</span></a>
+    <a class="nav-link" href="../docs/index.html"> 
+<span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../howto/index.html"> 
-<span class="menu-text">How-To</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../fundamentals/index.html"> 
-<span class="menu-text">Fundamentals</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../reference/index.html" aria-current="page"> 
-<span class="menu-text">Reference</span></a>
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://rflow.co.uk/login"> 
+<span class="menu-text">Login</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://rflow.co.uk/signup"> 
+<span class="menu-text">Start for Free</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -467,6 +474,69 @@ window.Quarto = {
 </section>
 
 </main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.innerWidth < 992) {
+    return;
+  }
+
+  var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
+  var search = document.querySelector(".navbar #quarto-search");
+  var rightNav = document.querySelector(".navbar .navbar-nav.navbar-nav-scroll.ms-auto");
+
+  if (!navbarCollapse || !search || !rightNav || rightNav.dataset.searchMoved === "true") {
+    return;
+  }
+
+  navbarCollapse.insertBefore(search, rightNav);
+  rightNav.dataset.searchMoved = "true";
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var path = window.location.pathname;
+  var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
+
+  if (!isDocsPage) return;
+
+  var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
+  if (!navbarCollapse) return;
+
+  // Hide the standard left nav (Overview, Docs, About)
+  var leftNav = navbarCollapse.querySelector(".navbar-nav.navbar-nav-scroll.me-auto");
+  if (leftNav) leftNav.style.display = "none";
+
+  // Hide the right nav buttons (Login, Start for Free)
+  var rightNav = navbarCollapse.querySelector(".navbar-nav.navbar-nav-scroll.ms-auto");
+  if (rightNav) rightNav.style.display = "none";
+
+  // Build the docs section nav and insert at the start of the collapse
+  var docsNav = document.createElement("ul");
+  docsNav.className = "navbar-nav navbar-nav-scroll me-auto";
+  docsNav.id = "docs-section-nav";
+
+  var sections = [
+    { text: "Tutorials",    key: "tutorials" },
+    { text: "How-To",       key: "howto" },
+    { text: "Fundamentals", key: "fundamentals" },
+    { text: "Reference",    key: "reference" }
+  ];
+
+  sections.forEach(function (s) {
+    var li = document.createElement("li");
+    li.className = "nav-item";
+    var a = document.createElement("a");
+    a.className = "nav-link";
+    a.href = "../" + s.key + "/index.html";
+    if (path.indexOf("/" + s.key + "/") !== -1) a.classList.add("active");
+    a.innerHTML = "<span class='menu-text'>" + s.text + "</span>";
+    li.appendChild(a);
+    docsNav.appendChild(li);
+  });
+
+  navbarCollapse.insertBefore(docsNav, navbarCollapse.firstChild);
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -540,7 +610,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/rasanderson\.github\.io\/Rflow-docs\/");
+        var filterRegex = new RegExp("https:\/\/rflow\.co\.uk");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -868,6 +938,33 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Rflow and Rflow logo are UK registered trademarks of RSDS Ltd
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../terms_and_conditions.html">
+<p>Terms and Conditions</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../privacy_notice.html">
+<p>Privacy Policy</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

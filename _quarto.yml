@@ -4,6 +4,7 @@ project:
 website:
   title: "Rflow"
   site-url: "https://rflow.co.uk"
+  cname: "rflow.co.uk"
   favicon: favicon.svg
   navbar:
     logo: favicon.svg

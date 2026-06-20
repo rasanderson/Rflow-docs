@@ -1307,7 +1307,21 @@
     "href": "index.html",
     "title": "Welcome to Rflow​®",
     "section": "",
-    "text": "Welcome to Rflow​®\n\n\n\nWeb-based data science with R for beginners\n\nDrag and drop intuitive flowchart interface to build your data science pipeline.\nShare your workflows with other Rflow users through the Rflow project dashboard.\nExport your Rflow workflow to a reproducible R script for further analysis and customisation.\nUses popular leading R packages for data science including ggplot2, glmmTMB, DHARMa and car.\nExtensive tutorials and training materials to help you get started with Rflow and R programming.\n\n\n\nVisualise. Analyse. Interpret. Reproducible data science in R with flowcharts.\n\nStart for Free Guide\n\n\n\n\n\n  \n\n\n\n\n\n\n\nEasy to learn\n\nSimple drag and drop interface\nNo prior coding experience required\nExtensive tutorials and training materials\nUnified approach to statistics\nTests as (generalised) linear models\n\n\n\n\nReproducible\n\nShare your workflows with other Rflow users via Rflow project dashboard\nUse Rflow to create reproducible data science workflows\nExport your workflow to a reproducible R script\nCustomise your R scripts later in RStudio or other IDEs\n\n\n\n\nVisualise and interpret\n\nVisualise your data using ggplot2\nScatterplots, boxplots, histograms, barplots and more\nVisualise model diagnostics using DHARMa\nStore model outpus for predictions"
+    "text": "Drag and drop intuitive flowchart interface to build your data science pipeline.\nOnline platform to run your Rflow workflow in the cloud\nShare your workflows with other Rflow users through the Rflow project dashboard.\nExport your Rflow workflow to a reproducible R script for further analysis and customisation.\nNo lock-in to Rflow, you can run your exported R scripts in RStudio or other IDEs.\nUses popular leading R packages for data science including ggplot2, glmmTMB, DHARMa and car.\nExtensive tutorials and training materials to help you get started with Rflow and R programming.\n\n\n\n\n\n\n\n\nStart for Free Guide\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\nSimple drag and drop interface\nNo prior coding experience required\nExtensive tutorials and training materials\nUnified approach to statistics\nTests as (generalised) linear models\n\n\n\n\n\n\nShare your workflows with other Rflow users via Rflow project dashboard\nUse Rflow to create reproducible data science workflows\nExport your workflow to a reproducible R script\nCustomise your R scripts later in RStudio or other IDEs\n\n\n\n\n\n\nVisualise your data using ggplot2\nScatterplots, boxplots, histograms, barplots and more\nVisualise model diagnostics using DHARMa\nStore model outpus for predictions\n\n\n\n\n\nBuild complex workflows in minutes, not hours\n\n\n\n\n\n\nDrag & Drop Nodes: Select from the toolbar and add analysis nodes (CSV import, transformations, visualizations, models)\nConnect Your Workflow: Draw edges between nodes to define data flow from step to step\nExport R Code: Click export to get production-ready R code that you can run in RStudio or anywhere R runs\n\n\n\n\n\n\n\n\n\n\n\n\n\nLearn R by example. See the generated code from your visual workflow to understand R syntax. Extensive tutorials and training materials to help you start with Rflow and R programming.\n\n\n\n\n\n\nIf you are more familiar with SPSS, SAS, Stata, Minitab or other GUI-based software, Rflow provides a simple and intuitive interface to perform data analysis in R. Export your workflow as an R script for further analysis and customisation.\n\n\n\n\n\n\nRapidly prototype your data analysis workflow via Rflow’s visual interface. Export to R when ready for further customisation."
+  },
+  {
+    "objectID": "index.html#see-rflow-in-action",
+    "href": "index.html#see-rflow-in-action",
+    "title": "Welcome to Rflow​®",
+    "section": "",
+    "text": "Build complex workflows in minutes, not hours"
+  },
+  {
+    "objectID": "index.html#how-it-works",
+    "href": "index.html#how-it-works",
+    "title": "Welcome to Rflow​®",
+    "section": "",
+    "text": "Drag & Drop Nodes: Select from the toolbar and add analysis nodes (CSV import, transformations, visualizations, models)\nConnect Your Workflow: Draw edges between nodes to define data flow from step to step\nExport R Code: Click export to get production-ready R code that you can run in RStudio or anywhere R runs"
   },
   {
     "objectID": "docs/index.html",

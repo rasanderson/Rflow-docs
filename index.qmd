@@ -5,15 +5,19 @@
 ::: {.columns}
 
 ::: {.column width="55%"}
-### Web-based data science with R for beginners
+### No-code data science for R users
 
 - Drag and drop intuitive flowchart interface to build your data science pipeline.
+- Online platform to run your Rflow workflow in the cloud
 - Share your workflows with other Rflow users through the Rflow project dashboard.
 - Export your Rflow workflow to a reproducible R script for further analysis and customisation.
+- No lock-in to Rflow, you can run your exported R scripts in RStudio or other IDEs.
 - Uses popular leading R packages for data science including [ggplot2](https://ggplot2.tidyverse.org), [glmmTMB](https://cran.r-project.org/web/packages/glmmTMB/index.html), [DHARMa](https://cran.r-project.org/web/packages/DHARMa/index.html) and [car](https://cran.r-project.org/web/packages/car/index.html).
 - Extensive tutorials and training materials to help you get started with Rflow and R programming.
 
 ### Visualise. Analyse. Interpret. Reproducible data science in R with flowcharts.
+
+### Launching Autumn 2026
 
 
 ::: {.d-flex .flex-wrap .gap-4 .pb-3 .pt-4}
@@ -81,8 +85,57 @@
 
 :::
 
+## See Rflow in Action
+
+Build complex workflows in minutes, not hours
+
+::: {style="text-align:center;"}
+![](images/rflow-demo.png){width="90%"}
+:::
+
+## How It Works
+
+  1. Drag & Drop Nodes: Select from the toolbar and add analysis nodes (CSV import, transformations, visualizations, models)
+  2. Connect Your Workflow: Draw edges between nodes to define data flow from step to step
+  3. Export R Code: Click export to get production-ready R code that you can run in RStudio or anywhere R runs
+
+::: {.columns}
+
+::: {style="text-align: center;"}
+## Perfect for 
+
+### Rflow is designed for anyone working with R
+:::
+
+::: {layout-ncol=3}
+::: {.feature-card}
+### Students
+
+#### Data analysis learning
+
+Learn R by example. See the generated code from your visual workflow to understand R syntax. Extensive tutorials and training materials to help you start with Rflow and R programming.
+:::
+
+::: {.feature-card}
+### Researchers
+
+#### Scientific research
+
+If you are more familiar with SPSS, SAS, Stata, Minitab or other GUI-based software, Rflow provides a simple and intuitive interface to perform data analysis in R. Export your workflow as an R script for further analysis and customisation.
+:::
+
+::: {.feature-card}
+### Data scientists
+
+#### Quick prototyping
+
+Rapidly prototype your data analysis workflow via Rflow's visual interface. Export to R when ready for further customisation.
+:::
+
 :::
 
 
+:::
 
+:::
 

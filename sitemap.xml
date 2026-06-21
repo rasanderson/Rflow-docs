@@ -5,83 +5,27 @@
     <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/privacy_notice.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/blog/posts/welcome/index.html</loc>
+    <loc>https://rflow.co.uk/docs/index.html</loc>
     <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/tutorials/index.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+    <loc>https://rflow.co.uk/index.html</loc>
+    <lastmod>2026-06-21T12:54:48.910Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/terms_and_conditions.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/residuals.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/index.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/scatterplot.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/mean-stats.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/diagnostics.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/histogram.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/predict-lm.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/output-csv.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/factor.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/fundamentals/index.html</loc>
+    <loc>https://rflow.co.uk/blog/index.html</loc>
     <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/summary-stats.html</loc>
+    <loc>https://rflow.co.uk/about.html</loc>
+    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/input-csv.html</loc>
     <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/linear-model.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/barchart.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/tukey-hsd.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/add-column.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/boxplot.html</loc>
+    <loc>https://rflow.co.uk/reference/density.html</loc>
     <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
@@ -89,27 +33,83 @@
     <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/density.html</loc>
+    <loc>https://rflow.co.uk/reference/boxplot.html</loc>
     <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/input-csv.html</loc>
+    <loc>https://rflow.co.uk/reference/add-column.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/tukey-hsd.html</loc>
     <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/about.html</loc>
+    <loc>https://rflow.co.uk/reference/barchart.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/linear-model.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/summary-stats.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/fundamentals/index.html</loc>
     <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/blog/index.html</loc>
+    <loc>https://rflow.co.uk/reference/factor.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/output-csv.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/predict-lm.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/histogram.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/diagnostics.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/mean-stats.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/scatterplot.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/residuals.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/terms_and_conditions.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/tutorials/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/blog/posts/welcome/index.html</loc>
     <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/index.html</loc>
-    <lastmod>2026-06-20T15:10:20.533Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/docs/index.html</loc>
-    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
+    <loc>https://rflow.co.uk/privacy_notice.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
 </urlset>

@@ -22,9 +22,9 @@ website:
         href: about.qmd
     right:
       - text: "Login"
-        href: https://rflow.co.uk/login
+        href: 404.qmd
       - text: "Start for Free"
-        href: https://rflow.co.uk/signup
+        href: 404.qmd
 
   page-footer:
     center:

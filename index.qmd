@@ -21,7 +21,7 @@
 
 
 ::: {.d-flex .flex-wrap .gap-4 .pb-3 .pt-4}
-[Start for Free](https://rflow.co.uk/signup){#btn-start .btn-action-primary .btn-action .btn .btn-lg .rounded-pill role="button"}
+[Start for Free](/docs/signup){#btn-start .btn-action-primary .btn-action .btn .btn-lg .rounded-pill role="button"}
 [Guide](/docs/index.qmd){#btn-guide .btn-action .btn-secondary .btn .btn-lg .rounded-pill role="button"}
 :::
 
@@ -53,9 +53,8 @@
 :::
 :::
 
-::: {.columns}
-
-::: {.column width="33%"}
+::: {layout-ncol=3}
+::: {.feature-card}
 #### Easy to learn
 
 - Simple drag and drop interface
@@ -65,7 +64,7 @@
 - Tests as (generalised) linear models
 :::
 
-::: {.column width="33%"}
+::: {.feature-card}
 #### Reproducible
 
 - Share your workflows with other Rflow users via Rflow project dashboard
@@ -74,13 +73,13 @@
 - Customise your R scripts later in RStudio or other IDEs
 :::
 
-::: {.column width="33%"}
+::: {.feature-card}
 #### Visualise and interpret
 
 - Visualise your data using ggplot2
 - Scatterplots, boxplots, histograms, barplots and more
 - Visualise model diagnostics using DHARMa
-- Store model outpus for predictions
+- Store model outputs for predictions
 :::
 
 :::
@@ -104,7 +103,7 @@ Build complex workflows in minutes, not hours
 ::: {style="text-align: center;"}
 ## Perfect for 
 
-### Rflow is designed for anyone working with R
+#### Rflow is designed for anyone working with R
 :::
 
 ::: {layout-ncol=3}

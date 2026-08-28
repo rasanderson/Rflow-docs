@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tutorials – Rflow</title>
+<title>Tutorial 1A: Basics of Rflow – Rflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/index.html">Tutorials</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/tutorial_1a.html">Tutorial 1A: Basics of Rflow</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -146,13 +146,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tutorials/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorials</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tutorials/tutorial_1a.html" class="sidebar-item-text sidebar-link">
+  <a href="../tutorials/tutorial_1a.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tutorial 1A: Basics of Rflow</span></a>
   </div>
 </li>
@@ -161,15 +161,29 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#how-to-use-this-tutorial" id="toc-how-to-use-this-tutorial" class="nav-link" data-scroll-target="#how-to-use-this-tutorial">How to use this tutorial</a></li>
+  <li><a href="#the-example-dataset" id="toc-the-example-dataset" class="nav-link" data-scroll-target="#the-example-dataset">The example dataset</a></li>
+  <li><a href="#why-not-use-a-microsoft-excel-spreadsheet" id="toc-why-not-use-a-microsoft-excel-spreadsheet" class="nav-link" data-scroll-target="#why-not-use-a-microsoft-excel-spreadsheet">Why not use a Microsoft Excel spreadsheet?</a></li>
+  <li><a href="#how-to-convert-an-excel-spreadsheet-to-a-csv-file" id="toc-how-to-convert-an-excel-spreadsheet-to-a-csv-file" class="nav-link" data-scroll-target="#how-to-convert-an-excel-spreadsheet-to-a-csv-file">How to convert an Excel spreadsheet to a CSV file</a></li>
+  <li><a href="#step-by-step-instructions" id="toc-step-by-step-instructions" class="nav-link" data-scroll-target="#step-by-step-instructions">Step-by-step instructions</a>
+  <ul class="collapse">
+  <li><a href="#step-1-create-a-new-rflow-workflow" id="toc-step-1-create-a-new-rflow-workflow" class="nav-link" data-scroll-target="#step-1-create-a-new-rflow-workflow">Step 1: Create a new Rflow workflow</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tutorials</h1>
+<h1 class="title">Tutorial 1A: Basics of Rflow</h1>
 </div>
 
 
@@ -186,9 +200,62 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Step-by-step tutorials for learning Rflow.</p>
+<section id="learning-objectives" class="level1">
+<h1>Learning Objectives</h1>
+<p>This tutorial will introduce you to the basics of Rflow, specifically:</p>
+<ul>
+<li>Creating a simple Rflow workflow</li>
+<li>Importing data into Rflow</li>
+<li>Display summary tables about your data</li>
+<li>Simple visualisations of your data including histograms, density plots, boxplots and barcharts</li>
+<li>Saving your workflow, and exporting an R script.</li>
+</ul>
+</section>
+<section id="how-to-use-this-tutorial" class="level1">
+<h1>How to use this tutorial</h1>
+<p>You have a choice of either cloning a pre-prepared copy of this tutorial, which has all the necessary Rflow nodes already setup for you, of building your own from scratch by following the instructions. You will probably find it easier to start by cloning the pre-prepared tutorial, and then later building your own workflow from scratch.</p>
+</section>
+<section id="the-example-dataset" class="level1">
+<h1>The example dataset</h1>
+<p>We will use a simple dataset of the weights, after 21 days, of 50 chicks fed on 4 different diets. As is common in many environmental and biological datasets, it is unbalanced, with different numbers of chicks fed each diet. The data can be downloaded from <a href="chick_diet.csv">download chick_diet.csv</a>. The dataset has 4 columns:</p>
+<ul>
+<li><code>weight</code> - the weight of the chick after 21 days (in grams)</li>
+<li><code>time</code> - the time in days (always 21 in this dataset)</li>
+<li><code>chick</code> - the ID of the chick (1 to 50)</li>
+<li><code>diet</code> - the diet fed to the chick (A to D)</li>
+</ul>
+</section>
+<section id="why-not-use-a-microsoft-excel-spreadsheet" class="level1">
+<h1>Why not use a Microsoft Excel spreadsheet?</h1>
+<p>You may be wondering why we are going to import a CSV file rather than a Microsoft Excel (.xlsx) spreadsheet directly. R does now provide additional libraries such as <code>readxl</code> that can import Excel spreadsheets. However, we generally prefer CSV files; Excel spreadsheets can contain “gotchas” such has merged rows and columns, forumale, multple sheets etc. which can make them tricky to import. CSV files are very simple text-based format, with each column separated by a comma (CSV is “comma separated values”). They are also more portable, and can be opened in any text editor or spreadsheet software. For these reasons, we generally prefer to use CSV files for data import.</p>
+</section>
+<section id="how-to-convert-an-excel-spreadsheet-to-a-csv-file" class="level1">
+<h1>How to convert an Excel spreadsheet to a CSV file</h1>
+<p>If you have a Microsoft Excel spreadsheet that you want to convert to a CSV file, you can do this by opening the spreadsheet in Excel, and then using the “Save As” option to save it as a CSV file. In Excel, you can do this by clicking on “File” &gt; “Save As” &gt; “Browse” &gt; “Save as type” and then selecting “CSV (Comma delimited) (*.csv)” from the dropdown menu. You can then choose a location to save the file, and click “Save”. You may get a warning that some features of your spreadsheet may be lost if you save it as a CSV file.</p>
+</section>
+<section id="step-by-step-instructions" class="level1">
+<h1>Step-by-step instructions</h1>
+<section id="step-1-create-a-new-rflow-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-create-a-new-rflow-workflow">Step 1: Create a new Rflow workflow</h2>
+<p>We will do this by cloning a pre-prepared workflow. On the Rflow Projects page, click on the “Clone” button and search for “Tutorial 1A” which is authored by “RflowAdmin”. When you find it, click on the green “Clone” button:</p>
+<p><img src="figs/tutorial_1a_rflow_clone.png" class="img-fluid" style="width:25.0%"></p>
+<p>After clicking the “Clone” button, click on the “My Projects” button to display your own Rflow projects. You should see the tutorial listed as “Tutorial 1A (Copy)”. You can click its Edit button if you want to change its name or description. When ready, click on the “Open” button and you should see the pre-prepared workflow:</p>
+<p><img src="figs/tutorial_1a_workflow.png" class="img-fluid" style="width:50.0%"></p>
+<p><strong>Explanation</strong>: Have a quick look at the workflow before we start running it. Reading from top to bottom, then left to right:</p>
+<ul>
+<li><p>Input CSV: imports your diet_data.csv into R</p></li>
+<li><p>Histogram: Frequency histogram of all the chick weights</p></li>
+<li><p>Density plot: Density plot of all the chick weights</p></li>
+<li><p>Boxplot: Boxplot of chick weights for each diet group</p></li>
+<li><p>Summary statistics: simple summary of the contents of your 4 columns</p></li>
+<li><p>Mean / SD: calculates means, standard deviations, standard errors etc. for each diet group</p></li>
+<li><p>Barchart: bar chart of mean chick weights with error bars for each diet group</p></li>
+</ul>
+<p>So the left side of the workflow broadly describes the “shape” of the data overall, while the right side gives you information about differences in chick weights with diet, both numerically and visually.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script>

@@ -1,0 +1,59 @@
+---
+title: "Tutorial 1A: Basics of Rflow"
+format: html
+---
+
+# Learning Objectives
+This tutorial will introduce you to the basics of Rflow, specifically:
+
+* Creating a simple Rflow workflow
+* Importing data into Rflow
+* Display summary tables about your data
+* Simple visualisations of your data including histograms, density plots, boxplots and barcharts
+* Saving your workflow, and exporting an R script.
+
+# How to use this tutorial
+You have a choice of either cloning a pre-prepared copy of this tutorial, which has all the necessary Rflow nodes already setup for you, of building your own from scratch by following the instructions. You will probably find it easier to start by cloning the pre-prepared tutorial, and then later building your own workflow from scratch.
+
+# The example dataset
+We will use a simple dataset of the weights, after 21 days, of 50 chicks fed on 4 different diets. As is common in many environmental and biological datasets, it is unbalanced, with different numbers of chicks fed each diet. The data can be downloaded from [download chick_diet.csv](chick_diet.csv). The dataset has 4 columns:
+
+* `weight` - the weight of the chick after 21 days (in grams)
+* `time` - the time in days (always 21 in this dataset)
+* `chick` - the ID of the chick (1 to 50)
+* `diet` - the diet fed to the chick (A to D)
+
+# Why not use a Microsoft Excel spreadsheet?
+You may be wondering why we are going to import a CSV file rather than a Microsoft Excel (.xlsx) spreadsheet directly. R does now provide additional libraries such as `readxl` that can import Excel spreadsheets. However, we generally prefer CSV files; Excel spreadsheets can contain "gotchas" such has merged rows and columns, forumale, multple sheets etc. which can make them tricky to import. CSV files are very simple text-based format, with each column separated by a comma (CSV is "comma separated values"). They are also more portable, and can be opened in any text editor or spreadsheet software. For these reasons, we generally prefer to use CSV files for data import.
+
+# How to convert an Excel spreadsheet to a CSV file
+If you have a Microsoft Excel spreadsheet that you want to convert to a CSV file, you can do this by opening the spreadsheet in Excel, and then using the "Save As" option to save it as a CSV file. In Excel, you can do this by clicking on "File" > "Save As" > "Browse" > "Save as type" and then selecting "CSV (Comma delimited) (*.csv)" from the dropdown menu. You can then choose a location to save the file, and click "Save". You may get a warning that some features of your spreadsheet may be lost if you save it as a CSV file.
+
+# Step-by-step instructions
+## Step 1: Create a new Rflow workflow
+We will do this by cloning a pre-prepared workflow. On the Rflow Projects page, click on the "Clone" button and search for "Tutorial 1A" which is authored by "RflowAdmin". When you find it, click on the green "Clone" button:
+
+![](figs/tutorial_1a_rflow_clone.png){width=25%}
+
+After clicking the "Clone" button, click on the "My Projects" button to display your own Rflow projects. You should see the tutorial listed as "Tutorial 1A (Copy)". You can click its Edit button if you want to change its name or description. When ready, click on the "Open" button and you should see the pre-prepared workflow:
+
+![](figs/tutorial_1a_workflow.png){width=50%}
+
+**Explanation**: Have a quick look at the workflow before we start running it. Reading from top to bottom, then left to right:
+
+* Input CSV: imports your diet_data.csv into R
+
+* Histogram: Frequency histogram of all the chick weights
+* Density plot: Density plot of all the chick weights
+* Boxplot: Boxplot of chick weights for each diet group
+* Summary statistics: simple summary of the contents of your 4 
+columns
+* Mean / SD: calculates means, standard deviations, standard errors etc. for each diet group
+* Barchart: bar chart of mean chick weights with error bars for each diet group
+
+So the left side of the workflow broadly describes the "shape" of the data overall, while the right side gives you information about differences in chick weights with diet, both numerically and visually.
+
+
+
+
+

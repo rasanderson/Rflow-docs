@@ -41,7 +41,8 @@ website:
       style: "docked"
       background: light
       contents:
-        - tutorials/
+        - tutorials/index.qmd
+        - tutorials/tutorial_1a.qmd
 
     - id: howto
       title: "How-To"

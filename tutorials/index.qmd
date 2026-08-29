@@ -2,4 +2,80 @@
 title: "Tutorials"
 ---
 
+<style>
+.click-box {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.click-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #007bff;
+}
+.click-box-title {
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+</style>
+
+
 Step-by-step tutorials for learning Rflow.
+
+:::{.columns}
+
+::: {.column width="48%"}
+<a href="tutorial_1a.qmd" class="click-box">
+<span class="click-box-title">
+Tutorial 1A: Basics of Rflow
+</span>
+This shows you how to create a simple Rflow workflow, import data, display summary tables and visualisations of your data, and save your workflow. You can either clone a pre-prepared copy of this tutorial, or build your own from scratch.
+</a>
+:::
+
+
+::: {.column width="4%"}
+<!-- Spacer column -->
+:::
+
+::: {.column width="48%"}
+<a href="tutorial_1b.qmd" class="click-box">
+  <span class="click-box-title">
+  Tutorial 1B: Simple visualisation
+  </span>
+  This tutorial introduces you to a range of simple visualisation techniques, including scatterplots, line plots, and bar charts. You can either clone a pre-prepared copy of this tutorial, or build your own from scratch.
+</a>
+:::
+:::
+
+::: {.columns}
+::: {.column width="48%"}
+<a href="tutorial_1c.qmd" class="click-box">
+  <span class="click-box-title">
+  Tutorial 1C: Bar charts with error bars
+  </span>
+  Producing bar charts with error bars is a common task in many environmental and biological datasets. This tutorial shows you how to do this in Rflow. You can either clone a pre-prepared copy of this tutorial, or build your own from scratch.
+</a>
+:::
+
+::: {.column width="4%"}
+<!-- Spacer column -->
+:::
+
+::: {.column width="48%"}
+<a href="tutorial_2.qmd" class="click-box">
+  <span class="click-box-title">
+  Tutorial 2: Introduction to linear models
+  </span>
+  This tutorial covers the basics of linear models, including simple and multiple regression. You can either clone a pre-prepared copy of this tutorial, or build your own from scratch.
+</a>
+:::
+
+:::

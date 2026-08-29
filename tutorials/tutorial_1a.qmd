@@ -16,7 +16,7 @@ This tutorial will introduce you to the basics of Rflow, specifically:
 You have a choice of either cloning a pre-prepared copy of this tutorial, which has all the necessary Rflow nodes already setup for you, of building your own from scratch by following the instructions. You will probably find it easier to start by cloning the pre-prepared tutorial, and then later building your own workflow from scratch.
 
 # The example dataset
-We will use a simple dataset of the weights, after 21 days, of 50 chicks fed on 4 different diets. As is common in many environmental and biological datasets, it is unbalanced, with different numbers of chicks fed each diet. The data can be downloaded from [download chick_diet.csv](chick_diet.csv). The dataset has 4 columns:
+We will use a simple dataset of the weights, after 21 days, of 50 chicks fed on 4 different diets. As is common in many environmental and biological datasets, it is unbalanced, with different numbers of chicks fed each diet. The data can be downloaded from [download chick_diet.csv](data_workflows/chick_diet.csv){download=""}. The dataset has 4 columns:
 
 * `weight` - the weight of the chick after 21 days (in grams)
 * `time` - the time in days (always 21 in this dataset)

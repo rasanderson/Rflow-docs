@@ -2,3 +2,6 @@
 title: "Tutorial 1C: Bar charts with error bars"
 format: html
 ---
+
+### Learning Objectives
+Coming soon...

@@ -2,3 +2,6 @@
 title: "Tutorial 1B: Simple visualisation"
 format: html
 ---
+
+### Learning Objectives
+Coming soon...

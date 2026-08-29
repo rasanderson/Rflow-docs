@@ -43,6 +43,9 @@ website:
       contents:
         - tutorials/index.qmd
         - tutorials/tutorial_1a.qmd
+        - tutorials/tutorial_1b.qmd
+        - tutorials/tutorial_1c.qmd
+        - tutorials/tutorial_2.qmd
 
     - id: howto
       title: "How-To"

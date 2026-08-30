@@ -59,33 +59,35 @@ This shows you how to create a simple Rflow workflow, import data, display summa
 ::: {.clickable-feature-grid}
 ::: {.clickable-feature-card}
 <a href="tutorial_1a.qmd" class="card-link">
+  <h3>Tutorial 1A: Basics of Rflow</h3>
+  
+  This tutorial shows you how to create a simple Rflow workflow, import data, display summary tables and visualisations of your data, and save your workflow.
+  </a>
+:::
 
-#### Easy to learn
+::: {.clickable-feature-card}
+<a href="tutorial_1b.qmd" class="card-link">
+  <h3>Tutorial 1B: Simple visualisation</h3>
 
-- Simple drag and drop interface
-- No prior coding experience required
-- Extensive tutorials and training materials
-- Unified approach to statistics
-- Tests as (generalised) linear models
+  This tutorial introduces you to a range of simple visualisation techniques, including scatterplots, line plots, and bar charts.
+  </a>
+:::
+
+::: {.clickable-feature-card}
+<a href="tutorial_1c.qmd" class="card-link">
+  <h3>Tutorial 1C: Bar charts with error bars</h3>
+  
+  Producing bar charts with error bars is a common task in many environmental and biological datasets. This tutorial shows you how to do this in Rflow.
 </a>
+
 :::
 
 ::: {.clickable-feature-card}
-#### Reproducible
+<a href="tutorial_2.qmd" class="card-link">
+  <h3>Tutorial 2: Introduction to linear models</h3>
 
-- Share your workflows with other Rflow users via Rflow project dashboard
-- Use Rflow to create reproducible data science workflows
-- Export your workflow to a reproducible R script
-- Customise your R scripts later in RStudio or other IDEs
-:::
-
-::: {.clickable-feature-card}
-#### **Visualise and interpret**
-
-- Visualise your data using ggplot2
-- Scatterplots, boxplots, histograms, barplots and more
-- Visualise model diagnostics using DHARMa
-- Store model outputs for predictions
-:::
+  This tutorial covers the basics of linear models, including simple and multiple regression. It shows you how to interpret the results of these models and check their validity.
+</a>
+::: 
 
 :::

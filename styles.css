@@ -155,9 +155,11 @@
   flex-direction: column;
   background: #ffffff;
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem; /*Horizontal padding 1.5rem, vertical padding 1rem */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   border: 1px solid #ccc;
+  height: 220px; /* Set a fixed height for the cards */
+  overflow: hidden; /* Hide overflow to maintain card shape */
 }
 .clickable-feature-card:hover {
   transform: translateY(-3px);
@@ -174,4 +176,15 @@
   color: inherit;
   display: block;
   text-decoration: none;
+}
+.clickable-feature-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;      /* number of lines shown before truncating */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+.clickable-feature-card h3 {
+  margin: 0 0 0.5rem 0; /* Adjust the margin as needed */
 }

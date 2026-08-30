@@ -121,3 +121,70 @@
   display: flex;
   flex-direction: column;
 }
+
+.click-box {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.click-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #007bff;
+}
+.click-box-title {
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.clickable-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.clickable-feature-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem; /*Horizontal padding 1.5rem, vertical padding 1rem */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ccc;
+  height: 220px; /* Set a fixed height for the cards */
+  overflow: hidden; /* Hide overflow to maintain card shape */
+}
+.clickable-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #007bff;
+}
+.clickable-feature-card-title {
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.clickable-feature-card .card-link {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+.clickable-feature-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;      /* number of lines shown before truncating */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+.clickable-feature-card h3 {
+  margin: 0 0 0.5rem 0; /* Adjust the margin as needed */
+}

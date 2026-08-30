@@ -143,3 +143,35 @@
   font-weight: bold;
   margin-bottom: 0.5em;
 }
+
+.clickable-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.clickable-feature-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #ccc;
+}
+.clickable-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-color: #007bff;
+}
+.clickable-feature-card-title {
+  display: block;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+.clickable-feature-card .card-link {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}

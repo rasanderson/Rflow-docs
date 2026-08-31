@@ -2,9 +2,37 @@
 title: "Documentation"
 ---
 
-Welcome to the Rflow documentation. Use the navigation bar above to explore each section.
+Welcome to the Rflow documentation. Use the navigation bar above or click on the cards below to explore each section.
 
-- [Tutorials](../tutorials/index.qmd) — step-by-step guides for learning Rflow
-- [How-To](../howto/index.qmd) — practical recipes for common tasks
-- [Fundamentals](../fundamentals/index.qmd) — core concepts and background theory
-- [Reference](../reference/index.qmd) — full reference for every Rflow function and option
+::: {.clickable-feature-grid}
+::: {.clickable-feature-card}
+<a href="../tutorials/index.qmd" class="card-link">
+  <h3>Tutorials</h3>
+  
+  A collection of step-by-step guides to learn Rflow basics that cover data import, visualisation and modelling.
+  </a>
+:::
+
+::: {.clickable-feature-card}
+<a href="../howto/index.qmd" class="card-link">
+  <h3>How-To</h3>
+  
+  Practical recipes for common tasks in Rflow.
+  </a>
+:::
+
+::: {.clickable-feature-card}
+<a href="../fundamentals/index.qmd" class="card-link">
+  <h3>Fundamentals</h3>
+
+  Core concepts and background theory for Rflow.
+</a>
+:::
+
+::: {.clickable-feature-card}
+<a href="../reference/index.qmd" class="card-link">
+  <h3>Reference</h3>
+
+  Full reference for every Rflow function and option.
+</a>
+:::

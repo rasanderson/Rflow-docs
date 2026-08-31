@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rflow.co.uk/howto/index.html</loc>
+    <loc>https://rflow.co.uk/privacy_notice.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/blog/posts/welcome/index.html</loc>
     <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/docs/index.html</loc>
-    <lastmod>2026-08-28T14:24:54.529Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/index.html</loc>
-    <lastmod>2026-08-30T16:38:28.650Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/blog/index.html</loc>
-    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
+    <loc>https://rflow.co.uk/faq/index.html</loc>
+    <lastmod>2026-08-31T14:46:10.199Z</lastmod>
   </url>
   <url>
     <loc>https://rflow.co.uk/tutorials/index.html</loc>
@@ -33,16 +29,20 @@
     <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/density.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+    <loc>https://rflow.co.uk/reference/models.html</loc>
+    <lastmod>2026-08-31T08:38:17.421Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/glm.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+    <loc>https://rflow.co.uk/reference/index.html</loc>
+    <lastmod>2026-08-31T08:50:02.965Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/boxplot.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+    <loc>https://rflow.co.uk/reference/scatterplot.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/mean-stats.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
     <loc>https://rflow.co.uk/reference/add-column.html</loc>
@@ -53,32 +53,36 @@
     <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/barchart.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+    <loc>https://rflow.co.uk/reference/data_import.html</loc>
+    <lastmod>2026-08-31T09:36:22.292Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/linear-model.html</loc>
+    <loc>https://rflow.co.uk/reference/predict-lm.html</loc>
     <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/summary-stats.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/fundamentals/index.html</loc>
-    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rflow.co.uk/reference/factor.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
     <loc>https://rflow.co.uk/reference/output-csv.html</loc>
     <lastmod>2026-06-19T12:08:27.134Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/predict-lm.html</loc>
+    <loc>https://rflow.co.uk/reference/factor.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/fundamentals/index.html</loc>
+    <lastmod>2026-06-19T12:08:27.132Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/summary-stats.html</loc>
     <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/linear-model.html</loc>
+    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/barchart.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
     <loc>https://rflow.co.uk/reference/histogram.html</loc>
@@ -89,15 +93,19 @@
     <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/mean-stats.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+    <loc>https://rflow.co.uk/reference/other.html</loc>
+    <lastmod>2026-08-31T08:39:03.515Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/scatterplot.html</loc>
-    <lastmod>2026-06-19T12:08:27.134Z</lastmod>
+    <loc>https://rflow.co.uk/reference/boxplot.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/reference/index.html</loc>
+    <loc>https://rflow.co.uk/reference/glm.html</loc>
+    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/reference/density.html</loc>
     <lastmod>2026-06-19T12:08:27.133Z</lastmod>
   </url>
   <url>
@@ -121,11 +129,15 @@
     <lastmod>2026-08-29T15:59:35.351Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/blog/posts/welcome/index.html</loc>
+    <loc>https://rflow.co.uk/blog/index.html</loc>
     <lastmod>2026-06-19T12:08:27.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rflow.co.uk/privacy_notice.html</loc>
-    <lastmod>2026-06-19T12:08:27.133Z</lastmod>
+    <loc>https://rflow.co.uk/index.html</loc>
+    <lastmod>2026-08-31T14:31:30.994Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rflow.co.uk/docs/index.html</loc>
+    <lastmod>2026-08-31T14:40:24.077Z</lastmod>
   </url>
 </urlset>

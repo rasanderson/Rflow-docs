@@ -155,15 +155,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to the Rflow documentation. Use the navigation bar above to explore each section.</p>
-<ul>
-<li><a href="../tutorials/index.html">Tutorials</a> — step-by-step guides for learning Rflow</li>
-<li><a href="../howto/index.html">How-To</a> — practical recipes for common tasks</li>
-<li><a href="../fundamentals/index.html">Fundamentals</a> — core concepts and background theory</li>
-<li><a href="../reference/index.html">Reference</a> — full reference for every Rflow function and option</li>
-</ul>
+<p>Welcome to the Rflow documentation. Use the navigation bar above or click on the cards below to explore each section.</p>
+<div class="clickable-feature-grid">
+<div class="clickable-feature-card">
+<a href="../tutorials/index.html" class="card-link">
+<h3 class="anchored">
+Tutorials
+</h3>
+</a><p><a href="../tutorials/index.html" class="card-link">A collection of step-by-step guides to learn Rflow basics that cover data import, visualisation and modelling. </a></p>
+</div>
+<div class="clickable-feature-card">
+<a href="../faq/index.html" class="card-link">
+<h3 class="anchored">
+FAQ
+</h3>
+</a><p><a href="../faq/index.html" class="card-link">Frequently asked questions about Rflow. </a></p>
+</div>
+<div class="clickable-feature-card">
+<a href="../fundamentals/index.html" class="card-link">
+<h3 class="anchored">
+Fundamentals
+</h3>
+</a><p><a href="../fundamentals/index.html" class="card-link">Core concepts and background theory for Rflow. </a></p>
+</div>
+<div class="clickable-feature-card">
+<a href="../reference/index.html" class="card-link">
+<h3 class="anchored">
+Reference
+</h3>
+</a><p><a href="../reference/index.html" class="card-link">Full reference for every Rflow function and option. </a></p>
+</div>
 
 
+</div>
 
 </main> <!-- /main -->
 <script>
@@ -209,8 +233,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var sections = [
     { text: "Tutorials",    key: "tutorials" },
-    { text: "How-To",       key: "howto" },
     { text: "Fundamentals", key: "fundamentals" },
+    { text: "FAQ",          key: "faq" },
     { text: "Reference",    key: "reference" }
   ];
 

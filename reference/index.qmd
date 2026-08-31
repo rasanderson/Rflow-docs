@@ -3,3 +3,28 @@ title: "Reference"
 ---
 
 Full reference documentation for Rflow functions and options.
+
+::: {layout-ncol="3"}
+::: {.clickable-feature-card}
+<a href="data_import.qmd" class="card-link">
+  <h3>Data Import</h3>
+
+  Functions to read and export data to and from Rflow.
+</a>
+:::
+
+::: {.clickable-feature-card}
+<a href="models.qmd" class="card-link">
+  <h3>Models</h3>
+
+  Functions to create linear and generalised linear models, manipulate and interpret their outputs.
+</a>
+:::
+
+::: {.clickable-feature-card}
+<a href="other.qmd" class="card-link">
+   <h3>Other</h3>
+
+   Scatterplots, barplots and other visualisation functions, plus data manipulation and utility functions.
+</a>
+:::

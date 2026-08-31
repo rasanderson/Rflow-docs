@@ -142,6 +142,20 @@
     ]
   },
   {
+    "objectID": "reference/models.html",
+    "href": "reference/models.html",
+    "title": "Models",
+    "section": "",
+    "text": "Nodes grouped under the “Models” category range from simple calculations of means, standard deviations or standard errors, through to linear models and generalised linear models. Other nodes allow you to check the assumptions of your models and make predictions.\n\n\nUses the conventional “Response ~ Explanatory variable(s)” approach to calculate means, SD, SE, number of variables etc. Output is a data frame which can be used in subsequent nodes.\n\n\n\nThis node uses R’s lm() function to fit a linear model to your data. The model is specified using the conventional “Response ~ Explanatory variable(s)” formula. Output can be in summary() format, usually better for “regression” type models, or anova() format to produce F-statistics. If needed, the latter can use the car() library to produce Type II or Type III ANOVA tables if you have unbalanced designs. Output can be saved as an R object of class lm.\n\n\n\nThis node uses R’s glm() or the glmmTMB package glmmTMB() function to fit generalised linear models. The latter is more flexible with and can handle a wider range of error distributions. However, glmmTMB() produces very large R objects which can consume your storage quota.\n\n\n\nUses the DHARMa package to check the assumptions of your model. This node can be used with any model object produced by the either the Linear model or GLM nodes. Choice of QQ plots or residual plots are available.\n\n\n\nAllows you to make a predictions from either linear or GLM models. The predictions can be made for a single data value, or based on a data frame of new values.\n\n\n\nThis node uses R’s TukeyHSD() function to perform Tukey’s Honest Significant Difference test for pairwise comparisons of means. Typically used where you have a categorical explanatory variable with more than two levels."
+  },
+  {
+    "objectID": "reference/models.html#model-nodes",
+    "href": "reference/models.html#model-nodes",
+    "title": "Models",
+    "section": "",
+    "text": "Nodes grouped under the “Models” category range from simple calculations of means, standard deviations or standard errors, through to linear models and generalised linear models. Other nodes allow you to check the assumptions of your models and make predictions.\n\n\nUses the conventional “Response ~ Explanatory variable(s)” approach to calculate means, SD, SE, number of variables etc. Output is a data frame which can be used in subsequent nodes.\n\n\n\nThis node uses R’s lm() function to fit a linear model to your data. The model is specified using the conventional “Response ~ Explanatory variable(s)” formula. Output can be in summary() format, usually better for “regression” type models, or anova() format to produce F-statistics. If needed, the latter can use the car() library to produce Type II or Type III ANOVA tables if you have unbalanced designs. Output can be saved as an R object of class lm.\n\n\n\nThis node uses R’s glm() or the glmmTMB package glmmTMB() function to fit generalised linear models. The latter is more flexible with and can handle a wider range of error distributions. However, glmmTMB() produces very large R objects which can consume your storage quota.\n\n\n\nUses the DHARMa package to check the assumptions of your model. This node can be used with any model object produced by the either the Linear model or GLM nodes. Choice of QQ plots or residual plots are available.\n\n\n\nAllows you to make a predictions from either linear or GLM models. The predictions can be made for a single data value, or based on a data frame of new values.\n\n\n\nThis node uses R’s TukeyHSD() function to perform Tukey’s Honest Significant Difference test for pairwise comparisons of means. Typically used where you have a categorical explanatory variable with more than two levels."
+  },
+  {
     "objectID": "reference/index.html",
     "href": "reference/index.html",
     "title": "Reference",

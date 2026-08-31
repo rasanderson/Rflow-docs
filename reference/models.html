@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>models – Rflow</title>
+<title>Models – Rflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,17 +132,75 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#model-nodes" id="toc-model-nodes" class="nav-link active" data-scroll-target="#model-nodes">Model nodes</a>
+  <ul class="collapse">
+  <li><a href="#mean-sd-node" id="toc-mean-sd-node" class="nav-link" data-scroll-target="#mean-sd-node">Mean / SD node</a></li>
+  <li><a href="#linear-model-node" id="toc-linear-model-node" class="nav-link" data-scroll-target="#linear-model-node">Linear model node</a></li>
+  <li><a href="#glm-node" id="toc-glm-node" class="nav-link" data-scroll-target="#glm-node">GLM node</a></li>
+  <li><a href="#diagnostics-node" id="toc-diagnostics-node" class="nav-link" data-scroll-target="#diagnostics-node">Diagnostics node</a></li>
+  <li><a href="#predict-node" id="toc-predict-node" class="nav-link" data-scroll-target="#predict-node">Predict node</a></li>
+  <li><a href="#tukey-hsd-node" id="toc-tukey-hsd-node" class="nav-link" data-scroll-target="#tukey-hsd-node">Tukey HSD node</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Models</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
+
+<section id="model-nodes" class="level2">
+<h2 class="anchored" data-anchor-id="model-nodes">Model nodes</h2>
+<p>Nodes grouped under the “Models” category range from simple calculations of means, standard deviations or standard errors, through to linear models and generalised linear models. Other nodes allow you to check the assumptions of your models and make predictions.</p>
+<section id="mean-sd-node" class="level3">
+<h3 class="anchored" data-anchor-id="mean-sd-node"><a href="../reference/mean-stats.html">Mean / SD node</a></h3>
+<p>Uses the conventional “Response ~ Explanatory variable(s)” approach to calculate means, SD, SE, number of variables etc. Output is a data frame which can be used in subsequent nodes.</p>
+</section>
+<section id="linear-model-node" class="level3">
+<h3 class="anchored" data-anchor-id="linear-model-node"><a href="../reference/linear-model.html">Linear model node</a></h3>
+<p>This node uses R’s <code>lm()</code> function to fit a linear model to your data. The model is specified using the conventional “Response ~ Explanatory variable(s)” formula. Output can be in <code>summary()</code> format, usually better for “regression” type models, or <code>anova()</code> format to produce F-statistics. If needed, the latter can use the <code>car()</code> library to produce Type II or Type III ANOVA tables if you have unbalanced designs. Output can be saved as an R object of class <code>lm</code>.</p>
+</section>
+<section id="glm-node" class="level3">
+<h3 class="anchored" data-anchor-id="glm-node"><a href="../reference/glm.html">GLM node</a></h3>
+<p>This node uses R’s <code>glm()</code> or the <code>glmmTMB</code> package <code>glmmTMB()</code> function to fit generalised linear models. The latter is more flexible with and can handle a wider range of error distributions. However, <code>glmmTMB()</code> produces very large R objects which can consume your storage quota.</p>
+</section>
+<section id="diagnostics-node" class="level3">
+<h3 class="anchored" data-anchor-id="diagnostics-node"><a href="../reference/diagnostics.html">Diagnostics node</a></h3>
+<p>Uses the <code>DHARMa</code> package to check the assumptions of your model. This node can be used with any model object produced by the either the Linear model or GLM nodes. Choice of QQ plots or residual plots are available.</p>
+</section>
+<section id="predict-node" class="level3">
+<h3 class="anchored" data-anchor-id="predict-node"><a href="../reference/predict-lm.html">Predict node</a></h3>
+<p>Allows you to make a predictions from either linear or GLM models. The predictions can be made for a single data value, or based on a data frame of new values.</p>
+</section>
+<section id="tukey-hsd-node" class="level3">
+<h3 class="anchored" data-anchor-id="tukey-hsd-node"><a href="../reference/tukey-hsd.html">Tukey HSD node</a></h3>
+<p>This node uses R’s <code>TukeyHSD()</code> function to perform Tukey’s Honest Significant Difference test for pairwise comparisons of means. Typically used where you have a categorical explanatory variable with more than two levels.</p>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script>

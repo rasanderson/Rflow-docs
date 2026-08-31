@@ -78,6 +78,12 @@ website:
         - reference/scatterplot.qmd
         - reference/summary-stats.qmd
         - reference/tukey-hsd.qmd
+      
+    - id: importexport
+      title: "Import/Export"
+      contents:
+        - reference/input-csv.qmd
+        - reference/output-csv.qmd
 
 format:
   html:

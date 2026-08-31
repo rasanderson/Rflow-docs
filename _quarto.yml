@@ -47,15 +47,15 @@ website:
         - tutorials/tutorial_1c.qmd
         - tutorials/tutorial_2.qmd
 
-    - id: howto
-      title: "How-To"
-      contents:
-        - howto/
-
     - id: fundamentals
       title: "Fundamentals"
       contents:
         - fundamentals/
+
+    - id: faq
+      title: "FAQ"
+      contents:
+        - faq/
 
     - id: reference
       title: "Reference"

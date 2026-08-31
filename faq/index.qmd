@@ -1,0 +1,69 @@
+---
+title: "FAQ"
+toc: true
+toc-title: "Frequently Asked Questions"
+---
+
+## Frequently Asked Questions
+
+:::{.callout-note collapse="true" icon="false"}
+### How do I install Rflow?
+No installation is required. Rflow is a web-based application that runs in your browser.
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+### Is Rflow free to use?
+You can sign up for a free Rflow account and use most features, but the numbers of projects and disk quota are limited.
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+### Is Rflow open source?
+Rflow is not currently open source. It uses open source R as a backend, with the plumber2 package to run R functions. It is possible that in the future we may offer it as a self-hosted service and fully release all the source code.
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+### Is the R code downloaded from Rflow usable in RStudio, VS Code or Positron IDEs?
+Yes, with two minor caveats:
+
+1. First, you may need to do a one-off installation of additional R packages, for example `ggplot2`, `glmmTMB`, `car` or `DHARMa`, using the `install.packages()` function in R.
+2. Second, you might need to change the working directory, especially in RStudio, to ensure that the script can find your csv data files in `read.csv` function calls.
+
+Apart from these two minor issues, the R code downloaded from Rflow is fully usable in any R IDE.
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+### Can I use exported Rflow Workflows in other R IDEs?
+No. If you want to export your Rflow workflow for use in an IDE such as VS Code, RStudio or Positron, you need to use the "Download R Code" button in the Rflow workflow editor. This will give you a fully reproducible R script that you can run in any R IDE. The "Export" button on the Rflow projects page is for sharing your workflow with specific other Rflow users if you do not want to make it public.
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+### When will Rflow Standard be available to purchase?
+Subscriptions for Rflow Standard will be available in late 2026. We are currently in beta testing and will announce the official release date on our website.
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+### Why are both `glm` and `glmmTMB` available in Rflow?
+The `glm` function is installed in the core R package and is most widely documented. `glmmTMB` is more recent, with more advanced features. There are pros and cons to both.
+
+| Feature | glm | glmmTMB |
+|---------|-----|---------|
+| CPU speed | Fast | Slower |
+| Available error models | Limited | Numerous |
+| Random effects | No | Yes |
+| Saved model size | Small | Large |
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+### Can I use random effects models in Rflow?
+Not yet. Rflow gives access to `glmmTMB()` which fits both linear and generalised linear mixed models. However, the interface is currently limited to fixed effects models. We plan to add random effects models in a future release.
+:::
+
+:::{.callout-note collapse="true" icon="false"}
+### Why is `DHARMa` used to assess residuals in Rflow?
+The standard base `plot.lm()` and especially `plot.glm()` can be difficult to interpret in models with small sample sizes and or non-normal error distributions. The `DHARMa` package uses simulation to generate residuals that are more interpretable and easier to assess for model fit.
+:::
+
+::: {.callout-note collapse="true" icon="false"}
+### Why are so few statistical tests available in Rflow?
+You might be puzzled that lots of "standard" statistical tests appear to be missing from Rflow. Many statistics packages have separate functions for numerous tests, e.g. paired t-test, one-way ANOVA, two-way ANOVA, Kruskal-Wallis test, etc. In Rflow, we have unified all of these tests into a single framework based on (generalised) linear models. This has the advantage that you can use the same workflow for many different tests, and it is easier to learn and understand.
+:::

@@ -14,10 +14,10 @@ Welcome to the Rflow documentation. Use the navigation bar above or click on the
 :::
 
 ::: {.clickable-feature-card}
-<a href="../howto/index.qmd" class="card-link">
-  <h3>How-To</h3>
+<a href="../faq/index.qmd" class="card-link">
+  <h3>FAQ</h3>
   
-  Practical recipes for common tasks in Rflow.
+  Frequently asked questions about Rflow.
   </a>
 :::
 

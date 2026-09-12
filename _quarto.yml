@@ -24,7 +24,7 @@ website:
       - text: "Login"
         href: https://app.rflow.co.uk/login
       - text: "Start for Free"
-        href: 404.qmd
+        href: https://app.rflow.co.uk/signup
 
   page-footer:
     center:

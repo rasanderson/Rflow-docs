@@ -150,6 +150,12 @@
   gap: 1.5rem;
 }
 
+.clickable-feature-grid.featured-row {
+  grid-template-columns: minmax(0, 50%);
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
 .clickable-feature-card {
   display: flex;
   flex-direction: column;

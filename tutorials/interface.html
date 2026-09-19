@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How-To – Rflow</title>
+<title>Navigating the Rflow interface – Rflow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Login</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../404.html"> 
+    <a class="nav-link" href="https://app.rflow.co.uk/signup"> 
 <span class="menu-text">Start for Free</span></a>
   </li>  
 </ul>
@@ -132,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">How-To</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tutorials/interface.html">Navigating the Rflow interface</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -144,20 +144,83 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorials</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/interface.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Navigating the Rflow interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/tutorial_1a.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 1A: Basics of Rflow</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/tutorial_1b.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 1B: Simple visualisation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/tutorial_1c.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 1C: Bar charts with error bars</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../tutorials/tutorial_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tutorial 2: Introduction to linear models</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-rflow-interface" id="toc-the-rflow-interface" class="nav-link active" data-scroll-target="#the-rflow-interface">The Rflow interface</a>
+  <ul class="collapse">
+  <li><a href="#rflow-projects-ribbon" id="toc-rflow-projects-ribbon" class="nav-link" data-scroll-target="#rflow-projects-ribbon">Rflow Projects Ribbon</a></li>
+  </ul></li>
+  <li><a href="#create-an-example-rflow-project" id="toc-create-an-example-rflow-project" class="nav-link" data-scroll-target="#create-an-example-rflow-project">Create an example Rflow project</a></li>
+  <li><a href="#rflow-workflow-editor" id="toc-rflow-workflow-editor" class="nav-link" data-scroll-target="#rflow-workflow-editor">Rflow workflow editor</a>
+  <ul class="collapse">
+  <li><a href="#toolbar" id="toc-toolbar" class="nav-link" data-scroll-target="#toolbar">Toolbar</a>
+  <ul class="collapse">
+  <li><a href="#data-import-export-nodes" id="toc-data-import-export-nodes" class="nav-link" data-scroll-target="#data-import-export-nodes">Data import / export nodes</a></li>
+  <li><a href="#models" id="toc-models" class="nav-link" data-scroll-target="#models">Models</a></li>
+  <li><a href="#other" id="toc-other" class="nav-link" data-scroll-target="#other">Other</a></li>
+  </ul></li>
+  <li><a href="#rflow-canvas" id="toc-rflow-canvas" class="nav-link" data-scroll-target="#rflow-canvas">Rflow canvas</a></li>
+  <li><a href="#rflow-panel" id="toc-rflow-panel" class="nav-link" data-scroll-target="#rflow-panel">Rflow Panel</a></li>
+  </ul></li>
+  <li><a href="#create-a-simple-workflow" id="toc-create-a-simple-workflow" class="nav-link" data-scroll-target="#create-a-simple-workflow">Create a simple workflow</a>
+  <ul class="collapse">
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import">Data import</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">Summary statistics</a></li>
+  </ul></li>
+  <li><a href="#finishing-up" id="toc-finishing-up" class="nav-link" data-scroll-target="#finishing-up">Finishing up</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How-To</h1>
+<h1 class="title">Navigating the Rflow interface</h1>
 </div>
 
 
@@ -174,9 +237,134 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Practical guides for common Rflow tasks.</p>
+<section id="the-rflow-interface" class="level1">
+<h1>The Rflow interface</h1>
+<p>The Rflow interface is designed to be intuitive and user-friendly, allowing users to easily create and manage their data analysis workflows. The first time you login to Rflow you will land on the Rflow Projects page, which lists all your Rflow projects. This will be empty of projects initially.</p>
+<section id="rflow-projects-ribbon" class="level2">
+<h2 class="anchored" data-anchor-id="rflow-projects-ribbon">Rflow Projects Ribbon</h2>
+<p>Across the top of the Rflow Projects page is the Rflow Projects ribbon, which contains buttons for creating a new project, cloning an existing project, access account settings etc.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/rflow_proj_ribbon.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<p>The key buttons on the Rflow Projects ribbon are:</p>
+<ul>
+<li><strong>New Project</strong>: Create a new Rflow project. You will be prompted to enter a name for your project, a short description, and whether you want it to be a private project (default) or public project.</li>
+<li><strong>Clone</strong>: This allows you to clone an existing Public Rflow project, or Tutorial project, into your own Rflow account where you can edit it. You cannot directly edit Public Rflow projects or Tutorial projects. When you Clone a project you also import that project’s data, as well as its workflow.</li>
+<li><strong>Import</strong>: This allows you to import an Rflow project format file (.json format) into your Rflow account. Rflow Project Format files contain the workflow structure, but <strong>not</strong> the data. They can be useful if you want to share a workflow with another Rflow user without making it public.</li>
+<li><strong>Export</strong>: The reverse of Import, this generates an Rflow Project Format File that you can share with another Rflow user (e.g.&nbsp;via email). Again, the data is not included in the exported file, only the workflow structure, so you have to share any data separately.</li>
+<li><strong>Forum</strong>: Provides access to the Rflow Community Forum for asking questions, sharing ideas, and getting help from other Rflow users. Note: this is currently hosted on Discourse, and you will need to create a free Discourse account to post questions or comments. You can also browse the forum without an account.</li>
+<li><strong>Help</strong>: Access the main Rflow documentation pages</li>
+<li><strong>Account</strong>: Access your Rflow account settings, including changing your password, upgrade to a paid Standard account (or downgrade to a Free account).</li>
+</ul>
+<p>At the top right is an indicator of your current disk usage relative to your account’s disk quota (press the refresh button to update information).</p>
+</section>
+</section>
+<section id="create-an-example-rflow-project" class="level1">
+<h1>Create an example Rflow project</h1>
+<p>To get started with Rflow, we will create a new project and import some example data. Click on the <strong>New Project</strong> button and you will be greeted with the following dialog box:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/new_project_dialog.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>Enter a name for your project, such as <em>My first Rflow project</em> and a short description. Leave it on the default Private setting for now, click <strong>Create project</strong> and you will be taken back to the Rflow Projects page, where you will see your new project listed as a “card”. The info card gives the project name, creation and last modified dates, disk usage, and whether it is a private or public project. Also on the card are buttons for:</p>
+<ul>
+<li><strong>Open</strong>: Opens the project in the Rflow workflow editor</li>
+<li><strong>Edit</strong>: Allows you to edit the project name, description, and privacy setting</li>
+<li><strong>Delete</strong>: Deletes the project and all its data. <strong>This cannot be undone!</strong></li>
+</ul>
+</section>
+<section id="rflow-workflow-editor" class="level1">
+<h1>Rflow workflow editor</h1>
+<p>Click on the <strong>Open</strong> button on your testproject card to open the Rflow workflow editor.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/Rflow_workflow_editor.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<p>This is the main Rflow workflow editor interface. The workflow editor is where you will create and manage your data analysis workflows. The main components of the workflow editor are:</p>
+<section id="toolbar" class="level2">
+<h2 class="anchored" data-anchor-id="toolbar">Toolbar</h2>
+<p>Allows you to select Rflow workflow nodes from dropdown menus. These are grouped into:</p>
+<section id="data-import-export-nodes" class="level3">
+<h3 class="anchored" data-anchor-id="data-import-export-nodes">Data import / export nodes</h3>
+<p>You will typically start your workflow with a data import node, which allows you to import data from a CSV file, or from an Rflow project dataset. You can also export your workflow results to a CSV file, or to an Rflow project dataset.</p>
+</section>
+<section id="models" class="level3">
+<h3 class="anchored" data-anchor-id="models">Models</h3>
+<p>Here you can select nodes for fitting linear models, generalised linear models, check model diagnostics, make predictions, as well as calculate means and other statistics.</p>
+</section>
+<section id="other" class="level3">
+<h3 class="anchored" data-anchor-id="other">Other</h3>
+<p>These focus primarily on data visualisation, including scatterplots, line plots, bar charts, and boxplots. There are also functions to summarise data, manipulate data types etc.</p>
+<p>At the bottom of the Toolbar are three buttons: <strong>Save, Download R, Help &amp; Docs</strong>. Your Rflow workflow is automatically saved to the server every 30 seconds, but you can click the <strong>Save</strong> button to save your workflow manually at any time. The <strong>Download R</strong> button allows you to download the R code for your workflow, which you can run in RStudio or any other R environment. Note that the Download R button only saves the R code, it does not save any data or analytical results. The <strong>Help &amp; Docs</strong> button takes you to the main Rflow documentation pages.</p>
+<p>There is also a dropdown menu at the top of the Toolbar next to your username. This shows you your total disk usage, the project’s disk usage, and under <strong>Manage project storage</strong> shows you every R object saved to the Rflow server in this project. You can manually delete these at any time to free up disk space, but note that this will reset the Rflow nodes associated with that R object.</p>
+</section>
+</section>
+<section id="rflow-canvas" class="level2">
+<h2 class="anchored" data-anchor-id="rflow-canvas">Rflow canvas</h2>
+<p>Here you will build your workflow by dragging and dropping nodes from the Toolbar onto the canvas, and connecting them together to define the data flow. You can also move nodes around on the canvas, and delete nodes by selecting them and pressing the <strong>Delete</strong> key on your keyboard. If you do delete a node, any “downstream” nodes that depend on it will need to be re-run with new inputs. Each node has three states:</p>
+<ul>
+<li><strong>Pending</strong>: The node has yet to be configured and run. Shown in grey on the Rflow canvas.</li>
+<li><strong>Completed</strong>: The node has run successfully without errors. Shown in green on the Rflow canvas.</li>
+<li><strong>Error</strong>: The node has run with errors. Shown in red on the Rflow canvas</li>
+</ul>
+<p>Every node has at least one “handle” at the top and / or bottom of the node. Handles with a <strong>+</strong> sign are outputs. The node will output data and / or model results to a suitable downstream node. Handles with a <strong>-</strong> sign expect to receive information from an upstream node. You can drag and drop a connection with the mouse from an output handle to an input handle to connect two nodes together. You can also delete a connection by clicking on it and pressing the <strong>Delete</strong> key on your keyboard. Some nodes have multiple input and output handles, which allow you to connect multiple nodes together in a workflow. Other nodes only accept certain types of inputs from upstream nodes, and will not allow you to connect incompatible nodes together.</p>
+</section>
+<section id="rflow-panel" class="level2">
+<h2 class="anchored" data-anchor-id="rflow-panel">Rflow Panel</h2>
+<p>This is on the right side of the Rflow workflow editor. It shows you the details of the currently selected node. When a node is selected, it will display 3 tabs:</p>
+<ul>
+<li><strong>Input</strong>. You select the parameters needed to run the node, such as file names, model formulae, plotting instructions etc. You are strongly recommended to complete the optional <strong>Comments</strong> field to document your workflow. This will also be included in R code if you export it. At the bottom of the Input tab is a <strong>Run</strong> button, which you click to run the node. If the node runs successfully, it will turn green on the Rflow canvas.</li>
+<li><strong>Output</strong>. This shows you the output of the node, such as summary tables, model results, and plots.</li>
+<li><strong>R Code</strong>. This provides access to the R code generated only by this node.</li>
+</ul>
+<p>At the top right of the Rflow Panel is a <strong>Node Help</strong> button which opens a new window with specific Rflow and R documentation about the functions of that selected node.</p>
+</section>
+</section>
+<section id="create-a-simple-workflow" class="level1">
+<h1>Create a simple workflow</h1>
+<section id="data-import" class="level2">
+<h2 class="anchored" data-anchor-id="data-import">Data import</h2>
+<p>Begin by clicking on the <strong>Data import / export</strong> dropdown menu in the Toolbar, and selecting <strong>Import CSV</strong>. You will be prompted to click on the main Rflow canvas to place the node.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/input_csv_pending.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:33.0%"></p>
+</figure>
+</div>
+<p>You can see that the node is in a <strong>Pending</strong> state as it has not yet been configured and run. Click on the node to select it. You will now see in the Rflow Panel that it expects a CSV file to be uploaded. You also need to provide a name for the resulting R object (a <code>data.frame</code>) that will store that data in your workspace, as well as an optional comment. Download the following example CSV <a href="data_workflows/chick_diet.csv" download="">chick_diet.csv</a> to your computer. In Rflow, browse for that file, and give it an R object name of <code>chicks_dat</code>. R has certain rules for naming objects, which Rflow will check. It will also warn you if you try to use an R object name that already exists in your workspace. When ready, click the <strong>Run</strong> button at the bottom of the Rflow Panel. If the node runs successfully, it will turn green on the Rflow canvas with the message “Completed”. The Rflow Panel Output tab will now show you the top few rows of the imported data.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/input_csv_panel_output.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>If you click on the <strong>R Code</strong> tab, you will see the R code generated by this node. You can copy and paste this code into RStudio or any other R environment to run it there. <strong>Note</strong>: you will need to change the file path in the <code>read.csv()</code> function to point to the location of the CSV file on your computer as RStudio may not detect its location automatically.</p>
+</section>
+<section id="summary-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-statistics">Summary statistics</h2>
+<p>Now we will calculate some very simple summary statistics. Open up the <strong>Other</strong> dropdown menu in the Rflow Toolbar, and click on ** Summary Stats<strong>. Click on the Rflow canvas below your existing node, and connect the output handle of the </strong>Import CSV** node to the input handle of the <strong>Summary Stats</strong> node. Your screen should now look like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/input_csv_summary.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+<p>Note that as soon as you connect the nodes, the Summary Stats node detects the <code>chicks_dat</code> object from the upstream node. Summary Stats has an output handle (it would just pass <code>chicks_dat</code> unchanged to any downstream nodes). It is very simple, and only needs a comment, before running. Add a comment, and click the “Run” button in the Rflow Panel.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/summary_output_panel.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>As the <code>chicks_dat</code> contains a mixture of numeric and categorical data, these are presented neatly in the Output tab of the Rflow Panel. The numeric data is summarised with the mean, standard deviation, minimum, maximum, and quartiles. As usual you can click on the <strong>R Code</strong> tab to see the R code generated by this node.</p>
+</section>
+</section>
+<section id="finishing-up" class="level1">
+<h1>Finishing up</h1>
+<p>This is just a simple example of the most basic of workflows. The project is automatically saved to the Rflow server, but if interested, click the “Download R” button in the Toolbar to download the auto-generated R code for this workflow. You can sign-out of Rflow either via the dropdown menu next to your username, or by going back to the Rflow Projects page and clicking on the “Sign out” button at the top right of the page. You can always sign back in later to continue working on your workflow.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script>
@@ -222,8 +410,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var sections = [
     { text: "Tutorials",    key: "tutorials" },
-    { text: "How-To",       key: "howto" },
     { text: "Fundamentals", key: "fundamentals" },
+    { text: "FAQ",          key: "faq" },
     { text: "Reference",    key: "reference" }
   ];
 

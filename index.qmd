@@ -17,11 +17,12 @@
 
 ### Visualise. Analyse. Interpret. Reproducible data science in R with flowcharts.
 
-### Launching Autumn 2026
+### Now undergoing beta testing
+It is possible to sign up for free and use the experimental beta service. **Important:** Rflow is still in development. The service may be unstable and go offline without warning. Your **personal accounts and data may be deleted without warning**. Please do **not** use Rflow for any important work or data until the service is stable and officially released.
 
 
 ::: {.d-flex .flex-wrap .gap-4 .pb-3 .pt-4}
-[Start for Free](/docs/signup){#btn-start .btn-action-primary .btn-action .btn .btn-lg .rounded-pill role="button"}
+[Start for Free](https://app.rflow.co.uk/signup){#btn-start .btn-action-primary .btn-action .btn .btn-lg .rounded-pill role="button"}
 [Guide](/docs/index.qmd){#btn-guide .btn-action .btn-secondary .btn .btn-lg .rounded-pill role="button"}
 :::
 

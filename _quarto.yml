@@ -24,7 +24,7 @@ website:
       - text: "Login"
         href: https://app.rflow.co.uk/login
       - text: "Start for Free"
-        href: 404.qmd
+        href: https://app.rflow.co.uk/signup
 
   page-footer:
     center:
@@ -41,17 +41,22 @@ website:
       style: "docked"
       background: light
       contents:
-        - tutorials/
-
-    - id: howto
-      title: "How-To"
-      contents:
-        - howto/
+        - tutorials/index.qmd
+        - tutorials/interface.qmd
+        - tutorials/tutorial_1a.qmd
+        - tutorials/tutorial_1b.qmd
+        - tutorials/tutorial_1c.qmd
+        - tutorials/tutorial_2.qmd
 
     - id: fundamentals
       title: "Fundamentals"
       contents:
         - fundamentals/
+
+    - id: faq
+      title: "FAQ"
+      contents:
+        - faq/
 
     - id: reference
       title: "Reference"
@@ -74,6 +79,12 @@ website:
         - reference/scatterplot.qmd
         - reference/summary-stats.qmd
         - reference/tukey-hsd.qmd
+      
+    - id: importexport
+      title: "Import/Export"
+      contents:
+        - reference/input-csv.qmd
+        - reference/output-csv.qmd
 
 format:
   html:

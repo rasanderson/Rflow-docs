@@ -1,0 +1,15 @@
+---
+title: "Data Import and Export"
+format: html
+toc: true
+page-layout: article
+sidebar: importexport
+--- 
+
+Both data import and export for Rflow is managed through CSV files as these are the most widely used format for data storage and exchange. Rflow uses the `read.csv()` and `write.csv()` functions from base R to read and write CSV files.
+
+### [Input CSV node](input-csv.qmd)
+This node calls R's [`read.csv()`](https://search.r-project.org/R/refmans/utils/html/read.table.html) function to import data from a CSV file. The original R function is part of the `utils` package which is included in base R, so no additional packages are required to use this node. Other variations include `read.csv2()` which is used for CSV files that use a semicolon as the field separator and a comma as the decimal point, and `read.table()` which is a more general function that can read tabular data in a variety of formats. These latter two functions are not currently supported in Rflow, but may be added in future releases.
+
+### [Output CSV node](output-csv.qmd)
+This node calls R's [`write.csv()`](https://search.r-project.org/R/refmans/utils/html/write.table.html) function to export data to a CSV file. Rflow uses the standard `write.csv()` which uses comma separation between columns and a period as the decimal point. The `write.csv2()` function is not currently supported in Rflow, but may be added in future releases.

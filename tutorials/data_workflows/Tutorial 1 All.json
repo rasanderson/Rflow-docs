@@ -1,0 +1,1610 @@
+{
+  "title": "Practical 1",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "inputCSV",
+      "position": {
+        "x": -162.1641090082339,
+        "y": -319.4510767314275
+      },
+      "data": {
+        "label": "Input CSV",
+        "dfName": "diet_dat",
+        "needsRerun": false,
+        "comment": "Import chick diet data",
+        "dfKey": "diet_dat",
+        "localPreview": {
+          "fileName": "chick_diet.csv",
+          "columns": [
+            "weight",
+            "time",
+            "chick",
+            "diet"
+          ],
+          "preview": [
+            {
+              "weight": 205,
+              "time": 21,
+              "chick": 1,
+              "diet": "A"
+            },
+            {
+              "weight": 215,
+              "time": 21,
+              "chick": 2,
+              "diet": "A"
+            },
+            {
+              "weight": 202,
+              "time": 21,
+              "chick": 3,
+              "diet": "A"
+            },
+            {
+              "weight": 157,
+              "time": 21,
+              "chick": 4,
+              "diet": "A"
+            },
+            {
+              "weight": 223,
+              "time": 21,
+              "chick": 5,
+              "diet": "A"
+            },
+            {
+              "weight": 157,
+              "time": 21,
+              "chick": 6,
+              "diet": "A"
+            },
+            {
+              "weight": 305,
+              "time": 21,
+              "chick": 7,
+              "diet": "A"
+            },
+            {
+              "weight": 98,
+              "time": 21,
+              "chick": 9,
+              "diet": "A"
+            },
+            {
+              "weight": 124,
+              "time": 21,
+              "chick": 10,
+              "diet": "A"
+            },
+            {
+              "weight": 175,
+              "time": 21,
+              "chick": 11,
+              "diet": "A"
+            },
+            {
+              "weight": 205,
+              "time": 21,
+              "chick": 12,
+              "diet": "A"
+            },
+            {
+              "weight": 96,
+              "time": 21,
+              "chick": 13,
+              "diet": "A"
+            },
+            {
+              "weight": 266,
+              "time": 21,
+              "chick": 14,
+              "diet": "A"
+            },
+            {
+              "weight": 142,
+              "time": 21,
+              "chick": 17,
+              "diet": "A"
+            },
+            {
+              "weight": 157,
+              "time": 21,
+              "chick": 19,
+              "diet": "A"
+            },
+            {
+              "weight": 117,
+              "time": 21,
+              "chick": 20,
+              "diet": "A"
+            },
+            {
+              "weight": 331,
+              "time": 21,
+              "chick": 21,
+              "diet": "B"
+            },
+            {
+              "weight": 167,
+              "time": 21,
+              "chick": 22,
+              "diet": "B"
+            },
+            {
+              "weight": 175,
+              "time": 21,
+              "chick": 23,
+              "diet": "B"
+            },
+            {
+              "weight": 74,
+              "time": 21,
+              "chick": 24,
+              "diet": "B"
+            }
+          ],
+          "count": 45
+        },
+        "lastRunDfName": "diet_dat",
+        "lastRunFileName": "chick_diet.csv",
+        "uploadResult": {
+          "key": "diet_dat",
+          "dfName": "diet_dat",
+          "_timestamp": 1776619148514
+        }
+      }
+    },
+    {
+      "id": "2",
+      "type": "summaryStats",
+      "position": {
+        "x": 2.509441607919257,
+        "y": -184.98881646128225
+      },
+      "data": {
+        "label": "Summary stats",
+        "dfKey": "diet_dat",
+        "uploadResult": {
+          "key": "diet_dat",
+          "dfName": "diet_dat",
+          "_timestamp": 1776619148514
+        },
+        "dfName": "diet_dat",
+        "originalColumns": [
+          "weight",
+          "time",
+          "chick",
+          "diet"
+        ],
+        "needsRerun": false,
+        "comment": "Basic summary statistics",
+        "lastRunInputKey": "diet_dat"
+      }
+    },
+    {
+      "id": "3",
+      "type": "meanStats",
+      "position": {
+        "x": 18.68639157831427,
+        "y": -77.66242048108055
+      },
+      "data": {
+        "label": "Mean / SD",
+        "dfKey": "diet_dat",
+        "uploadResult": {
+          "key": "diet_stats",
+          "dfName": "diet_stats",
+          "_timestamp": 1787920011165,
+          "columns": [
+            "diet",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ]
+        },
+        "dfName": "diet_dat",
+        "originalColumns": [
+          "weight",
+          "time",
+          "chick",
+          "diet"
+        ],
+        "needsRerun": false,
+        "comment": "Calculate basic statistics by chick diet",
+        "meanStats": {
+          "formula": "weight ~ diet",
+          "output_df_name": "diet_stats"
+        },
+        "result": {
+          "columns": [
+            "diet",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ],
+          "rows": [
+            {
+              "diet": [
+                "A"
+              ],
+              "mean": [
+                177.75
+              ],
+              "sd": [
+                58.7021
+              ],
+              "var": [
+                3445.9333
+              ],
+              "n": [
+                16
+              ],
+              "se": [
+                14.6755
+              ]
+            },
+            {
+              "diet": [
+                "B"
+              ],
+              "mean": [
+                214.7
+              ],
+              "sd": [
+                78.1381
+              ],
+              "var": [
+                6105.5667
+              ],
+              "n": [
+                10
+              ],
+              "se": [
+                24.7094
+              ]
+            },
+            {
+              "diet": [
+                "C"
+              ],
+              "mean": [
+                270.3
+              ],
+              "sd": [
+                71.6225
+              ],
+              "var": [
+                5129.7889
+              ],
+              "n": [
+                10
+              ],
+              "se": [
+                22.649
+              ]
+            },
+            {
+              "diet": [
+                "D"
+              ],
+              "mean": [
+                238.5556
+              ],
+              "sd": [
+                43.3478
+              ],
+              "var": [
+                1879.0278
+              ],
+              "n": [
+                9
+              ],
+              "se": [
+                14.4493
+              ]
+            }
+          ],
+          "output_df_name": [
+            "diet_stats"
+          ]
+        },
+        "lastRunInputKey": "diet_dat"
+      }
+    },
+    {
+      "id": "4",
+      "type": "histogram",
+      "position": {
+        "x": -175.46914158191848,
+        "y": -186.54194272954413
+      },
+      "data": {
+        "label": "Histogram",
+        "dfKey": "diet_dat",
+        "uploadResult": {
+          "key": "diet_dat",
+          "dfName": "diet_dat",
+          "_timestamp": 1776619148514
+        },
+        "dfName": "diet_dat",
+        "originalColumns": [
+          "weight",
+          "time",
+          "chick",
+          "diet"
+        ],
+        "needsRerun": false,
+        "comment": "Frequency histogram of chick weights across all diets",
+        "histogram": {
+          "xCol": "weight",
+          "fillVar": "",
+          "binCount": "24",
+          "xLabel": "Chick weight (g)",
+          "yLabel": "Number of birds",
+          "imageUrl": "blob:http://localhost:5173/41b1801e-05b4-4d40-b5ba-d362c0312307",
+          "fetchedAt": 1783185581641
+        },
+        "lastRunInputKey": "diet_dat"
+      }
+    },
+    {
+      "id": "5",
+      "type": "density",
+      "position": {
+        "x": -175.21932068538757,
+        "y": -71.29454715643308
+      },
+      "data": {
+        "label": "Density",
+        "dfKey": "diet_dat",
+        "uploadResult": {
+          "key": "diet_dat",
+          "dfName": "diet_dat",
+          "_timestamp": 1776619148514
+        },
+        "dfName": "diet_dat",
+        "originalColumns": [
+          "weight",
+          "time",
+          "chick",
+          "diet"
+        ],
+        "needsRerun": false,
+        "density": {
+          "xCol": "weight",
+          "fillVar": "time",
+          "adjust": "",
+          "xLabel": "Chick weight (g)",
+          "yLabel": "Probability density",
+          "imageUrl": "blob:http://localhost:5173/50a97595-eddf-4250-ace5-a1462f61ea5f",
+          "fetchedAt": 1783185604899
+        },
+        "comment": "Smoothed probability density plot of chick weights",
+        "lastRunInputKey": "diet_dat"
+      }
+    },
+    {
+      "id": "6",
+      "type": "boxplot",
+      "position": {
+        "x": -161.3994051125701,
+        "y": 29.960115375973444
+      },
+      "data": {
+        "label": "Boxplot",
+        "dfKey": "diet_dat",
+        "uploadResult": {
+          "key": "diet_dat",
+          "dfName": "diet_dat",
+          "_timestamp": 1776619148514
+        },
+        "dfName": "diet_dat",
+        "originalColumns": [
+          "weight",
+          "time",
+          "chick",
+          "diet"
+        ],
+        "needsRerun": false,
+        "comment": "Boxplot of effects of chick diet on bird weight",
+        "boxplot": {
+          "xCol": "diet",
+          "yCol": "weight",
+          "fillVar": "",
+          "xLabel": "",
+          "yLabel": "",
+          "addJitter": false,
+          "imageUrl": "blob:http://localhost:5173/6085f178-1159-4d07-b285-2c9cee1c1da8",
+          "fetchedAt": 1787919996886
+        },
+        "lastRunInputKey": "diet_dat"
+      }
+    },
+    {
+      "id": "7",
+      "type": "barchart",
+      "position": {
+        "x": 21.914882839001564,
+        "y": 27.002249531168545
+      },
+      "data": {
+        "label": "Barchart",
+        "dfKey": "diet_stats",
+        "uploadResult": {
+          "key": "diet_stats",
+          "dfName": "diet_stats",
+          "_timestamp": 1787920011165,
+          "columns": [
+            "diet",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ]
+        },
+        "dfName": "diet_stats",
+        "originalColumns": [
+          "diet",
+          "mean",
+          "sd",
+          "var",
+          "n",
+          "se"
+        ],
+        "needsRerun": false,
+        "barchart": {
+          "xCol": "diet",
+          "yCol": "mean",
+          "fillVar": "",
+          "errorVar": "se",
+          "errorbarWidth": "0.3",
+          "dodgeWidth": "0.9",
+          "xLabel": "Experimental diet",
+          "yLabel": "Mean chick weight (g) +/- SE",
+          "imageUrl": "blob:http://localhost:5173/6d77fd2d-efae-4eb7-9201-cbf68fc7f31c",
+          "fetchedAt": 1787920019690
+        },
+        "lastRunInputKey": "diet_stats"
+      }
+    },
+    {
+      "id": "8",
+      "type": "inputCSV",
+      "position": {
+        "x": 446.0301232502178,
+        "y": -339.2505590262425
+      },
+      "data": {
+        "label": "Input CSV",
+        "dfName": "bivales_dat",
+        "needsRerun": false,
+        "comment": "Optional graph on bivalves dataset",
+        "dfKey": "bivales_dat",
+        "localPreview": {
+          "fileName": "bivalves.csv",
+          "columns": [
+            "transect",
+            "site_sample",
+            "site",
+            "abundance",
+            "taxon"
+          ],
+          "preview": [
+            {
+              "transect": "T1",
+              "site_sample": 1,
+              "site": "A",
+              "abundance": 37,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 2,
+              "site": "A",
+              "abundance": 40,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 3,
+              "site": "A",
+              "abundance": 40,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 1,
+              "site": "B",
+              "abundance": 29,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 2,
+              "site": "B",
+              "abundance": 31,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 3,
+              "site": "B",
+              "abundance": 31,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 1,
+              "site": "C",
+              "abundance": 17,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 2,
+              "site": "C",
+              "abundance": 18,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 3,
+              "site": "C",
+              "abundance": 19,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 1,
+              "site": "D",
+              "abundance": 14,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 2,
+              "site": "D",
+              "abundance": 17,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T1",
+              "site_sample": 3,
+              "site": "D",
+              "abundance": 17,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T2",
+              "site_sample": 1,
+              "site": "A",
+              "abundance": 50,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T2",
+              "site_sample": 2,
+              "site": "A",
+              "abundance": 51,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T2",
+              "site_sample": 3,
+              "site": "A",
+              "abundance": 52,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T2",
+              "site_sample": 1,
+              "site": "B",
+              "abundance": 43,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T2",
+              "site_sample": 2,
+              "site": "B",
+              "abundance": 45,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T2",
+              "site_sample": 3,
+              "site": "B",
+              "abundance": 45,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T2",
+              "site_sample": 1,
+              "site": "C",
+              "abundance": 24,
+              "taxon": "Bivalves"
+            },
+            {
+              "transect": "T2",
+              "site_sample": 2,
+              "site": "C",
+              "abundance": 26,
+              "taxon": "Bivalves"
+            }
+          ],
+          "count": 24
+        },
+        "lastRunDfName": "bivales_dat",
+        "lastRunFileName": "bivalves.csv",
+        "uploadResult": {
+          "key": "bivales_dat",
+          "dfName": "bivales_dat",
+          "_timestamp": 1778341539226
+        }
+      }
+    },
+    {
+      "id": "10",
+      "type": "meanStats",
+      "position": {
+        "x": 435.52594423374586,
+        "y": -171.8881752205029
+      },
+      "data": {
+        "label": "Mean / SD",
+        "dfKey": "bivales_dat",
+        "uploadResult": {
+          "key": "bivalve_stats",
+          "dfName": "bivalve_stats",
+          "_timestamp": 1787920040100,
+          "columns": [
+            "site",
+            "transect",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ]
+        },
+        "dfName": "bivales_dat",
+        "originalColumns": [
+          "transect",
+          "site_sample",
+          "site",
+          "abundance",
+          "taxon"
+        ],
+        "needsRerun": false,
+        "comment": "Summary statistics of bivalve data",
+        "meanStats": {
+          "formula": "abundance ~ site + transect",
+          "output_df_name": "bivalve_stats"
+        },
+        "result": {
+          "columns": [
+            "site",
+            "transect",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ],
+          "rows": [
+            {
+              "site": [
+                "A"
+              ],
+              "transect": [
+                "T1"
+              ],
+              "mean": [
+                39
+              ],
+              "sd": [
+                1.7321
+              ],
+              "var": [
+                3
+              ],
+              "n": [
+                3
+              ],
+              "se": [
+                1
+              ]
+            },
+            {
+              "site": [
+                "A"
+              ],
+              "transect": [
+                "T2"
+              ],
+              "mean": [
+                51
+              ],
+              "sd": [
+                1
+              ],
+              "var": [
+                1
+              ],
+              "n": [
+                3
+              ],
+              "se": [
+                0.5774
+              ]
+            },
+            {
+              "site": [
+                "B"
+              ],
+              "transect": [
+                "T1"
+              ],
+              "mean": [
+                30.3333
+              ],
+              "sd": [
+                1.1547
+              ],
+              "var": [
+                1.3333
+              ],
+              "n": [
+                3
+              ],
+              "se": [
+                0.6667
+              ]
+            },
+            {
+              "site": [
+                "B"
+              ],
+              "transect": [
+                "T2"
+              ],
+              "mean": [
+                44.3333
+              ],
+              "sd": [
+                1.1547
+              ],
+              "var": [
+                1.3333
+              ],
+              "n": [
+                3
+              ],
+              "se": [
+                0.6667
+              ]
+            },
+            {
+              "site": [
+                "C"
+              ],
+              "transect": [
+                "T1"
+              ],
+              "mean": [
+                18
+              ],
+              "sd": [
+                1
+              ],
+              "var": [
+                1
+              ],
+              "n": [
+                3
+              ],
+              "se": [
+                0.5774
+              ]
+            },
+            {
+              "site": [
+                "C"
+              ],
+              "transect": [
+                "T2"
+              ],
+              "mean": [
+                25.6667
+              ],
+              "sd": [
+                1.5275
+              ],
+              "var": [
+                2.3333
+              ],
+              "n": [
+                3
+              ],
+              "se": [
+                0.8819
+              ]
+            },
+            {
+              "site": [
+                "D"
+              ],
+              "transect": [
+                "T1"
+              ],
+              "mean": [
+                16
+              ],
+              "sd": [
+                1.7321
+              ],
+              "var": [
+                3
+              ],
+              "n": [
+                3
+              ],
+              "se": [
+                1
+              ]
+            },
+            {
+              "site": [
+                "D"
+              ],
+              "transect": [
+                "T2"
+              ],
+              "mean": [
+                7
+              ],
+              "sd": [
+                1.7321
+              ],
+              "var": [
+                3
+              ],
+              "n": [
+                3
+              ],
+              "se": [
+                1
+              ]
+            }
+          ],
+          "output_df_name": [
+            "bivalve_stats"
+          ]
+        },
+        "lastRunInputKey": "bivales_dat"
+      }
+    },
+    {
+      "id": "11",
+      "type": "barchart",
+      "position": {
+        "x": 446.9620864541718,
+        "y": 18.078500083161735
+      },
+      "data": {
+        "label": "Barchart",
+        "dfKey": "bivalve_stats",
+        "uploadResult": {
+          "key": "bivalve_stats",
+          "dfName": "bivalve_stats",
+          "_timestamp": 1787920040100,
+          "columns": [
+            "site",
+            "transect",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ]
+        },
+        "dfName": "bivalve_stats",
+        "originalColumns": [
+          "site",
+          "transect",
+          "mean",
+          "sd",
+          "var",
+          "n",
+          "se"
+        ],
+        "needsRerun": false,
+        "barchart": {
+          "xCol": "site",
+          "yCol": "mean",
+          "fillVar": "transect",
+          "errorVar": "se",
+          "errorbarWidth": "0.2",
+          "dodgeWidth": "0.9",
+          "xLabel": "Study site",
+          "yLabel": "Mean weight of bivales (g) +/- SE",
+          "imageUrl": "blob:http://localhost:5173/87ef68c0-a1d7-4f45-a214-670f6c2b19b4",
+          "fetchedAt": 1787920044964
+        },
+        "lastRunInputKey": "bivalve_stats",
+        "comment": "Create a grouped bivalve plot with error bars"
+      }
+    },
+    {
+      "id": "12",
+      "type": "inputCSV",
+      "position": {
+        "x": 191.8380741354306,
+        "y": -389.4729780075591
+      },
+      "data": {
+        "label": "Input CSV",
+        "dfName": "growth_dat",
+        "needsRerun": false,
+        "comment": "Chick growth over time on three different diets",
+        "dfKey": "growth_dat",
+        "localPreview": {
+          "fileName": "chick_growth.csv",
+          "columns": [
+            "weight",
+            "time",
+            "diet"
+          ],
+          "preview": [
+            {
+              "weight": 41.4,
+              "time": 0,
+              "diet": "A"
+            },
+            {
+              "weight": 47.25,
+              "time": 2,
+              "diet": "A"
+            },
+            {
+              "weight": 56.4737,
+              "time": 4,
+              "diet": "A"
+            },
+            {
+              "weight": 66.7895,
+              "time": 6,
+              "diet": "A"
+            },
+            {
+              "weight": 79.6842,
+              "time": 8,
+              "diet": "A"
+            },
+            {
+              "weight": 93.0526,
+              "time": 10,
+              "diet": "A"
+            },
+            {
+              "weight": 108.5263,
+              "time": 12,
+              "diet": "A"
+            },
+            {
+              "weight": 123.3889,
+              "time": 14,
+              "diet": "A"
+            },
+            {
+              "weight": 144.6471,
+              "time": 16,
+              "diet": "A"
+            },
+            {
+              "weight": 158.9412,
+              "time": 18,
+              "diet": "A"
+            },
+            {
+              "weight": 170.4118,
+              "time": 20,
+              "diet": "A"
+            },
+            {
+              "weight": 177.75,
+              "time": 21,
+              "diet": "A"
+            },
+            {
+              "weight": 40.7,
+              "time": 0,
+              "diet": "B"
+            },
+            {
+              "weight": 49.4,
+              "time": 2,
+              "diet": "B"
+            },
+            {
+              "weight": 59.8,
+              "time": 4,
+              "diet": "B"
+            },
+            {
+              "weight": 75.4,
+              "time": 6,
+              "diet": "B"
+            },
+            {
+              "weight": 91.7,
+              "time": 8,
+              "diet": "B"
+            },
+            {
+              "weight": 108.5,
+              "time": 10,
+              "diet": "B"
+            },
+            {
+              "weight": 131.3,
+              "time": 12,
+              "diet": "B"
+            },
+            {
+              "weight": 141.9,
+              "time": 14,
+              "diet": "B"
+            }
+          ],
+          "count": 48
+        },
+        "lastRunDfName": "growth_dat",
+        "lastRunFileName": "chick_growth.csv",
+        "uploadResult": {
+          "key": "growth_dat",
+          "dfName": "growth_dat",
+          "_timestamp": 1778341480046
+        }
+      }
+    },
+    {
+      "id": "13",
+      "type": "summaryStats",
+      "position": {
+        "x": 238.51703566322487,
+        "y": -169.34651459856488
+      },
+      "data": {
+        "label": "Summary stats",
+        "dfKey": "growth_dat",
+        "uploadResult": {
+          "key": "growth_dat",
+          "dfName": "growth_dat",
+          "_timestamp": 1778341480046
+        },
+        "dfName": "growth_dat",
+        "originalColumns": [
+          "weight",
+          "time",
+          "diet"
+        ],
+        "needsRerun": false,
+        "comment": "Summary statistics for chick growth with time",
+        "lastRunInputKey": "growth_dat"
+      }
+    },
+    {
+      "id": "14",
+      "type": "scatterplot",
+      "position": {
+        "x": 228.82208592249043,
+        "y": 25.938333136684612
+      },
+      "data": {
+        "label": "Scatterplot",
+        "dfKey": "growth_dat",
+        "uploadResult": {
+          "key": "growth_dat",
+          "dfName": "growth_dat",
+          "_timestamp": 1778341480046
+        },
+        "originalColumns": [
+          "weight",
+          "time",
+          "diet"
+        ],
+        "dfName": "growth_dat",
+        "needsRerun": false,
+        "scatter": {
+          "xCol": "time",
+          "yCol": "weight",
+          "smoothMethod": "none",
+          "smoothSE": true,
+          "smoothFormula": "y ~ x",
+          "smoothGLMFamily": "Poisson",
+          "connectLine": true,
+          "jitterPoints": false,
+          "colorVar": "diet",
+          "xLabel": "Time (days)",
+          "yLabel": "Chick weight (g)",
+          "imageUrl": "blob:http://localhost:5173/eb3cffb4-7e18-434e-960a-1ee511d1adf2",
+          "fetchedAt": 1787920035754
+        },
+        "comment": "Change in chick weight over time, grouped by diet",
+        "lastRunInputKey": "growth_dat"
+      }
+    },
+    {
+      "id": "15",
+      "type": "meanStats",
+      "position": {
+        "x": 9.227962443482113,
+        "y": -435.41819785586176
+      },
+      "data": {
+        "label": "Mean / SD",
+        "dfKey": "diet_dat",
+        "uploadResult": {
+          "key": "weightdiet_stats",
+          "dfName": "weightdiet_stats",
+          "_timestamp": 1778341377762,
+          "columns": [
+            "diet",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ]
+        },
+        "dfName": "diet_dat",
+        "originalColumns": [
+          "weight",
+          "time",
+          "chick",
+          "diet"
+        ],
+        "needsRerun": false,
+        "meanStats": {
+          "formula": "weight ~ diet",
+          "output_df_name": "weightdiet_stats"
+        },
+        "result": {
+          "columns": [
+            "diet",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ],
+          "rows": [
+            {
+              "diet": [
+                "A"
+              ],
+              "mean": [
+                177.75
+              ],
+              "sd": [
+                58.7021
+              ],
+              "var": [
+                3445.9333
+              ],
+              "n": [
+                16
+              ],
+              "se": [
+                14.6755
+              ]
+            },
+            {
+              "diet": [
+                "B"
+              ],
+              "mean": [
+                214.7
+              ],
+              "sd": [
+                78.1381
+              ],
+              "var": [
+                6105.5667
+              ],
+              "n": [
+                10
+              ],
+              "se": [
+                24.7094
+              ]
+            },
+            {
+              "diet": [
+                "C"
+              ],
+              "mean": [
+                270.3
+              ],
+              "sd": [
+                71.6225
+              ],
+              "var": [
+                5129.7889
+              ],
+              "n": [
+                10
+              ],
+              "se": [
+                22.649
+              ]
+            },
+            {
+              "diet": [
+                "D"
+              ],
+              "mean": [
+                238.5556
+              ],
+              "sd": [
+                43.3478
+              ],
+              "var": [
+                1879.0278
+              ],
+              "n": [
+                9
+              ],
+              "se": [
+                14.4493
+              ]
+            }
+          ],
+          "output_df_name": [
+            "weightdiet_stats"
+          ]
+        },
+        "lastRunInputKey": "diet_dat"
+      }
+    },
+    {
+      "id": "16",
+      "type": "meanStats",
+      "position": {
+        "x": 294.22511641724867,
+        "y": -475.82824207602266
+      },
+      "data": {
+        "label": "Mean / SD",
+        "dfKey": "growth_dat",
+        "uploadResult": {
+          "key": "chickgrowstats",
+          "dfName": "chickgrowstats",
+          "_timestamp": 1778341501460,
+          "columns": [
+            "diet",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ]
+        },
+        "dfName": "growth_dat",
+        "needsRerun": false,
+        "originalColumns": [
+          "weight",
+          "time",
+          "diet"
+        ],
+        "meanStats": {
+          "formula": "weight ~ diet",
+          "output_df_name": "chickgrowstats"
+        },
+        "result": {
+          "columns": [
+            "diet",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ],
+          "rows": [
+            {
+              "diet": [
+                "A"
+              ],
+              "mean": [
+                105.6929
+              ],
+              "sd": [
+                48.9676
+              ],
+              "var": [
+                2397.8295
+              ],
+              "n": [
+                12
+              ],
+              "se": [
+                14.1357
+              ]
+            },
+            {
+              "diet": [
+                "B"
+              ],
+              "mean": [
+                122.6167
+              ],
+              "sd": [
+                61.2158
+              ],
+              "var": [
+                3747.3779
+              ],
+              "n": [
+                12
+              ],
+              "se": [
+                17.6715
+              ]
+            },
+            {
+              "diet": [
+                "C"
+              ],
+              "mean": [
+                142.95
+              ],
+              "sd": [
+                81.8124
+              ],
+              "var": [
+                6693.2609
+              ],
+              "n": [
+                12
+              ],
+              "se": [
+                23.6172
+              ]
+            },
+            {
+              "diet": [
+                "D"
+              ],
+              "mean": [
+                136.9454
+              ],
+              "sd": [
+                69.1172
+              ],
+              "var": [
+                4777.1838
+              ],
+              "n": [
+                12
+              ],
+              "se": [
+                19.9524
+              ]
+            }
+          ],
+          "output_df_name": [
+            "chickgrowstats"
+          ]
+        },
+        "lastRunInputKey": "growth_dat"
+      }
+    },
+    {
+      "id": "17",
+      "type": "meanStats",
+      "position": {
+        "x": 476.0703154079729,
+        "y": -440.73530893746187
+      },
+      "data": {
+        "label": "Mean / SD",
+        "dfKey": "bivales_dat",
+        "uploadResult": {
+          "key": "bivalvestatsout",
+          "dfName": "bivalvestatsout",
+          "_timestamp": 1778341560138,
+          "columns": [
+            "site",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ]
+        },
+        "dfName": "bivales_dat",
+        "needsRerun": false,
+        "originalColumns": [
+          "transect",
+          "site_sample",
+          "site",
+          "abundance",
+          "taxon"
+        ],
+        "meanStats": {
+          "formula": "abundance ~ site",
+          "output_df_name": "bivalvestatsout"
+        },
+        "result": {
+          "columns": [
+            "site",
+            "mean",
+            "sd",
+            "var",
+            "n",
+            "se"
+          ],
+          "rows": [
+            {
+              "site": [
+                "A"
+              ],
+              "mean": [
+                45
+              ],
+              "sd": [
+                6.6933
+              ],
+              "var": [
+                44.8
+              ],
+              "n": [
+                6
+              ],
+              "se": [
+                2.7325
+              ]
+            },
+            {
+              "site": [
+                "B"
+              ],
+              "mean": [
+                37.3333
+              ],
+              "sd": [
+                7.7374
+              ],
+              "var": [
+                59.8667
+              ],
+              "n": [
+                6
+              ],
+              "se": [
+                3.1588
+              ]
+            },
+            {
+              "site": [
+                "C"
+              ],
+              "mean": [
+                21.8333
+              ],
+              "sd": [
+                4.3551
+              ],
+              "var": [
+                18.9667
+              ],
+              "n": [
+                6
+              ],
+              "se": [
+                1.778
+              ]
+            },
+            {
+              "site": [
+                "D"
+              ],
+              "mean": [
+                11.5
+              ],
+              "sd": [
+                5.1672
+              ],
+              "var": [
+                26.7
+              ],
+              "n": [
+                6
+              ],
+              "se": [
+                2.1095
+              ]
+            }
+          ],
+          "output_df_name": [
+            "bivalvestatsout"
+          ]
+        },
+        "lastRunInputKey": "bivales_dat"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "reactflow__edge-1-2",
+      "source": "1",
+      "target": "2"
+    },
+    {
+      "id": "reactflow__edge-2-3",
+      "source": "2",
+      "target": "3"
+    },
+    {
+      "id": "reactflow__edge-1-4",
+      "source": "1",
+      "target": "4"
+    },
+    {
+      "id": "reactflow__edge-4-5",
+      "source": "4",
+      "target": "5"
+    },
+    {
+      "id": "reactflow__edge-5-6",
+      "source": "5",
+      "target": "6"
+    },
+    {
+      "id": "reactflow__edge-3-7",
+      "source": "3",
+      "target": "7"
+    },
+    {
+      "id": "reactflow__edge-10-11",
+      "source": "10",
+      "target": "11"
+    },
+    {
+      "id": "reactflow__edge-8-10",
+      "source": "8",
+      "target": "10"
+    },
+    {
+      "id": "reactflow__edge-12-13",
+      "source": "12",
+      "target": "13"
+    },
+    {
+      "id": "reactflow__edge-13-14",
+      "source": "13",
+      "target": "14"
+    },
+    {
+      "id": "reactflow__edge-1-15",
+      "source": "1",
+      "target": "15"
+    },
+    {
+      "id": "reactflow__edge-12-16",
+      "source": "12",
+      "target": "16"
+    },
+    {
+      "id": "reactflow__edge-8-17",
+      "source": "8",
+      "target": "17"
+    }
+  ]
+}

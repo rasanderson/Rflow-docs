@@ -42,6 +42,7 @@ website:
       background: light
       contents:
         - tutorials/index.qmd
+        - tutorials/interface.qmd
         - tutorials/tutorial_1a.qmd
         - tutorials/tutorial_1b.qmd
         - tutorials/tutorial_1c.qmd

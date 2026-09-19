@@ -4,6 +4,16 @@ title: "Tutorials"
 
 Step-by-step tutorials for learning Rflow. ***In development***. More tutorials will be added over time.
 
+::: {.clickable-feature-grid .featured-row}
+::: {.clickable-feature-card}
+<a href="interface.qmd" class="card-link">
+  <h3>Navigating Rflow</h3>
+  
+  Basic structure of Rflow interface, including Projects page, and basic layout of Rflow Toolbar, Canvas and Panel. How to create a simple workflow, and how to run nodes.
+  </a>
+:::
+:::
+
 ::: {.clickable-feature-grid}
 ::: {.clickable-feature-card}
 <a href="tutorial_1a.qmd" class="card-link">

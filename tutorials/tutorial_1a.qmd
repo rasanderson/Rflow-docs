@@ -33,11 +33,11 @@ If you have a Microsoft Excel spreadsheet that you want to convert to a CSV file
 ## Step 1: Create a new Rflow workflow
 We will do this by cloning a pre-prepared workflow. On the Rflow Projects page, click on the "Clone" button and search for "Tutorial 1A" which is authored by "RflowAdmin". When you find it, click on the green "Clone" button:
 
-![](figs/tutorial_1a_rflow_clone.png){width=25%}
+![](figs/tutorial_1a_rflow_clone.png){width=25% fig-align="center"}
 
 After clicking the "Clone" button, click on the "My Projects" button to display your own Rflow projects. You should see the tutorial listed as "Tutorial 1A (Copy)". You can click its Edit button if you want to change its name or description. When ready, click on the "Open" button and you should see the pre-prepared workflow:
 
-![](figs/tutorial_1a_workflow.png){width=50%}
+![](figs/tutorial_1a_workflow.png){width=50% fig-align="center"}
 
 **Explanation**: Have a quick look at the workflow before we start running it. Reading from top to bottom, then left to right:
 
@@ -53,7 +53,44 @@ columns
 
 So the left side of the workflow broadly describes the "shape" of the data overall, while the right side gives you information about differences in chick weights with diet, both numerically and visually.
 
+## Step 2: Import the chick_diet.csv dataset
+Begin by clicking on the "Input CSV" node and in the Panel on the right, upload the `chick_diet.csv` dataset that you downloaded earlier. You'll need to give the R dataframe a name, and if you have cloned the Rflow workflow, downstream nodes will expect you to use `diet_dat` as the dataframe name. Add a comment, which is always good practice, to describe what the node does:
 
+![](figs/tutorial_1a_importcsv_input_panel.png){width=25% fig-align="center"}
 
+Click the **Run** button and you will see the following:
 
+![](figs/tutorial_1a_importcsv_output_panel.png){width=25% fig-align="center"}
 
+This provides a quick view of the first 20 rows of your R dataframe `diet_dat` and is useful to confirm that your data has been imported correctly. Next, click on the **R code** tab to see the R code that has been generated for this node:
+
+![](figs/tutorial_1a_importcsv_r_panel.png){width=25% fig-align="center"}
+
+There is the option to copy this code to the clipboard if you want to paste it directly into an R script in RStudio, Positron, VS Code or similar IDE, but we will skip this step for now. Notice also that the Input CSV node now has a green border and has changed from "Pending" to "Completed" to indicate that it has been run successfully.
+
+## Step 3: Data visualisation
+The left side of workflow allows you to visualise the shape of the chicks weights, stored in the `weight` column of the `diet_dat` dataframe. We use two popular visualisations: a frequency
+ histogram and probability density plot. Finally, we use a boxplot to compare weights with different diets.
+
+ ### Step 3a: Frequency histogram
+ Click on the "Histogram" node and you should see the following on the Input tab of the Panel on the right:
+
+ ![](figs/tutorial_1a_histogram_input_panel.png){width=25% fig-align="center"}
+
+ A few things to note:
+
+ * If you have cloned the workflow, all of the settings will already be completed
+ * The node will have detected that `diet_dat` is the input dataframe
+ * There is a drop-down menu to select the **continuouse** variable for which we want a frequency histogram, in this case `weight`.
+ * There are a number of options available
+ - **Fill variable** should you want multiple histograms in one plot, coloured by a categorical variable.
+ - **Number of bins** This is the number of devisions on the x-axis, and you can accept the default of modify it (as done here).
+ - **X** and **Y** axis labels. It is good practice to label your axes explicitly rather than accept the defaults.
+
+ After running the node, you will see a preview of the frequency histogram in the Output tab of the Panel on the right:
+
+ ![](figs/tutorial_1a_histogram_output_panel.png){width=25% fig-align="center"}
+
+ Click on the **Zoom** button for a full-size image, and you can also download it as PNG format for import into Microsoft Word, PowerPoint etc. Finally, click on the **R code** tab to view the automatically generated R code for this node.
+
+ ![](figs/tutorial_1a_histogram_r_panel.png){width=25% fig-align="center"}

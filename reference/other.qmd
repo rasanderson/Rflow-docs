@@ -1,0 +1,10 @@
+---
+title: "Other"
+format: html
+toc: true
+page-layout: article
+sidebar: other
+--- 
+
+## Other nodes
+Pending documentation for other nodes. Includes nodes for data manipulation and visualisation. Hope to have these documented soon.

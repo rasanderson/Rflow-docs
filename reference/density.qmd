@@ -38,7 +38,7 @@ The **Density** node creates density plots using `ggplot2` to help you visualise
 |---------|----------|-------------|
 | Upstream connection | Yes | A node providing data |
 | Variable | Yes | The column to plot on the x axis |
-| Fill variable | No | A grouping variable to fill areas by |
+| Fill variable | No | Choose a categorical grouping variable to colour areas by, leave at the default for no fill, or select **None (default grey)** to fill the density curve with `grey35` |
 | Bandwidth adjust | No | Smoothing multiplier (default: 1). Values > 1 smooth more, < 1 smooth less |
 | X axis label | No | Custom label (defaults to column name) |
 | Y axis label | No | Custom label (defaults to "Density") |
@@ -71,6 +71,15 @@ ggplot(data = my_data, aes(x = height, fill = species)) +
   geom_density(adjust = 2, alpha = 0.4) +
   theme_classic() +
   labs(x = "Height (cm)", y = "Frequency")
+```
+
+With the default grey fill:
+
+```r
+library(ggplot2)
+ggplot(data = my_data, aes(x = height)) +
+  geom_density(fill = "grey35") +
+  theme_classic()
 ```
 
 ## Tips

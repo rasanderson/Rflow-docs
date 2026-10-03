@@ -199,7 +199,11 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#step-1-create-a-new-rflow-workflow" id="toc-step-1-create-a-new-rflow-workflow" class="nav-link" data-scroll-target="#step-1-create-a-new-rflow-workflow">Step 1: Create a new Rflow workflow</a></li>
   <li><a href="#step-2-import-the-chick_diet.csv-dataset" id="toc-step-2-import-the-chick_diet.csv-dataset" class="nav-link" data-scroll-target="#step-2-import-the-chick_diet.csv-dataset">Step 2: Import the chick_diet.csv dataset</a></li>
-  <li><a href="#step-3-data-visualisation" id="toc-step-3-data-visualisation" class="nav-link" data-scroll-target="#step-3-data-visualisation">Step 3: Data visualisation</a></li>
+  <li><a href="#step-3-data-visualisation" id="toc-step-3-data-visualisation" class="nav-link" data-scroll-target="#step-3-data-visualisation">Step 3: Data visualisation</a>
+  <ul class="collapse">
+  <li><a href="#step-3a-frequency-histogram" id="toc-step-3a-frequency-histogram" class="nav-link" data-scroll-target="#step-3a-frequency-histogram">Step 3a: Frequency histogram</a></li>
+  <li><a href="#step-3b-density-plot" id="toc-step-3b-density-plot" class="nav-link" data-scroll-target="#step-3b-density-plot">Step 3b: Density plot</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -312,7 +316,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="step-3-data-visualisation" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-data-visualisation">Step 3: Data visualisation</h2>
 <p>The left side of workflow allows you to visualise the shape of the chicks weights, stored in the <code>weight</code> column of the <code>diet_dat</code> dataframe. We use two popular visualisations: a frequency histogram and probability density plot. Finally, we use a boxplot to compare weights with different diets.</p>
-<p>### Step 3a: Frequency histogram Click on the “Histogram” node and you should see the following on the Input tab of the Panel on the right:</p>
+<section id="step-3a-frequency-histogram" class="level3">
+<h3 class="anchored" data-anchor-id="step-3a-frequency-histogram">Step 3a: Frequency histogram</h3>
+<p>Click on the “Histogram” node and you should see the following on the Input tab of the Panel on the right:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/tutorial_1a_histogram_input_panel.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
@@ -340,8 +346,12 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="figs/tutorial_1a_histogram_r_panel.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
 </figure>
 </div>
+</section>
+<section id="step-3b-density-plot" class="level3">
+<h3 class="anchored" data-anchor-id="step-3b-density-plot">Step 3b: Density plot</h3>
 
 
+</section>
 </section>
 </section>
 

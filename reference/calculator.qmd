@@ -1,0 +1,95 @@
+---
+title: Calculator
+slug: calculator
+category: nodes
+nodeType: calculator
+summary: Apply arithmetic, log or exponential operations to numbers or numeric dataframe columns.
+tags:
+  - data
+  - calculator
+  - transform
+  - log
+  - arithmetic
+---
+
+# Calculator
+
+The Calculator node performs simple arithmetic and log/exponential calculations. It works in two ways: on numbers you type in directly (no input connection needed), or on numeric columns of a connected dataframe, in which case it adds a new column and outputs a dataframe.
+
+## What it does
+
+- Supports subtraction, addition, multiplication and division of two values
+- Supports `log`, `log1p`, `exp` and `expm1` on a single value
+- With **no dataframe connected**, calculates on numbers you enter and prints the result in the **Output** tab
+- With a **dataframe connected**, calculates on numeric columns and outputs a dataframe containing the new column
+- Either modifies the input dataframe or creates a new named dataframe, with a note in the panel telling you which will happen
+- Warns before overwriting an existing column or dataframe
+
+## How to use it
+
+1. Drag a **Calculator** node onto the canvas from the **Other** section of the toolbar.
+2. Optionally connect a dataframe to the node. The input connection is not required.
+3. Select the node and choose an **Operation**.
+4. **Without a dataframe:** enter one number (for `log`, `log1p`, `exp`, `expm1`) or two numbers (for `-`, `+`, `*`, `/`).
+5. **With a dataframe:** choose one numeric column (for `log`, `log1p`, `exp`, `expm1`) or two numeric columns (for `-`, `+`, `*`, `/`).
+6. With a dataframe, enter a **New column name** for the result. A default such as `log_height` or `subtract_a_b` is suggested. If the name already exists you are warned that the column will be overwritten.
+7. With a dataframe, optionally enter an **Output dataframe name**. Leave it blank to modify the input dataframe; enter a name to leave the input unchanged and create a new dataframe. Reusing an existing dataframe name warns that it will be overwritten.
+8. Click **Run**.
+
+## Operations
+
+| Operation | R function | Values used | Description |
+|---|---|---|---|
+| subtract | `-` | 2 | First value minus second value |
+| add | `+` | 2 | First value plus second value |
+| multiply | `*` | 2 | First value times second value |
+| divide | `/` | 2 | First value divided by second value |
+| log | `log` | 1 | Natural logarithm |
+| log1p | `log1p` | 1 | `log(n + 1)`, accurate for small values |
+| exp | `exp` | 1 | Exponential |
+| expm1 | `expm1` | 1 | `exp(n) - 1`, accurate for small values |
+
+## Configuration
+
+| Setting | Required | Description |
+|---|---|---|
+| Operation | Yes | One of the operations listed above |
+| Number(s) | Yes, if no dataframe | One number for single-value operations, two for `-`, `+`, `*`, `/` |
+| Column(s) | Yes, if dataframe | Numeric columns only: one for single-value operations, two for `-`, `+`, `*`, `/` |
+| New column name | Yes, if dataframe | Must be a valid R name (starts with a letter or dot; letters, numbers, dots and underscores). Existing columns with this name are overwritten |
+| Output dataframe name | No | Blank modifies the input dataframe; otherwise a new dataframe with this name is created (at least 4 characters, no spaces, not starting with a dot) |
+
+## Output
+
+- **No dataframe connected:** the Output tab prints the calculation and its result, for example `1 + 2 = 3`.
+- **Dataframe connected:** the Output tab states whether the dataframe was modified or newly created, names the new column, and shows a scrollable preview of the first rows with the row and column counts. The dataframe can be connected to downstream nodes such as **Summary Statistics**, **Scatterplot** or **Output CSV**.
+
+If a calculation produces `Inf` or `NaN` (for example dividing by zero, or the log of zero or a negative number), R's warning is shown with the output rather than stopping the run.
+
+## Generated R code
+
+Single column, modifying the existing dataframe:
+
+```r
+mydata$log_height <- log(mydata$height)
+```
+
+Two columns, creating a new dataframe:
+
+```r
+newdata <- mydata
+newdata$subtract_a_b <- mydata$a - mydata$b
+```
+
+Numbers only:
+
+```r
+print(1 + 2)
+```
+
+## Tips
+
+- Only numeric columns are offered. Use the **Factor** node or other nodes first if a variable needs converting.
+- Use `log1p` rather than `log` when a column contains zeros.
+- Chain several Calculator nodes to build more complex expressions, one step at a time.
+- Enter an **Output dataframe name** if you want to keep the original dataframe unchanged.

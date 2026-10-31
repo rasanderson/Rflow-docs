@@ -24,6 +24,7 @@ The **Predict** node generates predicted response values from a fitted linear mo
 - Uses `type = "response"` automatically for GLM (`glmmTMB`) inputs so predictions are in original response units
 - Supports three prediction modes: training data, manual entry, or a connected dataset
 - Shows the model formula and predictor variable names
+- Optionally stores the predictions as a named dataframe (new, or added as a column to the connected dataframe) for use by downstream nodes such as **Calculator**
 
 ## How to use it
 
@@ -33,11 +34,12 @@ The **Predict** node generates predicted response values from a fitted linear mo
    - **Training data** — predict using the original data the model was fitted on
    - **Manual values** — type new predictor values in CSV format directly
   - **Connected dataset** — drag an edge from a CSV input node to the top **data** handle
-4. **Click Run** — predicted values are computed on the server and displayed
+4. *(Optional)* Enter an **Output dataframe name** (see below)
+5. **Click Run** — predicted values are computed on the server and displayed
 
 ## Node handles
 
-This node has **two input handles** on the top edge:
+This node has **two input handles** on the top edge and an **output handle** on the bottom edge (which carries a dataframe only if an output name is entered):
 
 | Handle | Position | Purpose |
 |--------|----------|---------|
@@ -52,6 +54,7 @@ This node has **two input handles** on the top edge:
 | Predict using | Yes | "Training data", "Manual values", or "Connected dataset" |
 | New data (CSV) | Conditional | CSV-format text when using manual mode |
 | Data connection | Conditional | A dataset node when using connected dataset mode |
+| Output dataframe name | No | If given, predictions are stored in this dataframe in a column named `predicted`. You are warned if the name already exists and will be overwritten |
 | Comment | No | Annotation for generated R code |
 
 ## Manual entry format
@@ -76,6 +79,16 @@ Displays a table with one row per observation:
 
 For GLM inputs (`glmmTMB`), fitted values are returned on the response scale.
 
+## Output dataframe
+
+By default Predict only displays predictions. Enter an **Output dataframe name** to keep them: the predictions are stored in a column called `predicted`, and the node's **output handle** (bottom) passes the dataframe to downstream nodes such as **Calculator**, **Summary Statistics** or **Output CSV**.
+
+- With a connected dataset or manual values, the new dataframe contains those rows plus the `predicted` column.
+- With training data it contains `observation` and `predicted`.
+- To add the column to the connected dataset itself, enter that dataset's own name. It is modified in place, and the panel warns that the name already exists.
+
+If the number of predictions does not match the number of rows in the dataframe, the run stops with an error.
+
 ## Generated R code
 
 Training data:
@@ -86,6 +99,23 @@ predict(my_data_lm)
 With new data:
 ```r
 predict(my_data_lm, newdata = new_data)
+```
+
+Adding predictions to the connected dataframe (output name is the same as the dataset):
+```r
+new_data$predicted <- predict(my_data_lm, newdata = new_data)
+```
+
+Manual values (the data is built once, then used for the prediction):
+```r
+predictions_df <- data.frame(conc = 1.5, temp = 20)
+predictions_df$predicted <- predict(my_data_lm, newdata = predictions_df)
+```
+
+Creating a new dataframe:
+```r
+predictions_df <- new_data
+predictions_df$predicted <- predict(my_data_lm, newdata = predictions_df)
 ```
 
 ## Tips

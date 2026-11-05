@@ -65,6 +65,7 @@ website:
         - reference/add-column.qmd
         - reference/barchart.qmd
         - reference/boxplot.qmd
+        - reference/calculator.qmd
         - reference/density.qmd
         - reference/diagnostics.qmd
         - reference/factor.qmd

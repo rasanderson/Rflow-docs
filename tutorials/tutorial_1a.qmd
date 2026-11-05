@@ -97,3 +97,43 @@ Click on the **Zoom** button for a full-size image, and you can also download it
 ![](figs/tutorial_1a_histogram_r_panel.png){width=25% fig-align="center"}
 
 ### Step 3b: Density plot
+
+Histograms can sometimes look a bit "blocky" with small datasets, such as this one. A probability density plot is a smoothed version of a histogram, and can be useful for visualising the shape of the data. Click on the "Density plot" node. In the figures below we display the input panel, the output panel and the R code panel. You should see that the input settings are very similar to those for the histogram, except that there is no option for number of bins.
+
+::: {layout-ncol=3}
+![Input panel](figs/tutorial_1a_density_input_panel.png)
+
+![Output panel](figs/tutorial_1a_density_output_panel.png)
+
+![R code panel](figs/tutorial_1a_density_r_code_panel.png)
+:::
+
+By default in ggplot2 the area under the density curve is equal to 1, and the y-axis is labelled "Density". Also, usually the density plot is just a line, but here we have filled the area using the same grey shading as in the histogram for consistency.
+
+One advantage of density plots, especially for small datasets, is that it is easier to compare distributions for different groups. On the density plot input panel, select `diet` as the **Fill variable** and click **Run**. You should see the following.
+
+
+::: {layout-ncol=3}
+![Input panel](figs/tutorial_1a_density_input_panel2.png)
+
+![Output panel](figs/tutorial_1a_density_output_panel2.png)
+
+![R code panel](figs/tutorial_1a_density_r_code_panel2.png)
+:::
+
+Note that it is now easy to identify that chick weights are generally lower in diet A, generally higher in diet C, and show a larger peak in diet D, and greater spread in diet B. The density plot is a useful visualisation for comparing distributions of continuous variables between groups.
+
+### Step 3c: Boxplot
+
+Boxplots are another useful visualisation to compare distributions of continuous variables between groups. Click on the "Boxplot" node. In the figures below we display the input panel, the output panel and the R code panel. You should see that the input settings are very similar to those for the histogram and density plot.
+
+
+::: {layout-ncol=3}
+![Input panel](figs/tutorial_1a_boxplot_input_panel.png)
+
+![Output panel](figs/tutorial_1a_boxplot_output_panel.png)
+
+![R code panel](figs/tutorial_1a_boxplot_r_code_panel.png)
+:::
+
+When interpreting boxplots, the box represents the interquartile range (IQR), which contains the middle 50% of the data. The line inside the box is the median, and the "whiskers" extend to the minimum and maximum values within 1.5 times the IQR from the lower and upper quartiles, respectively. Any points outside this range are considered outliers and are plotted individually (there are no outliers in this dataset). Again, you can observe that chick weights are generally lower in diet A, generally higher in diet C, and show a larger peak in diet D, and greater spread in diet B. The boxplot is a useful visualisation for comparing distributions of continuous variables between groups.

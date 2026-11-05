@@ -234,6 +234,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../reference/calculator.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calculator</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../reference/density.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Density</span></a>
   </div>
@@ -334,6 +340,7 @@ window.Quarto = {
   <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
   <li><a href="#manual-entry-format" id="toc-manual-entry-format" class="nav-link" data-scroll-target="#manual-entry-format">Manual entry format</a></li>
   <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  <li><a href="#output-dataframe" id="toc-output-dataframe" class="nav-link" data-scroll-target="#output-dataframe">Output dataframe</a></li>
   <li><a href="#generated-r-code" id="toc-generated-r-code" class="nav-link" data-scroll-target="#generated-r-code">Generated R code</a></li>
   <li><a href="#tips" id="toc-tips" class="nav-link" data-scroll-target="#tips">Tips</a></li>
   </ul></li>
@@ -373,6 +380,7 @@ window.Quarto = {
 <li>Uses <code>type = "response"</code> automatically for GLM (<code>glmmTMB</code>) inputs so predictions are in original response units</li>
 <li>Supports three prediction modes: training data, manual entry, or a connected dataset</li>
 <li>Shows the model formula and predictor variable names</li>
+<li>Optionally stores the predictions as a named dataframe (new, or added as a column to the connected dataframe) for use by downstream nodes such as <strong>Calculator</strong></li>
 </ul>
 </section>
 <section id="how-to-use-it" class="level2">
@@ -390,12 +398,13 @@ window.Quarto = {
 <li><strong>Connected dataset</strong> — drag an edge from a CSV input node to the top <strong>data</strong> handle</li>
 </ul>
 <ol start="4" type="1">
+<li><em>(Optional)</em> Enter an <strong>Output dataframe name</strong> (see below)</li>
 <li><strong>Click Run</strong> — predicted values are computed on the server and displayed</li>
 </ol>
 </section>
 <section id="node-handles" class="level2">
 <h2 class="anchored" data-anchor-id="node-handles">Node handles</h2>
-<p>This node has <strong>two input handles</strong> on the top edge:</p>
+<p>This node has <strong>two input handles</strong> on the top edge and an <strong>output handle</strong> on the bottom edge (which carries a dataframe only if an output name is entered):</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 29%">
@@ -460,6 +469,11 @@ window.Quarto = {
 <td>A dataset node when using connected dataset mode</td>
 </tr>
 <tr class="odd">
+<td>Output dataframe name</td>
+<td>No</td>
+<td>If given, predictions are stored in this dataframe in a column named <code>predicted</code>. You are warned if the name already exists and will be overwritten</td>
+</tr>
+<tr class="even">
 <td>Comment</td>
 <td>No</td>
 <td>Annotation for generated R code</td>
@@ -485,12 +499,30 @@ window.Quarto = {
 </ul>
 <p>For GLM inputs (<code>glmmTMB</code>), fitted values are returned on the response scale.</p>
 </section>
+<section id="output-dataframe" class="level2">
+<h2 class="anchored" data-anchor-id="output-dataframe">Output dataframe</h2>
+<p>By default Predict only displays predictions. Enter an <strong>Output dataframe name</strong> to keep them: the predictions are stored in a column called <code>predicted</code>, and the node’s <strong>output handle</strong> (bottom) passes the dataframe to downstream nodes such as <strong>Calculator</strong>, <strong>Summary Statistics</strong> or <strong>Output CSV</strong>.</p>
+<ul>
+<li>With a connected dataset or manual values, the new dataframe contains those rows plus the <code>predicted</code> column.</li>
+<li>With training data it contains <code>observation</code> and <code>predicted</code>.</li>
+<li>To add the column to the connected dataset itself, enter that dataset’s own name. It is modified in place, and the panel warns that the name already exists.</li>
+</ul>
+<p>If the number of predictions does not match the number of rows in the dataframe, the run stops with an error.</p>
+</section>
 <section id="generated-r-code" class="level2">
 <h2 class="anchored" data-anchor-id="generated-r-code">Generated R code</h2>
 <p>Training data:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(my_data_lm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>With new data:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(my_data_lm, <span class="at">newdata =</span> new_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Adding predictions to the connected dataframe (output name is the same as the dataset):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>new_data<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(my_data_lm, <span class="at">newdata =</span> new_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Manual values (the data is built once, then used for the prediction):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>predictions_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">conc =</span> <span class="fl">1.5</span>, <span class="at">temp =</span> <span class="dv">20</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>predictions_df<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(my_data_lm, <span class="at">newdata =</span> predictions_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Creating a new dataframe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>predictions_df <span class="ot">&lt;-</span> new_data</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>predictions_df<span class="sc">$</span>predicted <span class="ot">&lt;-</span> <span class="fu">predict</span>(my_data_lm, <span class="at">newdata =</span> predictions_df)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="tips" class="level2">
 <h2 class="anchored" data-anchor-id="tips">Tips</h2>

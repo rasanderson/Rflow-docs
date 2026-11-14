@@ -320,41 +320,40 @@ test('capture tutorial 1a workflow and nodes', async ({ page }) => {
   await expect(summary).toBeVisible({ timeout: 15_000 });
   await summary.click();
   await expect(panel).toBeVisible();
-  
-  // Measure input panel height
-  const inputBox = await panel.boundingBox();
-  if (!inputBox) {
-    throw new Error('Could not measure the Summary input panel.');
-  }
-  let maxHeight = inputBox.height;
-  await panel.screenshot({
-    path: path.join(imagesDir, 'tutorial_1a_summary_input_panel.png'),
-  });
 
   // Run the node to generate output
   await runNode();
   await page.waitForTimeout(1500);
 
-  // Measure output panel height
+  // Use the Output tab's height for all three screenshots.
   const outputBox = await panel.boundingBox();
   if (!outputBox) {
     throw new Error('Could not measure the Summary output panel.');
   }
-  maxHeight = Math.max(maxHeight, outputBox.height);
+  await panel.evaluate((el, height) => {
+    el.style.boxSizing = 'border-box';
+    el.style.minHeight = `${height}px`;
+  }, outputBox.height);
+  const assertSummaryHeight = async () => {
+    const box = await panel.boundingBox();
+    expect(box?.height).toBeCloseTo(outputBox.height, 0);
+  };
+  await assertSummaryHeight();
   await panel.screenshot({
     path: path.join(imagesDir, 'tutorial_1a_summary_output_panel.png'),
   });
 
-  // Measure R code panel height
   await tab('R code').click();
   await page.waitForTimeout(500);
-  const rCodeBox = await panel.boundingBox();
-  if (!rCodeBox) {
-    throw new Error('Could not measure the Summary R code panel.');
-  }
-  maxHeight = Math.max(maxHeight, rCodeBox.height);
+  await assertSummaryHeight();
   await panel.screenshot({
     path: path.join(imagesDir, 'tutorial_1a_summary_r_code_panel.png'),
+  });
+
+  await tab('Input').click();
+  await assertSummaryHeight();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_summary_input_panel.png'),
   });
 
   // Capture the Means / SD node's Input, Output, and R code panels.

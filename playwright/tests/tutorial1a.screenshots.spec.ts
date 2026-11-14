@@ -211,4 +211,42 @@ test('capture tutorial 1a workflow and nodes', async ({ page }) => {
   await panel.screenshot({
     path: path.join(imagesDir, 'tutorial_1a_histogram_r_panel.png'),
   });
+
+  // Capture the Density node's Input, Output, and R code panels.
+  const density = canvas.locator('.react-flow__node').filter({ hasText: /density/i }).first();
+  await expect(density).toBeVisible({ timeout: 15_000 });
+  await density.click();
+  await expect(panel).toBeVisible();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_density_input.png'),
+  });
+
+  const densitySize = await panel.boundingBox();
+  if (!densitySize) {
+    throw new Error('Could not measure the Density panel before capturing screenshots.');
+  }
+  await panel.evaluate((el, { width, height }) => {
+    el.style.boxSizing = 'border-box';
+    el.style.width = `${width}px`;
+    el.style.minHeight = `${height}px`;
+  }, densitySize);
+  const assertDensitySameSize = async () => {
+    const box = await panel.boundingBox();
+    expect(box?.width).toBeCloseTo(densitySize.width, 0);
+    expect(box?.height).toBeCloseTo(densitySize.height, 0);
+  };
+
+  await runNode();
+  await page.waitForTimeout(1500);
+  await assertDensitySameSize();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_density_output.png'),
+  });
+
+  await tab('R code').click();
+  await page.waitForTimeout(500);
+  await assertDensitySameSize();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_density_r_code.png'),
+  });
 });

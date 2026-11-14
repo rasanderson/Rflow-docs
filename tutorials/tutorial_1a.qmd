@@ -101,11 +101,11 @@ Click on the **Zoom** button for a full-size image, and you can also download it
 Histograms can sometimes look a bit "blocky" with small datasets, such as this one. A probability density plot is a smoothed version of a histogram, and can be useful for visualising the shape of the data. Click on the "Density plot" node. In the figures below we display the input panel, the output panel and the R code panel. You should see that the input settings are very similar to those for the histogram, except that there is no option for number of bins.
 
 ::: {layout-ncol=3}
-![Input panel](figs/tutorial_1a_density_input_panel.png)
+![Input panel](figs/tutorial_1a_density_input.png)
 
-![Output panel](figs/tutorial_1a_density_output_panel.png)
+![Output panel](figs/tutorial_1a_density_output.png)
 
-![R code panel](figs/tutorial_1a_density_r_code_panel.png)
+![R code panel](figs/tutorial_1a_density_r_code.png)
 :::
 
 By default in ggplot2 the area under the density curve is equal to 1, and the y-axis is labelled "Density". Also, usually the density plot is just a line, but here we have filled the area using the same grey shading as in the histogram for consistency.
@@ -114,11 +114,11 @@ One advantage of density plots, especially for small datasets, is that it is eas
 
 
 ::: {layout-ncol=3}
-![Input panel](figs/tutorial_1a_density_input_panel2.png)
+![Input panel](figs/tutorial_1a_density_input2.png)
 
-![Output panel](figs/tutorial_1a_density_output_panel2.png)
+![Output panel](figs/tutorial_1a_density_output2.png)
 
-![R code panel](figs/tutorial_1a_density_r_code_panel2.png)
+![R code panel](figs/tutorial_1a_density_r_code2.png)
 :::
 
 Note that it is now easy to identify that chick weights are generally lower in diet A, generally higher in diet C, and show a larger peak in diet D, and greater spread in diet B. The density plot is a useful visualisation for comparing distributions of continuous variables between groups.

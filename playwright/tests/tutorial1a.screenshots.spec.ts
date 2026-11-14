@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url';
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const imagesDir = path.resolve(rootDir, 'tutorials/figs');
 
+test.use({ deviceScaleFactor: 2 });
+
 test('capture tutorial 1a workflow and nodes', async ({ page }) => {
   // Setup: create the folder that will hold the captured screenshots.
   await mkdir(imagesDir, { recursive: true });
@@ -248,5 +250,30 @@ test('capture tutorial 1a workflow and nodes', async ({ page }) => {
   await assertDensitySameSize();
   await panel.screenshot({
     path: path.join(imagesDir, 'tutorial_1a_density_r_code.png'),
+  });
+
+  // Capture a second Density configuration with diet selected as the fill variable.
+  await tab('Input').click();
+  const fillVariable = panel.getByRole('combobox', { name: 'Fill variable' });
+  await fillVariable.selectOption({ label: 'diet' });
+  await expect(fillVariable).toHaveValue('diet');
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_density_input2.png'),
+  });
+
+  await runNode();
+  await expect(panel.getByRole('img', { name: 'Density plot of weight' })).toBeVisible();
+  await page.waitForTimeout(1500);
+  await assertDensitySameSize();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_density_output2.png'),
+  });
+
+  await tab('R code').click();
+  await page.waitForTimeout(500);
+  await expect(panel.locator('pre')).toContainText('fill = diet');
+  await assertDensitySameSize();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_density_r_code2.png'),
   });
 });

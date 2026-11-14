@@ -276,4 +276,42 @@ test('capture tutorial 1a workflow and nodes', async ({ page }) => {
   await panel.screenshot({
     path: path.join(imagesDir, 'tutorial_1a_density_r_code2.png'),
   });
+
+  // Capture the Boxplot node's Input, Output, and R code panels.
+  const boxplot = canvas.locator('.react-flow__node').filter({ hasText: /boxplot/i }).first();
+  await expect(boxplot).toBeVisible({ timeout: 15_000 });
+  await boxplot.click();
+  await expect(panel).toBeVisible();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_boxplot_input_panel.png'),
+  });
+
+  const boxplotSize = await panel.boundingBox();
+  if (!boxplotSize) {
+    throw new Error('Could not measure the Boxplot panel before capturing screenshots.');
+  }
+  await panel.evaluate((el, { width, height }) => {
+    el.style.boxSizing = 'border-box';
+    el.style.width = `${width}px`;
+    el.style.minHeight = `${height}px`;
+  }, boxplotSize);
+  const assertBoxplotSameSize = async () => {
+    const box = await panel.boundingBox();
+    expect(box?.width).toBeCloseTo(boxplotSize.width, 0);
+    expect(box?.height).toBeCloseTo(boxplotSize.height, 0);
+  };
+
+  await runNode();
+  await page.waitForTimeout(1500);
+  await assertBoxplotSameSize();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_boxplot_output_panel.png'),
+  });
+
+  await tab('R code').click();
+  await page.waitForTimeout(500);
+  await assertBoxplotSameSize();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_boxplot_r_code_panel.png'),
+  });
 });

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const imagesDir = path.resolve(rootDir, 'tutorials/figs');
 
-test('capture Histogram panel screenshots for Tutorial 1A', async ({ page }) => {
+test('capture workflow and Histogram panel screenshots for Tutorial 1A', async ({ page }) => {
   // Setup: create the folder that will hold the captured screenshots.
   await mkdir(imagesDir, { recursive: true });
 
@@ -21,10 +21,20 @@ test('capture Histogram panel screenshots for Tutorial 1A', async ({ page }) => 
     .first();
   await expect(card).toBeVisible({ timeout: 15_000 });
   await card.getByRole('button', { name: /^Open/ }).click();
-  await expect(page.locator('.react-flow')).toBeVisible({ timeout: 15_000 });
+  const canvas = page.locator('.react-flow');
+  await expect(canvas).toBeVisible({ timeout: 15_000 });
+
+  // Capture the loaded workflow before selecting or running a node.
+  const histogram = canvas.locator('.react-flow__node').filter({ hasText: /histogram/i }).first();
+  await expect(histogram).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByText('Project loaded successfully')).toBeHidden({ timeout: 15_000 });
+  await canvas.locator('.react-flow__controls-fitview').click();
+  await canvas.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_workflow.png'),
+  });
 
   // Select the Histogram node so its configuration/output panel is the active focus.
-  await page.locator('.react-flow__node').filter({ hasText: /histogram/i }).first().click();
+  await histogram.click();
 
   // Helper for switching tabs and reaching the panel wrapper that contains the selected node content.
   const tab = (name: string) => page.getByRole('button', { name, exact: true });
@@ -32,7 +42,6 @@ test('capture Histogram panel screenshots for Tutorial 1A', async ({ page }) => 
 
   // Capture the initial "Input" state before the node is executed.
   await expect(panel).toBeVisible();
-  await expect(page.getByText('Project loaded successfully')).toBeHidden({ timeout: 15_000 });
   await panel.screenshot({
     path: path.join(imagesDir, 'tutorial_1a_histogram_input_panel.png'),
   });

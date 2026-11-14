@@ -169,3 +169,14 @@ The output shows a summary table with the mean weight, standard deviation, and s
 
 ### Step 4c: Barchart of means with error bars for each diet group
 
+Click on the "Barchart" node. In the figures below we display the input panel, the output panel and the R code panel. This node creates a bar chart of mean values for each group with error bars representing the standard error, providing a visual representation of the group means and their uncertainty.
+
+::: {layout-ncol=3}
+![Input panel](figs/tutorial_1a_barchart_input_panel.png)
+
+![Output panel](figs/tutorial_1a_barchart_output_panel.png)
+
+![R code panel](figs/tutorial_1a_barchart_r_code_panel.png)
+:::
+
+The bar chart visually displays the mean chick weights for each diet group with error bars showing the standard error. This makes it easy to compare the mean weights across diet groups and see which diets result in heavier or lighter chicks at day 21. The error bars provide a visual indication of the variability around each mean.

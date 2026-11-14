@@ -14,11 +14,11 @@ The documentation is creating in [Quarto](https://quarto.org) which uses a flexi
 
 ## Updating Tutorial 1A screenshots
 
-The workflow and Histogram screenshots in `tutorials/figs/` can be regenerated with the Playwright workflow in this repository. It requires the Rflow app, auth server, and R API to be running locally, plus a test account that can access the Tutorial 1A project.
+The workflow, Input CSV, and Histogram screenshots in `tutorials/figs/` can be regenerated with the Playwright workflow in this repository. It requires the Rflow app, auth server, and R API to be running locally, plus a test account that can access the Tutorial 1A project.
 
 1. In separate terminals, start the Rflow auth server (`cd /path/to/Rflow && npm run auth`), frontend (`cd /path/to/Rflow && npm run dev`), and R API (`cd /path/to/Rflow/api && ./start-server.sh`). The frontend should be available at `http://localhost:5173`.
 2. In this repository, create `.env.playwright` with `TEST_USER` and `TEST_PASSWORD` for the test account. Do not commit this file.
 3. Install dependencies and the Chromium browser once with `npm install` and `npx playwright install chromium`.
 4. Run `npm run screenshots`.
 
-The capture updates `tutorials/figs/tutorial_1a_workflow.png`, `tutorials/figs/tutorial_1a_histogram_input_panel.png`, `tutorials/figs/tutorial_1a_histogram_output_panel.png`, and `tutorials/figs/tutorial_1a_histogram_r_panel.png`, which are referenced by `tutorials/tutorial_1a.qmd`. Render the Quarto page and review the resulting images before committing them.
+The test uploads `tutorials/data_workflows/chick_diet.csv` as `diet_dat` in the Tutorial 1A project, replacing any existing dataset with that name. It captures the workflow, Input CSV (`tutorial_1a_inputcsv_*_panel.png`), and Histogram (`tutorial_1a_histogram_*_panel.png`) images. The Input CSV screenshots share the height of the tallest panel. Render the Quarto page and review the resulting images before committing them.

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const imagesDir = path.resolve(rootDir, 'tutorials/figs');
 
-test('capture workflow and Histogram panel screenshots for Tutorial 1A', async ({ page }) => {
+test('capture tutorial 1a workflow and nodes', async ({ page }) => {
   // Setup: create the folder that will hold the captured screenshots.
   await mkdir(imagesDir, { recursive: true });
 
@@ -33,12 +33,82 @@ test('capture workflow and Histogram panel screenshots for Tutorial 1A', async (
     path: path.join(imagesDir, 'tutorial_1a_workflow.png'),
   });
 
-  // Select the Histogram node so its configuration/output panel is the active focus.
-  await histogram.click();
-
   // Helper for switching tabs and reaching the panel wrapper that contains the selected node content.
   const tab = (name: string) => page.getByRole('button', { name, exact: true });
   const panel = tab('Input').locator('xpath=../..');
+
+  const runNode = async () => {
+    await panel.getByRole('button', { name: 'Run', exact: true }).click();
+    const error = panel.getByText(/^Error:/);
+    await expect.poll(async () => {
+      if (await error.isVisible()) return 'error';
+      return (await tab('Output').evaluate((el) => getComputedStyle(el).borderBottomColor)) ===
+        'rgb(59, 130, 246)' ? 'output' : 'running';
+    }, { timeout: 60_000 }).not.toBe('running');
+    if (await error.isVisible()) {
+      throw new Error(await error.innerText());
+    }
+  };
+
+  // Import the tutorial dataset before capturing its output or running downstream nodes.
+  const inputCSV = canvas.locator('.react-flow__node').filter({ hasText: /input csv/i }).first();
+  await expect(inputCSV).toBeVisible({ timeout: 15_000 });
+  await inputCSV.click();
+  await panel.locator('input[type="file"]').setInputFiles(
+    path.join(rootDir, 'tutorials/data_workflows/chick_diet.csv'),
+  );
+  const dataframeName = panel.getByPlaceholder('e.g., my_df or data.table1');
+  if (await dataframeName.inputValue() !== 'diet_dat') {
+    await dataframeName.fill('diet_dat');
+  }
+  await expect(panel.getByText('Selected: chick_diet.csv')).toBeVisible();
+  const initialInputSize = await panel.boundingBox();
+  if (!initialInputSize) throw new Error('Could not measure the Input CSV panel.');
+
+  await runNode();
+  await expect(panel.getByRole('table', { name: 'CSV preview' })).toBeVisible();
+
+  const outputSize = await panel.boundingBox();
+  await tab('R code').click();
+  await expect(panel.locator('pre')).toBeVisible();
+  const rCodeSize = await panel.boundingBox();
+  await tab('Input').click();
+  await expect(panel.getByText('Selected: chick_diet.csv')).toBeVisible();
+  const inputSize = await panel.boundingBox();
+  if (!outputSize || !rCodeSize || !inputSize) {
+    throw new Error('Could not measure the Input CSV panel views.');
+  }
+
+  const csvHeight = Math.ceil(Math.max(
+    initialInputSize.height, inputSize.height, outputSize.height, rCodeSize.height,
+  ));
+  const originalStyle = await panel.evaluate((el, height) => {
+    const previous = { boxSizing: el.style.boxSizing, minHeight: el.style.minHeight };
+    el.style.boxSizing = 'border-box';
+    el.style.minHeight = `${height}px`;
+    return previous;
+  }, csvHeight);
+
+  const csvViews = [
+    { tab: 'Input', filename: 'tutorial_1a_inputcsv_input_panel.png' },
+    { tab: 'Output', filename: 'tutorial_1a_inputcsv_output_panel.png' },
+    { tab: 'R code', filename: 'tutorial_1a_inputcsv_r_panel.png' },
+  ];
+  let screenshotHeight: number | undefined;
+  for (const view of csvViews) {
+    await tab(view.tab).click();
+    const screenshot = await panel.screenshot({ path: path.join(imagesDir, view.filename) });
+    const height = screenshot.readUInt32BE(20);
+    if (screenshotHeight === undefined) screenshotHeight = height;
+    expect(height).toBe(screenshotHeight);
+  }
+  await panel.evaluate((el, previous) => {
+    el.style.boxSizing = previous.boxSizing;
+    el.style.minHeight = previous.minHeight;
+  }, originalStyle);
+
+  // Select the Histogram node so its configuration/output panel is the active focus.
+  await histogram.click();
 
   // Capture the initial "Input" state before the node is executed.
   await expect(panel).toBeVisible();
@@ -64,10 +134,7 @@ test('capture workflow and Histogram panel screenshots for Tutorial 1A', async (
   };
 
   // Run the node and wait for the output tab to become active before capturing the result.
-  await panel.getByRole('button', { name: 'Run', exact: true }).click();
-  await expect(tab('Output')).toHaveCSS('border-bottom-color', 'rgb(59, 130, 246)', {
-    timeout: 60_000,
-  });
+  await runNode();
   await page.waitForTimeout(1500);
   await assertSameSize();
   await panel.screenshot({

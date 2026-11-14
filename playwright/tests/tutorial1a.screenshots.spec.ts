@@ -356,4 +356,42 @@ test('capture tutorial 1a workflow and nodes', async ({ page }) => {
   await panel.screenshot({
     path: path.join(imagesDir, 'tutorial_1a_summary_r_code_panel.png'),
   });
+
+  // Capture the Means / SD node's Input, Output, and R code panels.
+  const meanSD = canvas.locator('.react-flow__node').filter({ hasText: /mean/i }).first();
+  await expect(meanSD).toBeVisible({ timeout: 15_000 });
+  await meanSD.click();
+  await expect(panel).toBeVisible();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_mean_input_panel.png'),
+  });
+
+  const meanSDSize = await panel.boundingBox();
+  if (!meanSDSize) {
+    throw new Error('Could not measure the Means / SD panel before capturing screenshots.');
+  }
+  await panel.evaluate((el, { width, height }) => {
+    el.style.boxSizing = 'border-box';
+    el.style.width = `${width}px`;
+    el.style.minHeight = `${height}px`;
+  }, meanSDSize);
+  const assertMeanSDSameSize = async () => {
+    const box = await panel.boundingBox();
+    expect(box?.width).toBeCloseTo(meanSDSize.width, 0);
+    expect(box?.height).toBeCloseTo(meanSDSize.height, 0);
+  };
+
+  await runNode();
+  await page.waitForTimeout(1500);
+  await assertMeanSDSameSize();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_mean_output_panel.png'),
+  });
+
+  await tab('R code').click();
+  await page.waitForTimeout(500);
+  await assertMeanSDSameSize();
+  await panel.screenshot({
+    path: path.join(imagesDir, 'tutorial_1a_mean_r_code_panel.png'),
+  });
 });

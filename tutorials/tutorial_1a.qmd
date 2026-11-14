@@ -155,5 +155,17 @@ The Summary node is useful for getting a quick overview of your data structure a
 
 ### Step 4b: Means, SD and SE for each diet group
 
+Click on the "Means / SD" node. In the figures below we display the input panel, the output panel and the R code panel. This node calculates summary statistics including mean, standard deviation (SD), and standard error (SE) for each group defined by a categorical variable. This is useful for comparing means across different diet groups.
+
+::: {layout-ncol=3}
+![Input panel](figs/tutorial_1a_mean_input_panel.png)
+
+![Output panel](figs/tutorial_1a_mean_output_panel.png)
+
+![R code panel](figs/tutorial_1a_mean_r_code_panel.png)
+:::
+
+The output shows a summary table with the mean weight, standard deviation, and standard error for each of the four diet groups. This provides a compact numerical summary of how diet affects chick weight at day 21.
+
 ### Step 4c: Barchart of means with error bars for each diet group
 

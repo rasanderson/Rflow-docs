@@ -20,14 +20,77 @@ test('capture tutorial 1a workflow and nodes', async ({ page }) => {
     .filter({ has: page.getByRole('heading', { name: /Tutorial 1a/i }) })
     .first();
   await expect(card).toBeVisible({ timeout: 15_000 });
+  await page.waitForLoadState('networkidle', { timeout: 15_000 });
   await card.getByRole('button', { name: /^Open/ }).click();
   const canvas = page.locator('.react-flow');
   await expect(canvas).toBeVisible({ timeout: 15_000 });
 
-  // Capture the loaded workflow before selecting or running a node.
+  // Remove only the tutorial dataset using the project's storage controls.
   const histogram = canvas.locator('.react-flow__node').filter({ hasText: /histogram/i }).first();
   await expect(histogram).toBeVisible({ timeout: 15_000 });
   await expect(page.getByText('Project loaded successfully')).toBeHidden({ timeout: 15_000 });
+
+  const userMenuButton = page.locator('.panel-left .user-button');
+  await userMenuButton.click();
+  const storageRequest = page.waitForRequest(
+    (request) => request.method() === 'GET' && new URL(request.url()).pathname === '/storage_objects',
+    { timeout: 15_000 },
+  );
+  await page.getByRole('button', { name: /manage project storage/i }).click();
+  const storageFetch = await storageRequest;
+  const storageResult = await storageFetch.response();
+  if (!storageResult) {
+    throw new Error(`Could not load project storage: ${storageFetch.failure()?.errorText || 'request failed'}`);
+  }
+  expect(storageResult.ok(), 'Could not load project storage').toBe(true);
+  const storageData = await storageResult.json();
+  if (storageData.error || !Array.isArray(storageData.objects)) {
+    throw new Error(`Could not load project storage: ${storageData.error || 'invalid object list'}`);
+  }
+
+  const storage = page.getByRole('heading', { name: 'Stored Objects' }).locator('..');
+  await expect(storage.getByTitle('Delete this object')).toHaveCount(storageData.objects.length);
+  await page.waitForLoadState('networkidle', { timeout: 15_000 });
+  const dataset = storage.getByText('diet_dat', { exact: true });
+  const objectKey = (key: string | string[]) => Array.isArray(key) ? key[0] : key;
+  if (storageData.objects.some((object: { key: string | string[] }) => objectKey(object.key) === 'diet_dat')) {
+    const confirmation = page.waitForEvent('dialog');
+    const deleteRequest = page.waitForRequest(
+      (request) => request.method() === 'POST' && new URL(request.url()).pathname === '/delete_object',
+      { timeout: 15_000 },
+    );
+    const deleteClick = dataset.locator('xpath=../..').getByTitle('Delete this object').click();
+    const dialog = await confirmation;
+    expect(dialog.type()).toBe('confirm');
+    expect(dialog.message()).toBe('Delete "diet_dat"? This action cannot be undone.');
+    await dialog.accept();
+    await deleteClick;
+    const deletionFetch = await deleteRequest;
+    const result = await deletionFetch.response();
+    if (!result) {
+      throw new Error(`Could not delete diet_dat: ${deletionFetch.failure()?.errorText || 'request failed'}`);
+    }
+    expect(result.ok(), 'Could not delete diet_dat').toBe(true);
+    const deletion = await result.json();
+    if (!deletion.ok || objectKey(deletion.key) !== 'diet_dat') {
+      throw new Error(`Could not delete diet_dat: ${deletion.error || 'unexpected response'}`);
+    }
+    const warning = deletion.warning ? objectKey(deletion.warning) : undefined;
+    if (warning) console.warn('Project storage:', warning);
+    await expect(dataset).toHaveCount(0);
+  }
+  await userMenuButton.click();
+
+  // Capture the workflow only when every node is Pending, before executing any node.
+  const workflowNodes = canvas.locator('.react-flow__node');
+  const nodeCount = await workflowNodes.count();
+  expect(nodeCount, 'The workflow contains no nodes').toBeGreaterThan(0);
+  for (let index = 0; index < nodeCount; index++) {
+    await expect(
+      workflowNodes.nth(index),
+      'Every workflow node must be Pending before the workflow screenshot',
+    ).toContainText('? Pending');
+  }
   await canvas.locator('.react-flow__controls-fitview').click();
   await canvas.screenshot({
     path: path.join(imagesDir, 'tutorial_1a_workflow.png'),

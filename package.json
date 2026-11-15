@@ -1,0 +1,13 @@
+{
+  "name": "rflow-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "screenshots": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "dotenv": "^18.0.9"
+  }
+}

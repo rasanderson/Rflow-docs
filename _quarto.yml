@@ -16,6 +16,8 @@ website:
         href: index.qmd
       - text: "Docs"
         href: docs/index.qmd
+      - text: "Pricing"
+        href: docs/pricing.qmd
       - text: "Blog"
         href: blog/index.qmd
       - text: "About"

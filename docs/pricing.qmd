@@ -1,0 +1,45 @@
+---
+title: "Pricing"
+---
+
+Compare Rflow plans and choose the option that suits your work.
+
+::: {.pricing-comparison}
+| Feature | Free | Standard |
+|---|---|---|
+| Price | £0 | £3 per month |
+| Projects | Up to 3 (1 private, 2 public) | Unlimited public and private|
+| Storage | 1 MB | 10 MB |
+| Community Support | Included | Included |
+| CSV import / export | Included | Included |
+| Download R code | Included | Included |
+| Share Rflow projects | Included | Included |
+| Easy data visualisation^1^ | Included | Included |
+| Basic statistics^2^ | Included | Included |
+| Generalised linear models (GLM) | Included | Included |
+| Model diagnostics^3^ | Included | Included |
+| Generalised mixed models (GLMM)^4^ | — | Included |
+| Zero-inflated models^4^ | — | Included |
+| Repeated measures^4^ | — | Included |
+| Temporal autocorrelation^4^ | — | Included |
+| Spatial autocorrelation^4^ | — | Included |
+:::
+
+## Notes:
+^1^ Scatterplots, boxplots, histograms, barplots are based on the [R `ggplot2` package](https://ggplot2.tidyverse.org/).
+
+^2^ Basic statistics include t-tests, paired t-tests, rank correlation etc. These are all within the linear model framework. See [Statistical tests as linear models](https://lindeloev.github.io/tests-as-linear/). Rflow-specific documentation will be added in the future.
+
+^3^ Model diagnostics are based on the [R `DHARMa` package](https://cran.r-project.org/web/packages/DHARMa/index.html).
+
+^4^ Advanced statistical models that are not available in the Free plan. They are based on the [R `glmmTMB` package](https://cran.r-project.org/web/packages/glmmTMB/index.html).
+
+## Availability
+
+The Free plan is available now during beta testing. [Start for free](https://app.rflow.co.uk/signup).
+
+Standard subscriptions are planned for 2027. The official release date will be announced on this website.
+
+Rflow is currently in beta and may be unstable. Accounts and data may be deleted without warning, so please do not use it for important work or data until it is officially released.
+
+See the [terms and conditions](../terms_and_conditions.qmd) for subscription and support details.

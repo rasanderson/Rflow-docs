@@ -139,6 +139,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../docs/pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
@@ -231,6 +235,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../reference/glm.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">GLM</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/glmm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GLMM</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -339,12 +349,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="glm" class="level1">
 <h1>GLM</h1>
-<p>The <strong>GLM</strong> node fits a generalized linear model to your data using either base R <code>glm()</code> or <code>glmmTMB()</code> and displays output derived from <code>summary()</code>.</p>
+<p>The <strong>GLM</strong> node fits a generalized linear model using base R <code>glm()</code> and displays output derived from <code>summary()</code>. It is available on both Free and Standard plans.</p>
 <section id="what-it-does" class="level2">
 <h2 class="anchored" data-anchor-id="what-it-does">What it does</h2>
 <ul>
 <li>Fits a generalized linear model using R formula syntax</li>
-<li>Lets you choose between the default <code>glm()</code> engine and advanced <code>glmmTMB()</code></li>
 <li>Requires you to choose an error distribution family before running</li>
 <li>Displays coefficient estimates, standard errors, test statistics, and p-values from the model summary</li>
 <li>Optionally stores the fitted model for downstream use</li>
@@ -354,8 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="how-to-use-it">How to use it</h2>
 <ol type="1">
 <li><strong>Connect a data source</strong> - drag an edge from an Input CSV node to this node’s input handle</li>
-<li><strong>Choose a model engine</strong> - select <code>glm (default)</code> for base R models or <code>glmmTMB (advanced)</code> for the extended family set</li>
-<li><strong>Choose an error family</strong> - with <code>glm</code>, use poisson, binomial, or gaussian; with <code>glmmTMB</code>, you can also use negative binomial and tweedie</li>
+<li><strong>Choose an error family</strong> - select poisson, binomial, or gaussian</li>
 <li><strong>Enter a formula</strong> - type an R formula in the format <code>response ~ predictor</code> (for example <code>count ~ treatment</code>)</li>
 <li><strong>Optionally enable model output</strong> - tick the checkbox if you want to save the fitted model to storr</li>
 <li><strong>Click Run</strong> - the model is fitted on the server and the summary output is shown</li>
@@ -383,31 +391,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>A node providing data</td>
 </tr>
 <tr class="even">
-<td>Model engine</td>
-<td>Yes</td>
-<td>Choose <code>glm (default)</code> for base R or <code>glmmTMB (advanced)</code> for extended families</td>
-</tr>
-<tr class="odd">
 <td>Error distribution family</td>
 <td>Yes</td>
-<td><code>glm</code>: poisson, binomial, gaussian. <code>glmmTMB</code>: poisson, binomial, gaussian, negative binomial, tweedie</td>
+<td>Poisson, binomial, or gaussian</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Formula</td>
 <td>Yes</td>
 <td>R formula (for example <code>count ~ treatment</code>)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Output to storr</td>
 <td>No</td>
 <td>Store the fitted model for downstream use</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Model name</td>
 <td>Conditional</td>
 <td>Optional override for the stored model name; defaults to the input dataframe name suffixed with <code>_glm</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Comment</td>
 <td>No</td>
 <td>Annotation for generated R code</td>
@@ -427,19 +430,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="generated-r-code">Generated R code</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>my_data_glm <span class="ot">&lt;-</span> <span class="fu">glm</span>(count <span class="sc">~</span> treatment, <span class="at">data=</span>my_data, <span class="at">family=</span>poisson)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_data_glm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Advanced mode with negative binomial uses <code>glmmTMB()</code> and <code>nbinom2</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmmTMB)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_data_glm <span class="ot">&lt;-</span> <span class="fu">glmmTMB</span>(count <span class="sc">~</span> treatment, <span class="at">data=</span>my_data, <span class="at">family=</span>nbinom2)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(my_data_glm)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="tips" class="level2">
 <h2 class="anchored" data-anchor-id="tips">Tips</h2>
 <ul>
 <li>The node does not offer ANOVA output modes; it always uses <code>summary()</code> output</li>
-<li><code>negative binomial</code> and <code>tweedie</code> are available only when the engine is set to <code>glmmTMB (advanced)</code></li>
-<li>The UI label <strong>negative binomial</strong> is implemented as <code>nbinom2</code> in generated <code>glmmTMB</code> code</li>
+<li>The <a href="../reference/glmm.html">GLMM node</a> supports additional families and requires Standard</li>
 <li>Variable names in the formula must match the connected dataset columns exactly</li>
-<li>If the backend does not have the <code>glmmTMB</code> package installed, only advanced mode will fail; default <code>glm</code> mode does not require it</li>
 </ul>
 
 
@@ -470,7 +467,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var path = window.location.pathname;
   var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
 
-  if (!isDocsPage) return;
+  if (!isDocsPage || /\/docs\/pricing(\.html)?\/?$/.test(path)) return;
 
   var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
   if (!navbarCollapse) return;

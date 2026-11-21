@@ -164,6 +164,10 @@ window.Quarto = {
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../docs/pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
 <span class="menu-text">Blog</span></a>
   </li>  
@@ -278,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var path = window.location.pathname;
   var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
 
-  if (!isDocsPage) return;
+  if (!isDocsPage || /\/docs\/pricing(\.html)?\/?$/.test(path)) return;
 
   var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
   if (!navbarCollapse) return;

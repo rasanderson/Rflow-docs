@@ -104,6 +104,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../docs/pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
@@ -142,6 +146,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#mean-sd-node" id="toc-mean-sd-node" class="nav-link" data-scroll-target="#mean-sd-node">Mean / SD node</a></li>
   <li><a href="#linear-model-node" id="toc-linear-model-node" class="nav-link" data-scroll-target="#linear-model-node">Linear model node</a></li>
   <li><a href="#glm-node" id="toc-glm-node" class="nav-link" data-scroll-target="#glm-node">GLM node</a></li>
+  <li><a href="#glmm-node" id="toc-glmm-node" class="nav-link" data-scroll-target="#glmm-node">GLMM node</a></li>
   <li><a href="#diagnostics-node" id="toc-diagnostics-node" class="nav-link" data-scroll-target="#diagnostics-node">Diagnostics node</a></li>
   <li><a href="#predict-node" id="toc-predict-node" class="nav-link" data-scroll-target="#predict-node">Predict node</a></li>
   <li><a href="#tukey-hsd-node" id="toc-tukey-hsd-node" class="nav-link" data-scroll-target="#tukey-hsd-node">Tukey HSD node</a></li>
@@ -184,15 +189,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="glm-node" class="level3">
 <h3 class="anchored" data-anchor-id="glm-node"><a href="../reference/glm.html">GLM node</a></h3>
-<p>This node uses R’s <code>glm()</code> or the <code>glmmTMB</code> package <code>glmmTMB()</code> function to fit generalised linear models. The latter is more flexible with and can handle a wider range of error distributions. However, <code>glmmTMB()</code> produces very large R objects which can consume your storage quota.</p>
+<p>This node uses base R’s <code>glm()</code> function to fit generalised linear models.</p>
+</section>
+<section id="glmm-node" class="level3">
+<h3 class="anchored" data-anchor-id="glmm-node"><a href="../reference/glmm.html">GLMM node</a></h3>
+<p>This Standard-plan node uses <code>glmmTMB()</code> and supports a wider range of error distributions. Its fitted models can be large and consume storage quota.</p>
 </section>
 <section id="diagnostics-node" class="level3">
 <h3 class="anchored" data-anchor-id="diagnostics-node"><a href="../reference/diagnostics.html">Diagnostics node</a></h3>
-<p>Uses the <code>DHARMa</code> package to check the assumptions of your model. This node can be used with any model object produced by the either the Linear model or GLM nodes. Choice of QQ plots or residual plots are available.</p>
+<p>Uses the <code>DHARMa</code> package to check the assumptions of your model. This node can be used with model objects produced by the Linear model, GLM or GLMM nodes. Choice of QQ plots or residual plots are available.</p>
 </section>
 <section id="predict-node" class="level3">
 <h3 class="anchored" data-anchor-id="predict-node"><a href="../reference/predict-lm.html">Predict node</a></h3>
-<p>Allows you to make a predictions from either linear or GLM models. The predictions can be made for a single data value, or based on a data frame of new values.</p>
+<p>Allows you to make predictions from linear, GLM or GLMM models. The predictions can be made for a single data value, or based on a data frame of new values.</p>
 </section>
 <section id="tukey-hsd-node" class="level3">
 <h3 class="anchored" data-anchor-id="tukey-hsd-node"><a href="../reference/tukey-hsd.html">Tukey HSD node</a></h3>
@@ -226,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var path = window.location.pathname;
   var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
 
-  if (!isDocsPage) return;
+  if (!isDocsPage || /\/docs\/pricing(\.html)?\/?$/.test(path)) return;
 
   var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
   if (!navbarCollapse) return;

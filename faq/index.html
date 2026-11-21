@@ -104,6 +104,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../docs/pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
@@ -296,6 +300,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The <code>glm</code> function is installed in the core R package and is most widely documented. <code>glmmTMB</code> is more recent, with more advanced features. There are pros and cons to both.</p>
+<p>The GLM node is available on Free and Standard; running the GLMM node requires Standard.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -336,13 +341,13 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Can I use random effects models in Rflow?
+<span class="screen-reader-only">Note</span>Can I use mixed-effects models in Rflow?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Not yet. Rflow gives access to <code>glmmTMB()</code> which fits both linear and generalised linear mixed models. However, the interface is currently limited to fixed effects models. We plan to add random effects models in a future release.</p>
+<p>These will only be available in the Standard version which provides access to <code>glmmTMB()</code> which fits both linear and generalised linear mixed models.</p>
 </div>
 </div>
 </div>
@@ -368,13 +373,13 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Why are so few statistical tests available in Rflow?
+<span class="screen-reader-only">Note</span>How do I do paired t-tests, nonparametric tests etc. Rflow?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You might be puzzled that lots of “standard” statistical tests appear to be missing from Rflow. Many statistics packages have separate functions for numerous tests, e.g.&nbsp;paired t-test, one-way ANOVA, two-way ANOVA, Kruskal-Wallis test, etc. In Rflow, we have unified all of these tests into a single framework based on (generalised) linear models. This has the advantage that you can use the same workflow for many different tests, and it is easier to learn and understand.</p>
+<p>You might be puzzled that lots of “standard” statistical tests appear to be missing from Rflow. Many statistics packages have separate functions for numerous tests, e.g.&nbsp;paired t-test, one-way ANOVA, two-way ANOVA, Kruskal-Wallis test, etc. In Rflow, we have unified all of these tests into a single framework based on (generalised) linear models. This has the advantage that you can use the same workflow for many different tests, and it is easier to learn and understand. This philosophy is explained in more detail in <a href="https://lindeloev.github.io/tests-as-linear/" target="_blank">Common Statistical Tests</a> and we will be adding Rflow-specific tutorials on this topic in the near future. ]</p>
 </div>
 </div>
 </div>
@@ -406,7 +411,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var path = window.location.pathname;
   var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
 
-  if (!isDocsPage) return;
+  if (!isDocsPage || /\/docs\/pricing(\.html)?\/?$/.test(path)) return;
 
   var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
   if (!navbarCollapse) return;

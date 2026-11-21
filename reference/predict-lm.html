@@ -168,6 +168,10 @@ window.Quarto = {
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../docs/pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
@@ -260,6 +264,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../reference/glm.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">GLM</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reference/glmm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GLMM</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -377,7 +387,7 @@ window.Quarto = {
 <ul>
 <li>Retrieves a stored model from the upstream Linear Model or GLM node</li>
 <li>Calls R’s <code>predict()</code> to compute predicted response values</li>
-<li>Uses <code>type = "response"</code> automatically for GLM (<code>glmmTMB</code>) inputs so predictions are in original response units</li>
+<li>Uses <code>type = "response"</code> automatically for GLM and GLMM inputs so predictions are in original response units</li>
 <li>Supports three prediction modes: training data, manual entry, or a connected dataset</li>
 <li>Shows the model formula and predictor variable names</li>
 <li>Optionally stores the predictions as a named dataframe (new, or added as a column to the connected dataframe) for use by downstream nodes such as <strong>Calculator</strong></li>
@@ -497,7 +507,7 @@ window.Quarto = {
 <li><strong>observation</strong> — row number (1, 2, 3, …)</li>
 <li><strong>fitted</strong> — the predicted response value <span class="math inline">\(\hat{y}_i\)</span></li>
 </ul>
-<p>For GLM inputs (<code>glmmTMB</code>), fitted values are returned on the response scale.</p>
+<p>For GLM and GLMM inputs, fitted values are returned on the response scale.</p>
 </section>
 <section id="output-dataframe" class="level2">
 <h2 class="anchored" data-anchor-id="output-dataframe">Output dataframe</h2>
@@ -560,7 +570,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var path = window.location.pathname;
   var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
 
-  if (!isDocsPage) return;
+  if (!isDocsPage || /\/docs\/pricing(\.html)?\/?$/.test(path)) return;
 
   var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
   if (!navbarCollapse) return;

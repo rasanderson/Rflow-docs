@@ -104,6 +104,10 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Docs</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./docs/pricing.html"> 
+<span class="menu-text">Pricing</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
@@ -160,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="now-undergoing-beta-testing" class="level3">
 <h3 class="anchored" data-anchor-id="now-undergoing-beta-testing">Now undergoing beta testing</h3>
-<p>It is possible to sign up for free and use the experimental beta service. <strong>Important:</strong> Rflow is still in development. The service may be unstable and go offline without warning. Your <strong>personal accounts and data may be deleted without warning</strong>. Please do <strong>not</strong> use Rflow for any important work or data until the service is stable and officially released.</p>
+<p>You can sign up for free to use the beta service. <strong>Note:</strong> Rflow is still in development and user accounts and data may be deleted without warning.</p>
 <div class="d-flex flex-wrap gap-4 pb-3 pt-4">
 <p><a href="https://app.rflow.co.uk/signup" id="btn-start" class="btn-action-primary btn-action btn btn-lg rounded-pill" role="button">Start for Free</a> <a href="./docs/index.html" id="btn-guide" class="btn-action btn-secondary btn btn-lg rounded-pill" role="button">Guide</a></p>
 </div>
@@ -200,7 +204,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Share your workflows with other Rflow users via Rflow project dashboard</li>
 <li>Use Rflow to create reproducible data science workflows</li>
 <li>Export your workflow to a reproducible R script</li>
-<li>Customise your R scripts later in RStudio or other IDEs</li>
+<li>Compatible with VS Code, Positron and RStudio</li>
 </ul>
 </section>
 <section id="visualise-and-interpret" class="level4 feature-card quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
@@ -287,7 +291,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var path = window.location.pathname;
   var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
 
-  if (!isDocsPage) return;
+  if (!isDocsPage || /\/docs\/pricing(\.html)?\/?$/.test(path)) return;
 
   var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
   if (!navbarCollapse) return;

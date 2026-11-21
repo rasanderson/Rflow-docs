@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var path = window.location.pathname;
   var isDocsPage = /\/(tutorials|howto|fundamentals|reference|docs)(\/|$|\.html)/.test(path);
 
-  if (!isDocsPage) return;
+  if (!isDocsPage || /\/docs\/pricing(\.html)?\/?$/.test(path)) return;
 
   var navbarCollapse = document.querySelector(".navbar #navbarCollapse");
   if (!navbarCollapse) return;

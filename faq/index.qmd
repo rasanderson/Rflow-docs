@@ -45,6 +45,8 @@ Subscriptions for Rflow Standard will be available in late 2026. We are currentl
 ### Why are both `glm` and `glmmTMB` available in Rflow?
 The `glm` function is installed in the core R package and is most widely documented. `glmmTMB` is more recent, with more advanced features. There are pros and cons to both.
 
+The GLM node is available on Free and Standard; running the GLMM node requires Standard.
+
 | Feature | glm | glmmTMB |
 |---------|-----|---------|
 | CPU speed | Fast | Slower |
@@ -54,8 +56,8 @@ The `glm` function is installed in the core R package and is most widely documen
 :::
 
 :::{.callout-note collapse="true" icon="false"}
-### Can I use random effects models in Rflow?
-Not yet. Rflow gives access to `glmmTMB()` which fits both linear and generalised linear mixed models. However, the interface is currently limited to fixed effects models. We plan to add random effects models in a future release.
+### Can I use mixed-effects models in Rflow?
+These will only be available in the Standard version which provides access to `glmmTMB()` which fits both linear and generalised linear mixed models.
 :::
 
 :::{.callout-note collapse="true" icon="false"}
@@ -64,6 +66,7 @@ The standard base `plot.lm()` and especially `plot.glm()` can be difficult to in
 :::
 
 ::: {.callout-note collapse="true" icon="false"}
-### Why are so few statistical tests available in Rflow?
-You might be puzzled that lots of "standard" statistical tests appear to be missing from Rflow. Many statistics packages have separate functions for numerous tests, e.g. paired t-test, one-way ANOVA, two-way ANOVA, Kruskal-Wallis test, etc. In Rflow, we have unified all of these tests into a single framework based on (generalised) linear models. This has the advantage that you can use the same workflow for many different tests, and it is easier to learn and understand.
+### How do I do paired t-tests, nonparametric tests etc. Rflow?
+You might be puzzled that lots of "standard" statistical tests appear to be missing from Rflow. Many statistics packages have separate functions for numerous tests, e.g. paired t-test, one-way ANOVA, two-way ANOVA, Kruskal-Wallis test, etc. In Rflow, we have unified all of these tests into a single framework based on (generalised) linear models. This has the advantage that you can use the same workflow for many different tests, and it is easier to learn and understand. This philosophy is explained in more detail in [Common Statistical Tests](https://lindeloev.github.io/tests-as-linear/){target="_blank"} and we will be adding Rflow-specific tutorials on this topic in the near future.
+]
 :::

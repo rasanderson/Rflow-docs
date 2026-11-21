@@ -16,6 +16,8 @@ website:
         href: index.qmd
       - text: "Docs"
         href: docs/index.qmd
+      - text: "Pricing"
+        href: docs/pricing.qmd
       - text: "Blog"
         href: blog/index.qmd
       - text: "About"
@@ -70,6 +72,7 @@ website:
         - reference/diagnostics.qmd
         - reference/factor.qmd
         - reference/glm.qmd
+        - reference/glmm.qmd
         - reference/histogram.qmd
         - reference/input-csv.qmd
         - reference/linear-model.qmd

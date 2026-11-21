@@ -21,7 +21,7 @@ The **Predict** node generates predicted response values from a fitted linear mo
 
 - Retrieves a stored model from the upstream Linear Model or GLM node
 - Calls R's `predict()` to compute predicted response values
-- Uses `type = "response"` automatically for GLM (`glmmTMB`) inputs so predictions are in original response units
+- Uses `type = "response"` automatically for GLM and GLMM inputs so predictions are in original response units
 - Supports three prediction modes: training data, manual entry, or a connected dataset
 - Shows the model formula and predictor variable names
 - Optionally stores the predictions as a named dataframe (new, or added as a column to the connected dataframe) for use by downstream nodes such as **Calculator**
@@ -77,7 +77,7 @@ Displays a table with one row per observation:
 - **observation** — row number (1, 2, 3, …)
 - **fitted** — the predicted response value $\hat{y}_i$
 
-For GLM inputs (`glmmTMB`), fitted values are returned on the response scale.
+For GLM and GLMM inputs, fitted values are returned on the response scale.
 
 ## Output dataframe
 

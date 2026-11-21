@@ -45,6 +45,8 @@ Subscriptions for Rflow Standard will be available in late 2026. We are currentl
 ### Why are both `glm` and `glmmTMB` available in Rflow?
 The `glm` function is installed in the core R package and is most widely documented. `glmmTMB` is more recent, with more advanced features. There are pros and cons to both.
 
+The GLM node is available on Free and Standard; running the GLMM node requires Standard.
+
 | Feature | glm | glmmTMB |
 |---------|-----|---------|
 | CPU speed | Fast | Slower |

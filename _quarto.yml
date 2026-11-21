@@ -70,6 +70,7 @@ website:
         - reference/diagnostics.qmd
         - reference/factor.qmd
         - reference/glm.qmd
+        - reference/glmm.qmd
         - reference/histogram.qmd
         - reference/input-csv.qmd
         - reference/linear-model.qmd

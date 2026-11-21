@@ -1,0 +1,60 @@
+---
+title: GLMM
+slug: glmm
+category: nodes
+nodeType: glmm
+summary: Fit generalized linear models using glmmTMB on the Standard plan.
+tags:
+  - model
+  - glmm
+  - glmmTMB
+  - regression
+  - statistics
+---
+
+# GLMM
+
+The **GLMM** node fits a generalized linear model using `glmmTMB()` and displays output derived from `summary()`. Running it requires a Standard subscription. The current interface supports fixed-effects models; it does not yet support random effects.
+
+## What it does
+
+- Fits a model using R formula syntax and a selected error distribution
+- Displays model fit statistics and a coefficient summary
+- Optionally stores the fitted model for downstream use
+
+## How to use it
+
+1. Connect a data source to the GLMM node.
+2. Select an error distribution family and enter a formula such as `count ~ treatment`.
+3. Optionally enable model output and provide a model name.
+4. Click Run to fit the model and view its summary.
+
+## Configuration
+
+| Setting | Required | Description |
+|---------|----------|-------------|
+| Upstream connection | Yes | A node providing data |
+| Error distribution family | Yes | Poisson, binomial, gaussian, negative binomial, or tweedie |
+| Formula | Yes | R formula such as `count ~ treatment` |
+| Output to storr | No | Store the fitted model for downstream use |
+| Model name | Conditional | Optional stored model name; defaults to the input name suffixed with `_glm` |
+| Comment | No | Annotation for generated R code |
+
+## Output
+
+The node shows available model fit statistics and a coefficients table. A stored model can be connected to downstream nodes.
+
+## Generated R code
+
+```r
+library(glmmTMB)
+my_data_glm <- glmmTMB(count ~ treatment, data=my_data, family=nbinom2)
+summary(my_data_glm)
+```
+
+## Tips
+
+- Negative binomial uses `nbinom2` in generated R code.
+- The backend must have the `glmmTMB` package installed.
+- After downgrading to Free, GLMM nodes and their existing output remain visible, but Run is disabled and GLMM is hidden from the toolbar. Previously stored models and exported R code remain available.
+- Older GLM nodes configured for `glmmTMB` appear as GLMM and follow the same subscription rules; older nodes configured for `glm` remain GLM.

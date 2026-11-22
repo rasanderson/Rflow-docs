@@ -10,15 +10,25 @@
 - Drag and drop intuitive flowchart interface to build your data science pipeline.
 - Online platform to run your Rflow workflow in the cloud
 - Share your workflows with other Rflow users through the Rflow project dashboard.
-- Export your Rflow workflow to a reproducible R script for further analysis and customisation.
-- No lock-in to Rflow, you can run your exported R scripts in RStudio or other IDEs.
 - Uses popular leading R packages for data science including [ggplot2](https://ggplot2.tidyverse.org), [glmmTMB](https://cran.r-project.org/web/packages/glmmTMB/index.html), [DHARMa](https://cran.r-project.org/web/packages/DHARMa/index.html) and [car](https://cran.r-project.org/web/packages/car/index.html).
 - Extensive tutorials and training materials to help you get started with Rflow and R programming.
+- No lock-in to Rflow. Generated R code is production-ready for VS Code, Positron, RStudio and other IDEs.
+
+<a href="https://positron.posit.co" class="btn btn-outline-light text-dark" target="_blank" rel="noopener noreferrer">
+![](images/positron-logo.svg){width="77" fig-alt=""}<br>Positron
+</a>
+<a href="https://posit.co/products/open-source/rstudio" class="btn btn-outline-light text-dark" target="_blank" rel="noopener noreferrer">
+![](images/rstudio-logo.png){width="77" fig-alt=""}<br>RStudio
+</a>
+<a href="https://code.visualstudio.com" class="btn btn-outline-light text-dark" target="_blank" rel="noopener noreferrer">
+![](images/vscode-logo.png){width="77" fig-alt=""}<br>VS Code
+</a>
+
 
 ### Visualise. Analyse. Interpret. Reproducible data science in R with flowcharts.
 
-### Now undergoing beta testing
-You can sign up for free to use the beta service. **Note:** Rflow is still in development and user accounts and data may be deleted without warning.
+### Now in beta testing
+You can sign up for free to use the beta service. **Note:** Rflow is in development and user accounts and data may be deleted without warning. Full release expected in 2027.
 
 
 ::: {.d-flex .flex-wrap .gap-4 .pb-3 .pt-4}
@@ -69,7 +79,7 @@ You can sign up for free to use the beta service. **Note:** Rflow is still in de
 #### Reproducible
 
 - Share your workflows with other Rflow users via Rflow project dashboard
-- Use Rflow to create reproducible data science workflows
+- Create reproducible data science workflows
 - Export your workflow to a reproducible R script
 - Compatible with VS Code, Positron and RStudio
 :::

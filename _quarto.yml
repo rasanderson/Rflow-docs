@@ -20,6 +20,10 @@ website:
         href: docs/pricing.qmd
       - text: "Blog"
         href: blog/index.qmd
+      - text: "Forum"
+        href: https://rflow.discourse.group
+        target: _blank
+        rel: noopener noreferrer
       - text: "About"
         href: about.qmd
     right:

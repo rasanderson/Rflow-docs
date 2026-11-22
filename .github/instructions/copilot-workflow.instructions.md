@@ -6,8 +6,8 @@ applyTo: "**"
 
 ## Testing and Local Validation
 
-- Do not run tests, builds, or linters, or start services during code changes.
-- The developer runs tests locally and reports the results. Use that feedback to fix any issues.
+- Ask for the developer's approval before running tests. Do not run builds or linters, or start services during code changes.
+- Prefer existing tests or temporary checks outside the repository. Ask for approval before adding new `*.test.js` files.
 - Do not run `npm run screenshots` or other Playwright test commands.
 - Avoid interfering with the developer's running Rflow services.
 

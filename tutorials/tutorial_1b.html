@@ -199,6 +199,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#step-1-clone-the-rflow-project" id="toc-step-1-clone-the-rflow-project" class="nav-link" data-scroll-target="#step-1-clone-the-rflow-project">Step 1: Clone the Rflow project</a></li>
+  <li><a href="#step-2-import-the-data" id="toc-step-2-import-the-data" class="nav-link" data-scroll-target="#step-2-import-the-data">Step 2: Import the data</a></li>
+  <li><a href="#step-3-calculate-summary-statistics" id="toc-step-3-calculate-summary-statistics" class="nav-link" data-scroll-target="#step-3-calculate-summary-statistics">Step 3: Calculate summary statistics</a></li>
+  <li><a href="#step-4-create-a-scatterplot" id="toc-step-4-create-a-scatterplot" class="nav-link" data-scroll-target="#step-4-create-a-scatterplot">Step 4: Create a scatterplot</a></li>
+  <li><a href="#step-5-save-your-workflow-and-export-an-r-script" id="toc-step-5-save-your-workflow-and-export-an-r-script" class="nav-link" data-scroll-target="#step-5-save-your-workflow-and-export-an-r-script">Step 5: Save your workflow and export an R script</a></li>
   </ul>
 </nav>
     </div>
@@ -224,9 +229,221 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="learning-objectives" class="level3">
-<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
-<p>Coming soon…</p>
+<section id="learning-objectives" class="level1">
+<h1>Learning Objectives</h1>
+<p>This is a very simple tutorial to illustrate how to display continuous data. The data is similar to that used in Tutorial 1A, but now you have information about the weight of the chicks on different days. Thus you can visualise how the weight of the chicks changes over time. Begin by downloading the data file <a href="data_workflows/chick_growth.csv" download="">chick_growth.csv</a> The dataset has 3 columns:</p>
+<ul>
+<li><code>weight</code> - the weight of the chick in grams</li>
+<li><code>time</code> - the time in days since the chick hatched</li>
+<li><code>diet</code> - the diet that the chick was fed (A to</li>
+</ul>
+</section>
+<section id="step-1-clone-the-rflow-project" class="level1">
+<h1>Step 1: Clone the Rflow project</h1>
+<p>Hit the “Clone” button in the top right corner of this page to create a copy of this Rflow tutorial 1b in your own account. You can then edit the project and run the code. Once it is cloned, go back to your Rflow projects and open the tutorial:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_workflow.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>You can see that the project is very simple with just three nodes:</p>
+<ul>
+<li>Input CSV - imports the data from the CSV file</li>
+<li>Summary - calculates summary statistics for the data</li>
+<li>Scatterplot - creates a scatterplot of the data</li>
+</ul>
+</section>
+<section id="step-2-import-the-data" class="level1">
+<h1>Step 2: Import the data</h1>
+<p>The first node is an Input CSV node. Click on the node to open it and then click the “Choose file” button to select the <code>chick_growth.csv</code> file that you downloaded earlier. Once you have selected the file, click “Run” to import the data. The Input, Output and R Code panels are shown below:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_inputcsv_input_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Input panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_inputcsv_output_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Output panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_inputcsv_r_panel.png" class="img-fluid figure-img"></p>
+<figcaption>R code panel</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>You can see that the data has been imported successfully and is displayed in the Output panel. The R code used to import the data is shown in the R Code panel. You can also see that the data has 3 columns and 60 rows.</p>
+</section>
+<section id="step-3-calculate-summary-statistics" class="level1">
+<h1>Step 3: Calculate summary statistics</h1>
+<p>The next node is a Summary node. Click on the node to open it and then click “Run” to calculate summary statistics for the data. The Input, Output and R Code panels are shown below:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_summary_input_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Input panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_summary_output_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Output panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_summary_r_panel.png" class="img-fluid figure-img"></p>
+<figcaption>R code panel</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Note that you have a mixture of continuous and categorical data; the <code>weight</code> is your response variable (continuous) whilst <code>time</code> and <code>diet</code> are your explanatory variables (continuous and categorical respectively).</p>
+</section>
+<section id="step-4-create-a-scatterplot" class="level1">
+<h1>Step 4: Create a scatterplot</h1>
+<p>The final node is a Scatterplot node. Click on the node to open it and then click “Run” to create a scatterplot of the data. The Input, Output and R Code panels are shown below:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot_input_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Input panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot_output_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Output panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot_r_panel.png" class="img-fluid figure-img"></p>
+<figcaption>R code panel</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Obviously, whilst this scatterplot shows the relationship between weight and time, it is not very informative as it ignores the chick diet. You can improve the scatterplot by adding a colour label. Modify the Scatterplot node by clicking on the “Colour variable” dropdown and selecting <code>diet</code>. In the “X axis label” box enter “Time”. In the “Y axis label” box enter “Chick Weight (g)”. Then click “Run” to update the scatterplot. The updated scatterplot is shown below:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot2_input_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Input panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot2_output_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Output panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot2_r_panel.png" class="img-fluid figure-img"></p>
+<figcaption>R code panel</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Finally, we know the chick weights are increasing over time, so it is sensible to add lines to the scatterplot to indicate this. As we are not fitting a statistical model to the data, we will simply use straight lines to connect each point to the next point. Click the “Connect points with lines” checkbox and then click “Run” to update the scatterplot. The final scatterplot is shown below:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot3_input_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Input panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot3_output_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Output panel</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/tutorial_1b_scatterplot3_r_panel.png" class="img-fluid figure-img"></p>
+<figcaption>R code panel</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Whilst it is tempting to connect the points with fitted straight lines or curves, we generally recommend that you do not do this until you have fitted a statistical model to the data. This is because the fitted lines or curves may not be appropriate for the data and can be misleading.</p>
+</section>
+<section id="step-5-save-your-workflow-and-export-an-r-script" class="level1">
+<h1>Step 5: Save your workflow and export an R script</h1>
+<p>The Rflow workflow is autosaved every 30 seconds along with the R object <code>chick_dat</code>, and you can manually save the workflow at any time. If you want to use the workflow externally from Rflow, click on the <strong>Download R</strong> button. On most computers this will be downloaded to your “Downloads” folder. The following instructions are almost identical to those in Tutorial 1A, but are repeated here for completeness. You can run the R script in VS Code, Positron or RStudio.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">VS Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Positron</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">RStudio</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<ol type="1">
+<li>Copy the downloaded R script to your working folder (directory). Also ensure that the <code>chick_growth.csv</code> file is in the same working folder.</li>
+<li>Open VS Code and click on the Extensions button on the left sidebar. Search for “R Extension for Visual Studio Code” and install the R extension.</li>
+<li>Open the R script in VS Code. You should see the R code that was generated by Rflow.</li>
+<li>The R script uses the <code>ggplot2</code> package for plotting. You may need to install this into R if you have not already done so, via <code>install.packages("ggplot2")</code>.</li>
+<li>You can run the entire script by clicking on the “Run” button at the top of the VS Code window, or you can run individual lines or sections of code by highlighting them and pressing <code>Ctrl + Enter</code> (or <code>Cmd + Enter</code> on Mac). The output will be displayed in the R terminal within VS Code.</li>
+</ol>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<ol type="1">
+<li>Copy the downloaded R script to your working folder (directory). Also ensure that the <code>chick_growth.csv</code> file is in the same working folder.</li>
+<li>Open Positron and click on the “File” menu, then select “Open File” and navigate to your working folder to open the R script.</li>
+<li>The R script uses the <code>ggplot2</code> package for plotting. You may need to install this into R if you have not already done so, via <code>install.packages("ggplot2")</code>. Recent versions of Positron should detect if this needs installing and prompt you to do so.</li>
+<li>You can run the entire script by clicking on the “Source” button at the top of the Positron window, or you can run individual lines or sections of code by highlighting them and pressing <code>Ctrl + Enter</code> (or <code>Cmd + Enter</code> on Mac). The output will be displayed in the R console within Positron.</li>
+</ol>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<ol type="1">
+<li>Copy the downloaded R script to your working folder (directory). Also ensure that the <code>chick_growth.csv</code> file is in the same working folder.</li>
+<li>Open RStudio and click on the “File” menu, then select “Open File” and navigate to your working folder to open the R script.</li>
+<li>The R script uses the <code>ggplot2</code> package for plotting. Recent versions of RStudio should detect if this needs installing and prompt you to do so. If not, you can install it manually via <code>install.packages("ggplot2")</code>.</li>
+<li>RStudio needs to know in which folder it is operating. You can set the working directory by clicking on “Session” &gt; “Set Working Directory” &gt; “Choose Directory…” and selecting your working folder. Another option is to create an RStudio project in your working folder, which will automatically set the working directory to that folder. If you obtain a <code>File not found</code> when trying to import the <code>chick_growth.csv</code> file, this is likely the cause. You can check the current working directory by running <code>getwd()</code> in the R console.</li>
+<li>Run the entire script by clicking on the “Source” button at the top of the RStudio window, or you can run individual lines or sections of code by highlighting them and pressing <code>Ctrl + Enter</code> (or <code>Cmd + Enter</code> on Mac). The output will be displayed in the R console within RStudio.</li>
+</ol>
+</div>
+</div>
+</div>
 
 
 </section>

@@ -219,14 +219,20 @@ test('capture tutorial 1b workflow and nodes', async ({ page }) => {
   await expect(panel).toBeVisible();
   const xColumn = panel.getByRole('combobox', { name: 'X Column' });
   const yColumn = panel.getByRole('combobox', { name: 'Y Column' });
+  const colourVariable = panel.getByRole('combobox', { name: 'Colour variable' });
+  const xLabel = panel.getByRole('textbox', { name: /^X axis label/ });
+  const yLabel = panel.getByRole('textbox', { name: /^Y axis label/ });
   await expect(xColumn.locator('option[value="time"]')).toHaveCount(1);
   await expect(yColumn.locator('option[value="weight"]')).toHaveCount(1);
   await xColumn.selectOption('time');
   await yColumn.selectOption('weight');
+  await colourVariable.selectOption('');
+  await xLabel.fill('');
+  await yLabel.fill('');
   await runNode();
   const plot = panel.getByRole('img', { name: 'Scatterplot time vs weight' });
   await expect(plot).toBeVisible();
-  await capturePanelViews('tutorial_1b_scatterplot', async (name) => {
+  const waitForScatterplotView = async (name: string) => {
     if (name === 'Input') {
       await expect(xColumn).toBeEnabled();
       await expect(xColumn.locator('option[value="time"]')).toHaveCount(1);
@@ -238,5 +244,18 @@ test('capture tutorial 1b workflow and nodes', async ({ page }) => {
         return el.decode();
       });
     }
-  });
+  };
+  await capturePanelViews('tutorial_1b_scatterplot', waitForScatterplotView);
+
+  await tab('Input').click();
+  await waitForScatterplotView('Input');
+  await colourVariable.selectOption('diet');
+  await xLabel.fill('Time');
+  await yLabel.fill('Chick Weight (g)');
+  await runNode();
+  await tab('R code').click();
+  await expect(panel.locator('pre')).toContainText('colour = diet');
+  await expect(panel.locator('pre')).toContainText('x = "Time"');
+  await expect(panel.locator('pre')).toContainText('y = "Chick Weight (g)"');
+  await capturePanelViews('tutorial_1b_scatterplot2', waitForScatterplotView);
 });

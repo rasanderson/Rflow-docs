@@ -222,6 +222,7 @@ test('capture tutorial 1b workflow and nodes', async ({ page }) => {
   const colourVariable = panel.getByRole('combobox', { name: 'Colour variable' });
   const xLabel = panel.getByRole('textbox', { name: /^X axis label/ });
   const yLabel = panel.getByRole('textbox', { name: /^Y axis label/ });
+  const connectPoints = panel.getByRole('checkbox', { name: 'Connect points with line' });
   await expect(xColumn.locator('option[value="time"]')).toHaveCount(1);
   await expect(yColumn.locator('option[value="weight"]')).toHaveCount(1);
   await xColumn.selectOption('time');
@@ -229,6 +230,7 @@ test('capture tutorial 1b workflow and nodes', async ({ page }) => {
   await colourVariable.selectOption('');
   await xLabel.fill('');
   await yLabel.fill('');
+  await connectPoints.uncheck();
   await runNode();
   const plot = panel.getByRole('img', { name: 'Scatterplot time vs weight' });
   await expect(plot).toBeVisible();
@@ -258,4 +260,12 @@ test('capture tutorial 1b workflow and nodes', async ({ page }) => {
   await expect(panel.locator('pre')).toContainText('x = "Time"');
   await expect(panel.locator('pre')).toContainText('y = "Chick Weight (g)"');
   await capturePanelViews('tutorial_1b_scatterplot2', waitForScatterplotView);
+
+  await tab('Input').click();
+  await waitForScatterplotView('Input');
+  await connectPoints.check();
+  await runNode();
+  await tab('R code').click();
+  await expect(panel.locator('pre')).toContainText('geom_line()');
+  await capturePanelViews('tutorial_1b_scatterplot3', waitForScatterplotView);
 });

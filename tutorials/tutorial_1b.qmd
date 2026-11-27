@@ -69,3 +69,14 @@ Obviously, whilst this scatterplot shows the relationship between weight and tim
 ![R code panel](figs/tutorial_1b_scatterplot2_r_panel.png)
 :::
 
+Finally, we know the chick weights are increasing over time, so it is sensible to add lines to the scatterplot to indicate this. As we are not fitting a statistical model to the data, we will simply use straight lines to connect each point to the next point. Click the "Connect points with lines" checkbox and then click "Run" to update the scatterplot. The final scatterplot is shown below:
+
+::: {layout-ncol=3}
+![Input panel](figs/tutorial_1b_scatterplot3_input_panel.png)
+    
+![Output panel](figs/tutorial_1b_scatterplot3_output_panel.png)
+
+![R code panel](figs/tutorial_1b_scatterplot3_r_panel.png)
+:::
+
+

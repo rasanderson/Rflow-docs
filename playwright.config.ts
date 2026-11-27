@@ -24,7 +24,7 @@ export default defineConfig({
     },
     {
       name: 'chromium',
-      testMatch: /tutorial1a\.screenshots\.spec\.ts/,
+      testMatch: '**/tutorial*.screenshots.spec.ts',
       dependencies: ['setup'],
       use: {
         ...devices['Desktop Chrome'],

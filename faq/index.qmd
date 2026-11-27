@@ -33,7 +33,7 @@ Apart from these two minor issues, the R code downloaded from Rflow is fully usa
 
 :::{.callout-note collapse="true" icon="false"}
 ### Can I use exported Rflow Workflows in other R IDEs?
-No. If you want to export your Rflow workflow for use in an IDE such as VS Code, RStudio or Positron, you need to use the "Download R Code" button in the Rflow workflow editor. This will give you a fully reproducible R script that you can run in any R IDE. The "Export" button on the Rflow projects page is for sharing your workflow with specific other Rflow users if you do not want to make it public.
+No. If you want to export your Rflow workflow for use in an IDE such as VS Code, RStudio or Positron, you need to use the "Download R Code" button in the Rflow workflow editor. This will give you a fully reproducible R script that you can run in any R IDE.
 :::
 
 :::{.callout-note collapse="true" icon="false"}

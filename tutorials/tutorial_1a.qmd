@@ -35,7 +35,7 @@ We will do this by cloning a pre-prepared workflow. On the Rflow Projects page, 
 
 ![](figs/tutorial_1a_rflow_clone.png){width=25% fig-align="center"}
 
-After clicking the "Clone" button, click on the "My Projects" button to display your own Rflow projects. You should see the tutorial listed as "Tutorial 1A (Copy)". You can click its Edit button if you want to change its name or description. When ready, click on the "Open" button and you should see the pre-prepared workflow:
+After clicking the "Clone" button, click on the "Back to My Projects" button to display your own Rflow projects. You should see the tutorial listed as "Tutorial 1A (Copy)". You can click its Edit button if you want to change its name or description. When ready, click on the "Open" button and you should see the pre-prepared workflow:
 
 ![](figs/tutorial_1a_workflow.png){width=50% fig-align="center"}
 

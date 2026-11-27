@@ -17,7 +17,8 @@ The key buttons on the Rflow Projects ribbon are:
 * **Clone**: This allows you to clone an existing Public Rflow project, or Tutorial project, into your own Rflow account where you can edit it. You cannot directly edit Public Rflow projects or Tutorial projects. When you Clone a project you also import that project's data, as well as its workflow.
 * **Forum**: Provides access to the Rflow Community Forum for asking questions, sharing ideas, and getting help from other Rflow users. Note: this is currently hosted on Discourse, and you will need to create a free Discourse account to post questions or comments. You can also browse the forum without an account.
 * **Help**: Access the main Rflow documentation pages
-* **Account**: Access your Rflow account settings, including changing your password, upgrade to a paid Standard account (or downgrade to a Free account).
+* **Profile**: Access your Rflow account settings, including changing your password, upgrade to a paid Standard account (or downgrade to a Free account).
+* **Sign out**: Sign out of Rflow. You will need to sign back in to continue working on your projects.
 
 At the top right is an indicator of your current disk usage relative to your account's disk quota (press the refresh button to update information).
 
@@ -43,7 +44,7 @@ This is the main Rflow workflow editor interface. The workflow editor is where y
 Allows you to select Rflow workflow nodes from dropdown menus. These are grouped into:
 
 ### Data import / export nodes
-You will typically start your workflow with a data import node, which allows you to import data from a CSV file, or from an Rflow project dataset. You can also export your workflow results to a CSV file, or to an Rflow project dataset.
+You will typically start your workflow with a data import node, which allows you to import data from a CSV file. If you Clone an existing Rflow project, you may find that the data has already been imported. **Note** : if you attempt to re-run a data import node it will expect to have access to the original CSV file.
 
 ### Models
 Here you can select nodes for fitting linear models, generalised linear models, check model diagnostics, make predictions, as well as calculate means and other statistics.
